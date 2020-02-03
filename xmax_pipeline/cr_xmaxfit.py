@@ -61,7 +61,7 @@ doMCvsMC = options.mcvsmc
 radio_only_mcvsmc = options.radio_only_mcvsmc
 
 logfile = os.path.join(logdir, "cr_xmaxfit-{0}-pipeline.txt".format(eventid))
-'''
+
 def getLatestIteration():
     def RepresentsInt(s): # check if string is convertible to 'int'...
         try:
@@ -106,7 +106,7 @@ def waitAndHandleErrors(process, name):
     else:
         #print output
         print '{0} finished normally.'.format(name)
-
+'''
 additional_flags = ""
 if options.lorafile_suffix != "":
     additional_flags += "--lorafile-suffix="+options.lorafile_suffix
