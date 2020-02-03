@@ -82,7 +82,7 @@ if iteration == 'latest':
     iteration = getLatestIteration()
 
 iterationSuffix = '_{0}'.format(iteration) if iteration > 0 else ''
-
+print 'iteration suffix: {0}'.format(iterationSuffix)
 
 def waitAndHandleErrors(process, name):
     print 'Now running script %s...' % name
