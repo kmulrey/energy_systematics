@@ -140,7 +140,7 @@ doRewriteLofarData = '--rewrite-lofardata' if doRewrite else ''
 print 'doFetchLofarData   ',doFetchLofarData
 print 'doRewriteLofarData   ',doRewriteLofarData
 
-'''
+
 # Run the Xmax fit analysis with RADIO ONLY fit procedure
 if os.path.exists(os.path.join(outputdir_radio_only, 'reco{0}{1}.dat'.format(eventid, iterationSuffix))):
     print 'Fit analysis (radio-only) already done for event %d iteration %d, skipping...' % (eventid, iteration)
@@ -153,7 +153,7 @@ else:
         print 'Error running fit_analysis_updated.py (radio-only)!'
         sys.exit()
     #waitAndHandleErrors(process, 'fit_analysis_updated.py')
-
+'''
 # Run the Xmax fit analysis with COMBINED radio & particles fit procedure
 if os.path.exists(os.path.join(outputdir, 'reco{0}{1}.dat'.format(eventid, iterationSuffix))):
     print 'Fit analysis (combined fit) already done for event %d iteration %d, skipping...' % (eventid, iteration)
