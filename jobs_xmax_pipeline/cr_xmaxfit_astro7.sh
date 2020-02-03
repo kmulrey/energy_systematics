@@ -1,11 +1,4 @@
 #! /bin/bash
-#SBATCH --time=1-23:50:00
-#SBATCH -p normal
-#SBATCH -N 1 -n 16
-# Take an entire node i.e. 16 cores per instance 
-# to get around forced multi-processing in Scipy / LAPack etc. ??
-#SBATCH --output /home/acorstanje/slurm_logs/slurm-%j.out
-#SBATCH --error /home/acorstanje/slurm_logs/slurm-error-%j.out
 
 echo hostname
 
