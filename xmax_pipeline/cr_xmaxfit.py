@@ -153,12 +153,12 @@ process = subprocess.Popen([runCommand], shell=True)#), stdout=subprocess.PIPE, 
 
 
 
-'''
+
 doFetchLofarData = '--fetch-lofardata' if doFetch else ''
 doRewriteLofarData = '--rewrite-lofardata' if doRewrite else ''
 print 'doFetchLofarData   ',doFetchLofarData
 print 'doRewriteLofarData   ',doRewriteLofarData
-'''
+
 
 
 
