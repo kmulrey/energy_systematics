@@ -126,7 +126,7 @@ waitAndHandleErrors(process, 'filterjobs_perevent.py')
 
 # commenting because filt files already exist
 
-collect_outputdir = os.path.join(options.simulationdir, 'filtered') # subdirectory 'filtered' for combined simulation results
+collect_outputdir = os.path.join(options.outputdir, 'filtered') # subdirectory 'filtered' for combined simulation results
 
 runCommand = 'python -u '+scripts_directory+'/collectfiles_perevent.py --event={0} --iteration={1} --outputdir={2} --datadir={3} >> {4}'.format(eventid, "all", collect_outputdir, datadir, logfile)
 
