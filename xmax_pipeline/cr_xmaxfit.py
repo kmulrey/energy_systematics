@@ -136,6 +136,7 @@ doFetchLofarData = '--fetch-lofardata' if doFetch else ''
 doRewriteLofarData = '--rewrite-lofardata' if doRewrite else ''
 print 'doFetchLofarData   ',doFetchLofarData
 print 'doRewriteLofarData   ',doRewriteLofarData
+
 '''
 # Run the Xmax fit analysis with RADIO ONLY fit procedure
 if os.path.exists(os.path.join(outputdir_radio_only, 'reco{0}{1}.dat'.format(eventid, iterationSuffix))):
