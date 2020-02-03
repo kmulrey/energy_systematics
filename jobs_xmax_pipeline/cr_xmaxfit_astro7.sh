@@ -17,8 +17,8 @@ DATA_DIR=$BASE_PATH/events
 SIMULATION_DIR=$BASE_PATH/run
 OUTPUT_DIR=$RESULTS_PATH/production_analysis_Feb2020
 #OUTPUT_DIR_RADIO_ONLY=$RESULTS_PATH/production_analysis_radio_only_Feb2020
-OUTPUT_DIR_RADIO_ONLY=$RESULTS_PATH/production_analysis_radio_only_cal2019
-MCVSMC_DIR=$RESULTS_PATH/production_mcvsmc_radio_only_Oct2019 # or _radio_only
+OUTPUT_DIR_RADIO_ONLY=$RESULTS_PATH/production_analysis_radio_only_cal2020
+#MCVSMC_DIR=$RESULTS_PATH/production_mcvsmc_radio_only_Oct2019 # or _radio_only
 LOG_DIR=$RESULTS_PATH/log
 
 
