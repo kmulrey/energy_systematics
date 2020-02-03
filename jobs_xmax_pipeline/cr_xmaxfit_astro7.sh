@@ -48,6 +48,6 @@ echo $PYCRTOOLS
 # Adding --force-reprocess 
 # temp. removed --mcvsmc --radio-only-mcvsmc --force-reprocess (Feb 26, 2019)
 # temp. added --force-reprocess back in (Oct 2019)
-/usr/bin/python -u $PYCRTOOLS/xmax_pipeline/cr_xmaxfit.py --event=$EVENT_ID --lorafile-suffix=_GeVfix --datadir=$DATA_DIR --simulationdir=$SIMULATION_DIR --outputdir=$OUTPUT_DIR --outputdir-radio-only=$OUTPUT_DIR_RADIO_ONLY --mcvsmcdir=$MCVSMC_DIR --logdir=$LOG_DIR --fetch-lofardata --rewrite-lofardata --force-reprocess &> $LOGFILE
+/usr/bin/python -u $PYCRTOOLS/xmax_pipeline/cr_xmaxfit.py --event=$EVENT_ID --lorafile-suffix=_GeVfix --datadir=$DATA_DIR --simulationdir=$SIMULATION_DIR --outputdir=$OUTPUT_DIR --outputdir-radio-only=$OUTPUT_DIR_RADIO_ONLY --mcvsmcdir=$MCVSMC_DIR --logdir=$LOG_DIR 
 # Doing --radio-only-mcvsmc now
 

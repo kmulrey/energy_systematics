@@ -34,9 +34,9 @@ parser.add_option("--mcvsmc", default=False, action="store_true", help="Run the 
 parser.add_option("--radio-only-mcvsmc", default=False, action="store_true", help="Use radio-only fit for MC-vs-MC")
 parser.add_option("--lorafile-suffix", default="", help="Optional suffix for LORA simulation files e.g. DAT000001_GeVfix.lora (testing)")
 
-parser.add_option("--force-reprocess", default=False, action="store_true", help="Force reprocessing of simulation files to produce .filt files (filterjobs_perevent). Required if setting a different lorafile-suffix")
-parser.add_option("--debug-lofar-pulse", default=False, action="store_true", help="Replace Coreas simulation data by the LOFAR pulse (calibrated XYZ from cr_physics pipeline) from one antenna")
-parser.add_option("--set-status-done", default=False, action="store_true", help="Set event status to XMAXFIT_DONE even when no mcvsmc is (re)done (not recommended)")
+#parser.add_option("--force-reprocess", default=False, action="store_true", help="Force reprocessing of simulation files to produce .filt files (filterjobs_perevent). Required if setting a different lorafile-suffix")
+#parser.add_option("--debug-lofar-pulse", default=False, action="store_true", help="Replace Coreas simulation data by the LOFAR pulse (calibrated XYZ from cr_physics pipeline) from one antenna")
+#parser.add_option("--set-status-done", default=False, action="store_true", help="Set event status to XMAXFIT_DONE even when no mcvsmc is (re)done (not recommended)")
 
 
 
@@ -44,7 +44,7 @@ parser.add_option("--set-status-done", default=False, action="store_true", help=
 # Get command-line parameters
 (options, args) = parser.parse_args()
 eventid = int(options.event)
-'''
+
 iteration = options.iteration
 if iteration != 'latest': # which iteration is the latest, will be handled per event in the scripts below
     iteration = int(iteration)
@@ -55,13 +55,13 @@ outputdir_radio_only = options.outputdir_radio_only
 mcvsmcdir = options.mcvsmcdir
 logdir = options.logdir
 randomseed = int(options.randomseed)
-doFetch = options.fetch_lofardata
-doRewrite = options.rewrite_lofardata
+#doFetch = options.fetch_lofardata
+#doRewrite = options.rewrite_lofardata
 doMCvsMC = options.mcvsmc
 radio_only_mcvsmc = options.radio_only_mcvsmc
 
 logfile = os.path.join(logdir, "cr_xmaxfit-{0}-pipeline.txt".format(eventid))
-
+'''
 def getLatestIteration():
     def RepresentsInt(s): # check if string is convertible to 'int'...
         try:
