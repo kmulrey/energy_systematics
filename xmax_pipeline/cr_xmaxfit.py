@@ -168,8 +168,8 @@ print 'doRewriteLofarData   ',doRewriteLofarData
 #    print 'Fit analysis (radio-only) already done for event %d iteration %d, skipping...' % (eventid, iteration)
 #else:
 
-'''
-runCommand = '/usr/bin/python -u '+scripts_directory+'/fit_analysis_updated.py --event={0} --iteration={1} --inputdir={2} --outputdir={3} --randomseed={4} --radio-only-fit {5} {6} >> {7}'.format(eventid, iteration, simulationdir, outputdir_radio_only, randomseed, doFetchLofarData, doRewriteLofarData, logfile)
+
+runCommand = '/usr/bin/python -u '+scripts_directory+'/fit_analysis_updated.py --event={0} --iteration={1} --inputdir={2} --outputdir={3} --randomseed={4} --radio-only-fit {5} {6} >> {7}'.format(eventid, iteration, filtdir, outputdir_radio_only, randomseed, doFetchLofarData, doRewriteLofarData, logfile)
 print 'Running command: %s' % runCommand
 #process = subprocess.Popen([runCommand], shell=True)#, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 retcode = os.system(runCommand)
@@ -180,4 +180,4 @@ if retcode != 0:
 
 print 'cr_xmaxfit.py completed.'
 
-'''
+
