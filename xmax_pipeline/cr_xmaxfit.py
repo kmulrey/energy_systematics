@@ -116,12 +116,12 @@ if options.debug_lofar_pulse:
     additional_flags += " --debug-lofar-pulse"
 
 # Run filterjobs_perevent in a subprocess and wait for it to finish
-
+'''
 runCommand = 'python -u '+scripts_directory+'/filterjobs_perevent.py --eventid={0} --datadir={1} {3} > {2}'.format(eventid, datadir, logfile, additional_flags)
 print 'Running command: %s' % runCommand
 process = subprocess.Popen([runCommand], shell=True)#, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 waitAndHandleErrors(process, 'filterjobs_perevent.py')
-
+'''
 # Run collectfiles_perevent.py
 
 # commenting because filt files already exist
@@ -141,6 +141,9 @@ print 'doFetchLofarData   ',doFetchLofarData
 print 'doRewriteLofarData   ',doRewriteLofarData
 
 
+
+'''
+
 # Run the Xmax fit analysis with RADIO ONLY fit procedure
 #if os.path.exists(os.path.join(outputdir_radio_only, 'reco{0}{1}.dat'.format(eventid, iterationSuffix))):
 #    print 'Fit analysis (radio-only) already done for event %d iteration %d, skipping...' % (eventid, iteration)
@@ -153,64 +156,6 @@ if retcode != 0:
     print 'Error running fit_analysis_updated.py (radio-only)!'
     sys.exit()
     #waitAndHandleErrors(process, 'fit_analysis_updated.py')
-'''
-# Run the Xmax fit analysis with COMBINED radio & particles fit procedure
-if os.path.exists(os.path.join(outputdir, 'reco{0}{1}.dat'.format(eventid, iterationSuffix))):
-    print 'Fit analysis (combined fit) already done for event %d iteration %d, skipping...' % (eventid, iteration)
-else:
-    runCommand = '/usr/bin/python -u '+scripts_directory+'/fit_analysis_updated.py --event={0} --iteration={1} --inputdir={2} --outputdir={3} --randomseed={4} {5} {6} >> {7}'.format(eventid, iteration, simulationdir, outputdir, randomseed, doFetchLofarData, doRewriteLofarData, logfile)
-    print 'Running command: %s' % runCommand
-    #process = subprocess.Popen([runCommand], shell=True)#, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    retcode = os.system(runCommand)
-    if retcode != 0:
-        print 'Error running fit_analysis_updated.py (combined fit)!'
-        sys.exit()
 
-if doMCvsMC:
-    # Run the MC-vs-MC analysis if not already done for this event
-    if os.path.exists(os.path.join(mcvsmcdir, 'meth{0}{1}.dat'.format(eventid, iterationSuffix))):
-        print 'MC vs MC already done for event %d iteration %d, skipping...' % (eventid, iteration)
-    else: # do mc vs mc analysis
-        if doRewriteLofarData:
-            doFetchLofarData = ''
-        doRadioOnly = '--radio-only-fit' if radio_only_mcvsmc else ''
-        runCommand = '/usr/bin/python -u '+scripts_directory+'/mcvsmc_updated.py --event={0} --iteration={1} {2} {3} --inputdir={4} --recodir={5} --outputdir={6} >> {7}'.format(eventid, iteration, doFetchLofarData, doRadioOnly, simulationdir, outputdir, mcvsmcdir, logfile)
-        print 'Running command: %s' % runCommand
-        #process = subprocess.Popen([runCommand], shell=True) #, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        retcode = os.system(runCommand)
-        if retcode != 0:
-            print 'Error running mcvsmc_updated.py!'
-            sys.exit()
-elif not options.set_status_done:
-    sys.exit()
-# Only set status to XMAXFIT_DONE if mc-vs-mc has been done (unless overridden by option)
-
-
-#waitAndHandleErrors(process, 'mcvsmc_updated.py')
-
-dbManager = crdb.CRDatabase("crdb", host="coma00.science.ru.nl", user="crdb", password="crdb", dbname="crdb")
-db = dbManager.db
-
-print 'Reading database event data for eventid %d ...' % eventid
-event = crdb.Event(db=db, id=eventid)
-print 'done'
-
-event.simulation_status = "XMAXFIT_DONE"
-event.write()
-
-#eventid = 212496991
-'''
-"""
-print 'Reading database event data for eventid %d ...' % eventid
-event = crdb.Event(db=db, id=eventid)
-print 'done'
-    
-thisIteration = event['simulation_current_iteration']
-thisSimulationStatus = event.simulation_status
-
-print 'Setting simulation_status from %s to XMAXFIT_DONE' % thisSimulationStatus
-event.simulation_status = "XMAXFIT_DONE"
-event.write()
-"""
 print 'cr_xmaxfit.py completed.'
-
+'''
