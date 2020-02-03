@@ -39,10 +39,13 @@ umask 002
 
 echo $EVENT_ID
 
+
+python cr_xmaxfit.py --event=$EVENT_ID --lorafile-suffix=_GeVfix --datadir=$DATA_DIR --simulationdir=$SIMULATION_DIR --iteration=0 --outputdir=$OUTPUT_DIR --outputdir-radio-only=$OUTPUT_DIR_RADIO_ONLY --mcvsmcdir=$MCVSMC_DIR --logdir=$LOG_DIR --filtdir=
+
 # Run the pipeline. Currently set to fetch newest LOFAR (cr-physics pipeline) data from CR Database
 
 #/usr/bin/python -u /vol/astro3/lofar/sim/pipeline/pipeline_job/cr_xmaxfit.py --event=$EVENT_ID --datadir=$DATA_DIR --simulationdir=$SIMULATION_DIR --outputdir=$OUTPUT_DIR --mcvsmcdir=$MCVSMC_DIR --logdir=$LOG_DIR --fetch-lofardata --rewrite-lofardata --mcvsmc --radio-only-mcvsmc &> $LOGFILE
-/usr/bin/python -u /vol/astro3/lofar/sim/pipeline/pipeline_job/cr_xmaxfit.py --event=$EVENT_ID --force-reprocess --datadir=$DATA_DIR --simulationdir=$SIMULATION_DIR --outputdir=$OUTPUT_DIR --outputdir-radio-only=$OUTPUT_DIR_RADIO_ONLY --mcvsmcdir=$MCVSMC_DIR --logdir=$LOG_DIR --fetch-lofardata --rewrite-lofardata --mcvsmc --radio-only-mcvsmc &> $LOGFILE
+#/usr/bin/python -u /vol/astro3/lofar/sim/pipeline/pipeline_job/cr_xmaxfit.py --event=$EVENT_ID --force-reprocess --datadir=$DATA_DIR --simulationdir=$SIMULATION_DIR --outputdir=$OUTPUT_DIR --outputdir-radio-only=$OUTPUT_DIR_RADIO_ONLY --mcvsmcdir=$MCVSMC_DIR --logdir=$LOG_DIR --fetch-lofardata --rewrite-lofardata --mcvsmc --radio-only-mcvsmc &> $LOGFILE
 # No --lorafile-suffix
 
 ## Removed --mcvsmc flag, doing it separately here:
