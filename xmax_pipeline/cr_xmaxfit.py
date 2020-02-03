@@ -144,7 +144,7 @@ process = subprocess.Popen([runCommand], shell=True)#), stdout=subprocess.PIPE, 
 waitAndHandleErrors(process, 'collectfiles_perevent.py')
 
 
-runCommand = 'cp {0}/data/dbrev{1}.dat {2}'.format(simulationdir, eventid, filtdir+'data/')
+runCommand = 'cp {0}/data/dbrev{1}.dat {2}'.format(simulationdir, eventid, filtdir+'data_cal2019/')
 
 print 'Running command: %s' % runCommand
 
