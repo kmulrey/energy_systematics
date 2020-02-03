@@ -55,8 +55,8 @@ outputdir_radio_only = options.outputdir_radio_only
 mcvsmcdir = options.mcvsmcdir
 logdir = options.logdir
 randomseed = int(options.randomseed)
-#doFetch = options.fetch_lofardata
-#doRewrite = options.rewrite_lofardata
+doFetch = options.fetch_lofardata
+doRewrite = options.rewrite_lofardata
 doMCvsMC = options.mcvsmc
 radio_only_mcvsmc = options.radio_only_mcvsmc
 
