@@ -22,7 +22,7 @@ parser.add_option("-n", "--event", default = "0", help = "filename of database")
 parser.add_option("-t", "--iteration", default="latest", help="Iteration number of the simulations to read results from in fit_analysis. Specify a number, or 'latest'.")
 parser.add_option("-d", "--datadir", default="/vol/astro3/lofar/sim/pipeline/events", help="Base dir where the simulated events are stored")
 parser.add_option("-i", "--simulationdir", default="/vol/astro3/lofar/sim/pipeline/run", help="Base directory where pre-processed LOFAR and simulations data are stored, i.e. in <simulationdir>/data and <simulationdir>/filtered")
-parser.add_option("-x", "--filtdir", default="/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/filtered/", help="Base directory where pre-processed filtered should be saved")
+parser.add_option("-x", "--filtdir", default="/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/", help="Base directory where pre-processed filtered should be saved")
 parser.add_option("-o", "--outputdir", default="/vol/astro3/lofar/sim/pipeline/test_analysis", help="Output dir for analysis results") # set to pipeline/run/analysis for production run (or create another dir)
 parser.add_option("--outputdir-radio-only", default="/vol/astro7/lofar/sim/pipeline/production_analysis_radio_only", help="Output dir for analysis results with RADIO ONLY fit") # set to pipeline/run/analysis for production run (or create another dir)
 parser.add_option("-m", "--mcvsmcdir", default="/vol/astro3/lofar/sim/pipeline/test_mcvsmc", help="Output dir for MC-vs-MC analysis")
@@ -129,7 +129,7 @@ waitAndHandleErrors(process, 'filterjobs_perevent.py')
 
 # commenting because filt files already exist
 
-collect_outputdir =filtdir# os.path.join(options.outputdir, 'filtered') # subdirectory 'filtered' for combined simulation results
+collect_outputdir =filtdir+'/filtered/'# os.path.join(options.outputdir, 'filtered') # subdirectory 'filtered' for combined simulation results
 
 print '___________________'
 print collect_outputdir
@@ -143,19 +143,32 @@ print 'Running command: %s' % runCommand
 process = subprocess.Popen([runCommand], shell=True)#), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 waitAndHandleErrors(process, 'collectfiles_perevent.py')
 
-doFetchLofarData = '--fetch-lofardata' if doFetch else ''
-doRewriteLofarData = '--rewrite-lofardata' if doRewrite else ''
-print 'doFetchLofarData   ',doFetchLofarData
-print 'doRewriteLofarData   ',doRewriteLofarData
+
+runCommand = 'cp {0}/data/dbrev{1}.dat {2}'.format(simulationdir, eventid, filtdir+'data/')
+
+print 'Running command: %s' % runCommand
+
+process = subprocess.Popen([runCommand], shell=True)#), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
 
 
 
 '''
+doFetchLofarData = '--fetch-lofardata' if doFetch else ''
+doRewriteLofarData = '--rewrite-lofardata' if doRewrite else ''
+print 'doFetchLofarData   ',doFetchLofarData
+print 'doRewriteLofarData   ',doRewriteLofarData
+'''
+
+
+
 
 # Run the Xmax fit analysis with RADIO ONLY fit procedure
 #if os.path.exists(os.path.join(outputdir_radio_only, 'reco{0}{1}.dat'.format(eventid, iterationSuffix))):
 #    print 'Fit analysis (radio-only) already done for event %d iteration %d, skipping...' % (eventid, iteration)
 #else:
+
+'''
 runCommand = '/usr/bin/python -u '+scripts_directory+'/fit_analysis_updated.py --event={0} --iteration={1} --inputdir={2} --outputdir={3} --randomseed={4} --radio-only-fit {5} {6} >> {7}'.format(eventid, iteration, simulationdir, outputdir_radio_only, randomseed, doFetchLofarData, doRewriteLofarData, logfile)
 print 'Running command: %s' % runCommand
 #process = subprocess.Popen([runCommand], shell=True)#, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -166,4 +179,5 @@ if retcode != 0:
     #waitAndHandleErrors(process, 'fit_analysis_updated.py')
 
 print 'cr_xmaxfit.py completed.'
+
 '''
