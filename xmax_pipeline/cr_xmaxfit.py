@@ -14,7 +14,8 @@ from pycrtools.tasks import Task
 
 # Directory (fixed) where the scripts are located
 #scripts_directory = '/vol/astro3/lofar/sim/pipeline/scripts' # run here also for data on /vol/astro7
-scripts_directory = '/vol/optcoma/pycrtools/src/PyCRTools/xmax_pipeline' # run here also for data on /vol/astro7
+#scripts_directory = '/vol/optcoma/pycrtools/src/PyCRTools/xmax_pipeline' # run here also for data on /vol/astro7
+scripts_directory = '/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/xmax_pipeline/' 
 
 parser = OptionParser()
 parser.add_option("-n", "--event", default = "0", help = "filename of database")
@@ -37,9 +38,13 @@ parser.add_option("--force-reprocess", default=False, action="store_true", help=
 parser.add_option("--debug-lofar-pulse", default=False, action="store_true", help="Replace Coreas simulation data by the LOFAR pulse (calibrated XYZ from cr_physics pipeline) from one antenna")
 parser.add_option("--set-status-done", default=False, action="store_true", help="Set event status to XMAXFIT_DONE even when no mcvsmc is (re)done (not recommended)")
 
+
+
+
 # Get command-line parameters
 (options, args) = parser.parse_args()
 eventid = int(options.event)
+'''
 iteration = options.iteration
 if iteration != 'latest': # which iteration is the latest, will be handled per event in the scripts below
     iteration = int(iteration)
@@ -185,6 +190,7 @@ event.simulation_status = "XMAXFIT_DONE"
 event.write()
 
 #eventid = 212496991
+'''
 """
 print 'Reading database event data for eventid %d ...' % eventid
 event = crdb.Event(db=db, id=eventid)
@@ -198,3 +204,4 @@ event.simulation_status = "XMAXFIT_DONE"
 event.write()
 """
 print 'cr_xmaxfit.py completed.'
+
