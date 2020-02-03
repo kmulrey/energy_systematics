@@ -22,6 +22,7 @@ parser.add_option("-n", "--event", default = "0", help = "filename of database")
 parser.add_option("-t", "--iteration", default="latest", help="Iteration number of the simulations to read results from in fit_analysis. Specify a number, or 'latest'.")
 parser.add_option("-d", "--datadir", default="/vol/astro3/lofar/sim/pipeline/events", help="Base dir where the simulated events are stored")
 parser.add_option("-i", "--simulationdir", default="/vol/astro3/lofar/sim/pipeline/run", help="Base directory where pre-processed LOFAR and simulations data are stored, i.e. in <simulationdir>/data and <simulationdir>/filtered")
+parser.add_option("-x", "--filtdir", default="/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/filtered/", help="Base directory where pre-processed filtered should be saved")
 parser.add_option("-o", "--outputdir", default="/vol/astro3/lofar/sim/pipeline/test_analysis", help="Output dir for analysis results") # set to pipeline/run/analysis for production run (or create another dir)
 parser.add_option("--outputdir-radio-only", default="/vol/astro7/lofar/sim/pipeline/production_analysis_radio_only", help="Output dir for analysis results with RADIO ONLY fit") # set to pipeline/run/analysis for production run (or create another dir)
 parser.add_option("-m", "--mcvsmcdir", default="/vol/astro3/lofar/sim/pipeline/test_mcvsmc", help="Output dir for MC-vs-MC analysis")
@@ -51,6 +52,8 @@ if iteration != 'latest': # which iteration is the latest, will be handled per e
 datadir = options.datadir
 simulationdir = options.simulationdir
 outputdir = options.outputdir
+filtdir = options.filtdir
+
 outputdir_radio_only = options.outputdir_radio_only
 mcvsmcdir = options.mcvsmcdir
 logdir = options.logdir
@@ -126,7 +129,7 @@ waitAndHandleErrors(process, 'filterjobs_perevent.py')
 
 # commenting because filt files already exist
 
-collect_outputdir = os.path.join(options.outputdir, 'filtered') # subdirectory 'filtered' for combined simulation results
+collect_outputdir =filtdir# os.path.join(options.outputdir, 'filtered') # subdirectory 'filtered' for combined simulation results
 
 print '___________________'
 print collect_outputdir
