@@ -128,6 +128,11 @@ waitAndHandleErrors(process, 'filterjobs_perevent.py')
 
 collect_outputdir = os.path.join(options.outputdir, 'filtered') # subdirectory 'filtered' for combined simulation results
 
+print '___________________'
+print collect_outputdir
+
+
+
 runCommand = 'python -u '+scripts_directory+'/collectfiles_perevent.py --event={0} --iteration={1} --outputdir={2} --datadir={3} >> {4}'.format(eventid, "all", collect_outputdir, datadir, logfile)
 
 print 'Running command: %s' % runCommand
