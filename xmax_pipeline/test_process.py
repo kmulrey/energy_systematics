@@ -192,7 +192,7 @@ def ProcessData(datadir,fileno, lorafile_suffix='', debug_testpulse=False, debug
         freqstep = (frequencies[1] - frequencies[0]) / 1.0e6 # MHz
         
         if j == 0: # Jones matrix will be the same for every antenna
-            jm = getJonesMatrix(azimuth, zenith, frequencies)
+            jm = getJonesMatrix(azimuth, zenith*(1*np.pi/180.0), frequencies)
         
         instr_spec=np.ndarray([dlength/2+1,2],dtype=complex)
         instr_spec[:,0] = jm[:,0,0] * spec[:,0] + jm[:,0,1] * spec[:,1]
