@@ -179,6 +179,7 @@ def reverseAnalysis(eventno, iteration, inputdir, outputdir, randomseed, flaggin
     plotfile3 = os.path.join(outputdir, '{0}_{1}c{2}.png'.format(outfile, eventno, iterationSuffix))
     plotfile_catalog = os.path.join(outputdir, '{0}_{1}catalog{2}.pdf'.format(outfile, eventno, iterationSuffix))
     (core_x, core_y, station_name, antenna_ids, positions, dist, x_err, signal, dpower11, dpower21, dpower41, rms, noisepower, pulse_delay_fit_residual, data_time, lora_x, lora_y, lora_dens, data_azimuth, data_zenith, lora_zenith) = readLOFARdata(datafile)
+    print '\n\n LORA DATA: {0}  \n\n'.format(lora_dens)
 
 #    f=open(datafile,'r')
 #    core_x, core_y , station_name, positions, dist, x_err, signal, dpower11, dpower21, dpower41, rms, noisepower, data_time, lora_x, lora_y, lora_dens, data_azimuth, data_zenith, lora_zenith = cPickle.load(f)
