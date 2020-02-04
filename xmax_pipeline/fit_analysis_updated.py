@@ -167,7 +167,7 @@ def reverseAnalysis(eventno, iteration, inputdir, outputdir, randomseed, flaggin
     
     twentyone=False
 
-    datafile = os.path.join(inputdir, 'data_cal/dbrev{0}.dat'.format(eventno))
+    datafile = os.path.join(inputdir, 'data/dbrev{0}.dat'.format(eventno))
     print 'using datafile {0}'.format(datafile)
     iterationSuffix = '_{0}'.format(iteration) if iteration > 0 else ''
     # read simulation results with this iteration number; no iteration number specified if it is zero.
