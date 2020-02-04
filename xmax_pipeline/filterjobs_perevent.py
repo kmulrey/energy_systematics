@@ -17,7 +17,7 @@ parser.add_option("--force-reprocess", default=False, action="store_true", help=
 parser.add_option("--test", default=False, action="store_true", help="Run debugging test")
 parser.add_option("--debug-test-pulse", default=False, action="store_true", help="Replace simulated CoREAS data by a test pulse")
 parser.add_option("--debug-lofar-pulse", default=False, action="store_true", help="Replace simulated CoREAS data by LOFAR data, or the processed test pulse from LOFAR-CR pipeline. Does not include LOFAR antenna positions (yet)")
-parser.add_option("-w", "--writedir", default="/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_test/events", help="Directory where simulations are located")
+parser.add_option("-w", "--writedir", default="/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/events", help="Directory where simulations are located")
 
 (options, args) = parser.parse_args()
 eventid = int(options.eventid)

@@ -38,9 +38,9 @@ parser.add_option("--lorafile-suffix", default="", help="Optional suffix for LOR
 parser.add_option("--force-reprocess", default=False, action="store_true", help="Force reprocessing of simulation files to produce .filt files (filterjobs_perevent). Required if setting a different lorafile-suffix")
 parser.add_option("--debug-lofar-pulse", default=False, action="store_true", help="Replace Coreas simulation data by the LOFAR pulse (calibrated XYZ from cr_physics pipeline) from one antenna")
 parser.add_option("--set-status-done", default=False, action="store_true", help="Set event status to XMAXFIT_DONE even when no mcvsmc is (re)done (not recommended)")
-parser.add_option("-y", "--writedir", default="/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_test/events", help="Directory where simulations are located")
+parser.add_option("-y", "--writedir", default="/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/events", help="Directory where simulations are located")
 
-
+parser.add_option("-c", "--collectdir", default="/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/filtered_0", help="Directory where simulations are located")
 
 
 # Get command-line parameters
@@ -55,6 +55,7 @@ simulationdir = options.simulationdir
 outputdir = options.outputdir
 filtdir = options.filtdir
 writedir = options.writedir
+collect_outputdir=options.collectdir
 
 outputdir_radio_only = options.outputdir_radio_only
 mcvsmcdir = options.mcvsmcdir
@@ -136,7 +137,6 @@ collect_outputdir =filtdir+'/filtered/'# os.path.join(options.outputdir, 'filter
 print '___________________'
 print collect_outputdir
 '''
-'''
 
 runCommand = 'python -u '+scripts_directory+'/collectfiles_perevent.py --event={0} --iteration={1} --outputdir={2} --datadir={3} >> {4}'.format(eventid, "all", collect_outputdir, datadir, logfile)
 
@@ -152,7 +152,7 @@ print 'Running command: %s' % runCommand
 
 process = subprocess.Popen([runCommand], shell=True)#), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
-'''
+
 
 
 '''
