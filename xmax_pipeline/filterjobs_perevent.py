@@ -62,6 +62,10 @@ if options.debug_lofar_pulse:
 #     eventno=int(eventdir.split("/")[-1])
 dirs=glob.glob(datadir + "/{0}/*/coreas/*".format(eventid))
 print dirs[0]
+print dirs[0].split('events/')
+print dirs[0].split('events/')[1]
+print writedir + dirs[0].split('events/')[1]
+
 if len(dirs) == 0:
     raise ValueError("No directories with simulations found for event %d" % eventid)
 '''
