@@ -73,7 +73,7 @@ subprocess.check_output(['mkdir', '-p', new_dir])
 
 if len(dirs) == 0:
     raise ValueError("No directories with simulations found for event %d" % eventid)
-'''
+
 for d in dirs:
     showerfiles=glob.glob(d+"/DAT??????")
     for showerfile in showerfiles:
@@ -86,7 +86,7 @@ for d in dirs:
             os.path.isfile(d+"/steering/RUN{0}.inp".format(str(showerno).zfill(6))) and
             os.path.isfile(d+"/steering/SIM{0}.list".format(str(showerno).zfill(6))) ):
 
-            outfile=writedir+"/DAT{0}.filt".format(str(showerno).zfill(6))
+            outfile=new_dir+"/DAT{0}.filt".format(str(showerno).zfill(6))
             if (not os.path.isfile(outfile)) or (os.path.getsize(outfile) == 0) or force_reprocess:
                 print 'Processing simulated data for event %d, shower %d, output dir %s, outfile %s' % (eventid, showerno, d, outfile)
                     #                try:
@@ -193,4 +193,4 @@ for d in dirs:
 #                    print "error!"
 
      
-'''
+
