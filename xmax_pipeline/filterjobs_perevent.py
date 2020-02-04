@@ -63,8 +63,13 @@ if options.debug_lofar_pulse:
 dirs=glob.glob(datadir + "/{0}/*/coreas/*".format(eventid))
 print dirs[0]
 print dirs[0].split('events/')
-print dirs[0].split('events/')[1]
-print writedir + dirs[0].split('events/')[1]
+print dirs[0].split('events')[1]
+print writedir + dirs[0].split('events')[1]
+new_dir= writedir + dirs[0].split('events')[1]
+
+subprocess.check_output(['mkdir', '-p', new_dir])
+
+
 
 if len(dirs) == 0:
     raise ValueError("No directories with simulations found for event %d" % eventid)
