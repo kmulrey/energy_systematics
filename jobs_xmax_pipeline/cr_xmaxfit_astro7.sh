@@ -16,7 +16,11 @@ NEWSIM_PATH=/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/
 DATA_DIR=$BASE_PATH/events
 SIMULATION_DIR=$BASE_PATH/run
 #OUTPUT_DIR=$RESULTS_PATH/production_analysis_cal2019
-OUTPUT_DIR_RADIO_ONLY=$RESULTS_PATH/production_analysis_radio_only_Feb2020
+#OUTPUT_DIR_RADIO_ONLY=$RESULTS_PATH/production_analysis_radio_only_Feb2020
+OUTPUT_DIR_RADIO_ONLY=$RESULTS_PATH/production_analysis_radio_only_V0
+
+
+WRITE_FILT=/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_test/events
 #OUTPUT_DIR_RADIO_ONLY=$RESULTS_PATH/production_analysis_radio_only_cal2019
 #MCVSMC_DIR=$RESULTS_PATH/production_mcvsmc_radio_only_Oct2019 # or _radio_only
 LOG_DIR=$RESULTS_PATH/log
@@ -34,4 +38,4 @@ echo $PYCRTOOLS
 cd /vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/xmax_pipeline
 
 
-python cr_xmaxfit.py --event=$EVENT_ID --lorafile-suffix=_GeVfix --datadir=$DATA_DIR --simulationdir=$SIMULATION_DIR --iteration=0  --outputdir-radio-only=$OUTPUT_DIR_RADIO_ONLY --mcvsmcdir=$MCVSMC_DIR --logdir=$LOG_DIR --filtdir=$NEWSIM_PATH
+python cr_xmaxfit.py --event=$EVENT_ID --lorafile-suffix=_GeVfix --datadir=$DATA_DIR --simulationdir=$SIMULATION_DIR --iteration=0  --outputdir-radio-only=$OUTPUT_DIR_RADIO_ONLY --mcvsmcdir=$MCVSMC_DIR --logdir=$LOG_DIR --filtdir=$NEWSIM_PATH --writedir=$WRITE_FILT

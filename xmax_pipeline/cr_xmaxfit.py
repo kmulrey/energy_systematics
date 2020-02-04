@@ -38,6 +38,7 @@ parser.add_option("--lorafile-suffix", default="", help="Optional suffix for LOR
 parser.add_option("--force-reprocess", default=False, action="store_true", help="Force reprocessing of simulation files to produce .filt files (filterjobs_perevent). Required if setting a different lorafile-suffix")
 parser.add_option("--debug-lofar-pulse", default=False, action="store_true", help="Replace Coreas simulation data by the LOFAR pulse (calibrated XYZ from cr_physics pipeline) from one antenna")
 parser.add_option("--set-status-done", default=False, action="store_true", help="Set event status to XMAXFIT_DONE even when no mcvsmc is (re)done (not recommended)")
+parser.add_option("-w", "--writedir", default="/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_test/events", help="Directory where simulations are located")
 
 
 
@@ -53,6 +54,7 @@ datadir = options.datadir
 simulationdir = options.simulationdir
 outputdir = options.outputdir
 filtdir = options.filtdir
+writedir = options.writedir
 
 outputdir_radio_only = options.outputdir_radio_only
 mcvsmcdir = options.mcvsmcdir
@@ -119,22 +121,22 @@ if options.debug_lofar_pulse:
     additional_flags += " --debug-lofar-pulse"
 
 # Run filterjobs_perevent in a subprocess and wait for it to finish
-'''
-runCommand = 'python -u '+scripts_directory+'/filterjobs_perevent.py --eventid={0} --datadir={1} {3} > {2}'.format(eventid, datadir, logfile, additional_flags)
+
+runCommand = 'python -u '+scripts_directory+'/filterjobs_perevent.py --eventid={0} --writedir={4} --datadir={1} {3} > {2}'.format(eventid, datadir, logfile, additional_flags,writedir)
 print 'Running command: %s' % runCommand
 process = subprocess.Popen([runCommand], shell=True)#, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 waitAndHandleErrors(process, 'filterjobs_perevent.py')
-'''
+
 # Run collectfiles_perevent.py
 
 # commenting because filt files already exist
-
+'''
 collect_outputdir =filtdir+'/filtered/'# os.path.join(options.outputdir, 'filtered') # subdirectory 'filtered' for combined simulation results
 
 print '___________________'
 print collect_outputdir
-
-
+'''
+'''
 
 runCommand = 'python -u '+scripts_directory+'/collectfiles_perevent.py --event={0} --iteration={1} --outputdir={2} --datadir={3} >> {4}'.format(eventid, "all", collect_outputdir, datadir, logfile)
 
@@ -150,15 +152,15 @@ print 'Running command: %s' % runCommand
 
 process = subprocess.Popen([runCommand], shell=True)#), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
+'''
 
 
-
-
+'''
 doFetchLofarData = '--fetch-lofardata' if doFetch else ''
 doRewriteLofarData = '--rewrite-lofardata' if doRewrite else ''
 print 'doFetchLofarData   ',doFetchLofarData
 print 'doRewriteLofarData   ',doRewriteLofarData
-
+'''
 
 
 
@@ -168,7 +170,7 @@ print 'doRewriteLofarData   ',doRewriteLofarData
 #    print 'Fit analysis (radio-only) already done for event %d iteration %d, skipping...' % (eventid, iteration)
 #else:
 
-
+'''
 runCommand = '/usr/bin/python -u '+scripts_directory+'/fit_analysis_updated.py --event={0} --iteration={1} --inputdir={2} --outputdir={3} --randomseed={4} --radio-only-fit {5} {6} >> {7}'.format(eventid, iteration, filtdir, outputdir_radio_only, randomseed, doFetchLofarData, doRewriteLofarData, logfile)
 print 'Running command: %s' % runCommand
 #process = subprocess.Popen([runCommand], shell=True)#, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -179,5 +181,5 @@ if retcode != 0:
     #waitAndHandleErrors(process, 'fit_analysis_updated.py')
 
 print 'cr_xmaxfit.py completed.'
-
+'''
 

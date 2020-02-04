@@ -6,6 +6,7 @@ import test_process as test_radio
 import cPickle
 import numpy as np
 import matplotlib.pyplot as plt
+import subprocess
 plt.ion()
 
 parser = OptionParser()
@@ -16,6 +17,7 @@ parser.add_option("--force-reprocess", default=False, action="store_true", help=
 parser.add_option("--test", default=False, action="store_true", help="Run debugging test")
 parser.add_option("--debug-test-pulse", default=False, action="store_true", help="Replace simulated CoREAS data by a test pulse")
 parser.add_option("--debug-lofar-pulse", default=False, action="store_true", help="Replace simulated CoREAS data by LOFAR data, or the processed test pulse from LOFAR-CR pipeline. Does not include LOFAR antenna positions (yet)")
+parser.add_option("-w", "--writedir", default="/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_test/events", help="Directory where simulations are located")
 
 (options, args) = parser.parse_args()
 eventid = int(options.eventid)
@@ -23,6 +25,7 @@ datadir = options.datadir
 doTestProcessFunction = options.test
 force_reprocess = options.force_reprocess
 lorafile_suffix = options.lorafile_suffix
+writedir = options.writedir
 
 # read in LOFAR calibrated pulse block, if desired with debug-lofar-pulse option
 lofar_pulse = None
@@ -58,8 +61,10 @@ if options.debug_lofar_pulse:
 #     print eventdir
 #     eventno=int(eventdir.split("/")[-1])
 dirs=glob.glob(datadir + "/{0}/*/coreas/*".format(eventid))
+
 if len(dirs) == 0:
     raise ValueError("No directories with simulations found for event %d" % eventid)
+'''
 for d in dirs:
     showerfiles=glob.glob(d+"/DAT??????")
     for showerfile in showerfiles:
@@ -72,7 +77,7 @@ for d in dirs:
             os.path.isfile(d+"/steering/RUN{0}.inp".format(str(showerno).zfill(6))) and
             os.path.isfile(d+"/steering/SIM{0}.list".format(str(showerno).zfill(6))) ):
 
-            outfile=d+"/DAT{0}.filt".format(str(showerno).zfill(6))
+            outfile=writedir+"/DAT{0}.filt".format(str(showerno).zfill(6))
             if (not os.path.isfile(outfile)) or (os.path.getsize(outfile) == 0) or force_reprocess:
                 print 'Processing simulated data for event %d, shower %d, output dir %s, outfile %s' % (eventid, showerno, d, outfile)
                     #                try:
@@ -179,3 +184,4 @@ for d in dirs:
 #                    print "error!"
 
      
+'''
