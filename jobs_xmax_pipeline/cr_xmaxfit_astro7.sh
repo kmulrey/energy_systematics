@@ -16,8 +16,8 @@ NEWSIM_PATH=/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/
 DATA_DIR=$BASE_PATH/events
 SIMULATION_DIR=$BASE_PATH/run
 #OUTPUT_DIR=$RESULTS_PATH/production_analysis_cal2019
-#OUTPUT_DIR_RADIO_ONLY=$RESULTS_PATH/production_analysis_radio_only_Feb2020
-OUTPUT_DIR_RADIO_ONLY=$RESULTS_PATH/production_analysis_radio_only_cal2019
+OUTPUT_DIR_RADIO_ONLY=$RESULTS_PATH/production_analysis_radio_only_Feb2020
+#OUTPUT_DIR_RADIO_ONLY=$RESULTS_PATH/production_analysis_radio_only_cal2019
 #MCVSMC_DIR=$RESULTS_PATH/production_mcvsmc_radio_only_Oct2019 # or _radio_only
 LOG_DIR=$RESULTS_PATH/log
 
