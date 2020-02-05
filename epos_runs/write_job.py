@@ -38,7 +38,7 @@ def write_file(event, azimuth, zenith, energy, seed,type):
     outfile.write('cp /vol/astro7/lofar/sim/pipeline/run/SIM{0}.list /scratch/kmulrey/{0}/{1}/$RUNNR/SIM$RUNNR.list\n'.format(event,part_id))
     outfile.write('cd /vol/optcoma/cr-simulations/corsika_production_epos/run\n')
     outfile.write('./corsika77100Linux_EPOS_urqmd_thin_conex_coreas < //scratch/kmulrey/{0}/{1}/$RUNNR/RUN$RUNNR.inp\n'.format(event,part_id))
-    outfile.write('cd /scratch/kmulrey/{0}/{1}/$RUNNR\n'.format(event,part_id)
+    outfile.write('cd /scratch/kmulrey/{0}/{1}/$RUNNR\n'.format(event,part_id))
     outfile.write('mv RUN$RUNNR.inp {0}/events/{1}/coreas/{2}/steering/RUN$RUNNR.inp\n'.format(base_dir,event,type))
     outfile.write('mv *.long {0}events/{1}/coreas/{2}/\n'.format(base_dir,event,type))
     outfile.write('/vol/optcoma/pycrtools/LORA_simulation/DAT2txt DAT$RUNNR DAT$RUNNR.tmp\n')
