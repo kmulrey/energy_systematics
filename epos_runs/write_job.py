@@ -12,13 +12,15 @@ def write_file(event, azimuth, zenith, energy, seed, type):
     part_id=''
     if type=='proton':
         part_id='14'
+        outfile=open(proton_dir+event+'_coreas_'+type+'.q','w')
+
     if type=='iron':
         part_id='5626'
+        outfile=open(iron_dir+event+'_coreas_'+type+'.q','w')
 
 
 
 
-    outfile=open(proton_dir+event+'_coreas_'+type+'.q','w')
 
     outfile.write('#! /bin/bash\n')
     outfile.write('#SBATCH --time=7-00:00:00\n')
