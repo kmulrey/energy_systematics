@@ -140,8 +140,8 @@ waitAndHandleErrors(process, 'filterjobs_perevent.py')
 
 # commenting because filt files already exist
 
-collect_outputdir =filtdir+'/filtered/'# os.path.join(options.outputdir, 'filtered') # subdirectory 'filtered' for combined simulation results
-
+#collect_outputdir =filtdir+'/filtered/'# os.path.join(options.outputdir, 'filtered') # subdirectory 'filtered' for combined simulation results
+collect_output=collect_outputdir
 print '___________________'
 print collect_outputdir
 
