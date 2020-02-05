@@ -122,11 +122,17 @@ if options.debug_lofar_pulse:
     additional_flags += " --debug-lofar-pulse"
 
 # Run filterjobs_perevent in a subprocess and wait for it to finish
-
+'''
 runCommand = 'python -u '+scripts_directory+'/filterjobs_perevent.py --eventid={0} --writedir={4} --datadir={1} {3} > {2}'.format(eventid, datadir, logfile, additional_flags,writedir)
 print 'Running command: %s' % runCommand
 process = subprocess.Popen([runCommand], shell=True)#, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 waitAndHandleErrors(process, 'filterjobs_perevent.py')
+'''
+runCommand = 'python -u '+scripts_directory+'/filterjobs_perevent.py --eventid={0} --writedir={3} --datadir={1} {2}'.format(eventid,  logfile, additional_flags,writedir)
+print 'Running command: %s' % runCommand
+process = subprocess.Popen([runCommand], shell=True)#, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+waitAndHandleErrors(process, 'filterjobs_perevent.py')
+
 
 # Run collectfiles_perevent.py
 
