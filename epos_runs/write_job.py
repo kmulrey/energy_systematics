@@ -1,7 +1,7 @@
 proton_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/epos_runs/jobs_proton/'
 iron_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/epos_runs/jobs_iron/'
 
-base_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/epos_runs/'
+base_dir='/vol/astro7/lofar/sim/pipeline_epos/'
 
 def write_file(event,type):
 
@@ -18,13 +18,16 @@ def write_file(event,type):
 
     outfile.write('#! /bin/bash')
     outfile.write('#SBATCH --time=7-00:00:00')
-    outfile.write('#SBATCH --output {0}pipeline/run/output/'+event+'_coreas_'+part_id+'-%j'.format(base_dir))
-    outfile.write('#SBATCH --error {0}pipeline/run/output/'+event+'_coreas_'+part_id+'-ERROR-%j'.format(base_dir))
+    outfile.write('#SBATCH --output {0}/run/output/'+event+'_coreas_'+part_id+'-%j'.format(base_dir))
+    outfile.write('#SBATCH --error {0}/run/output/'+event+'_coreas_'+part_id+'-ERROR-%j'.format(base_dir))
 
 
 
-    outfile.write()
-
+    outfile.write('. /vol/optcoma/geant4_9.6_install/share/Geant4-9.6.4/geant4make/geant4make.sh')
+    outfile.write('export RUNNR=`printf "%06d" $SLURM_ARRAY_TASK_ID`')
+    outfile.write('export FLUPRO=/vol/optcoma/cr-simulations/fluka64')
+    outfile.write('cd {0}/run/'.format(base_dir))
+    outfile.write('mkdir -p {0}/events/'+event+'/coreas/'+type+'/steering/'.format(base_dir))
 
 
 
@@ -40,16 +43,9 @@ def write_file(event,type):
 write_file(str(60309606),'proton')
 
 '''
-#! /bin/bash
-#SBATCH --time=7-00:00:00
-#SBATCH --output /vol/astro7/lofar/sim/pipeline/run/output/188735056_coreas_5626-%j
-#SBATCH --error /vol/astro7/lofar/sim/pipeline/run/output/188735056_coreas_5626-ERROR-%j
 
-umask 002
-. /vol/optcoma/geant4_9.6_install/share/Geant4-9.6.4/geant4make/geant4make.sh
-export RUNNR=`printf "%06d" $SLURM_ARRAY_TASK_ID`
-export FLUPRO=/vol/optcoma/cr-simulations/fluka64
-cd /vol/astro7/lofar/sim/pipeline/run/
+
+
 mkdir -p /vol/astro7/lofar/sim/pipeline/events/188735056/2/coreas//iron/steering/
 rm -rf /scratch/crsim_pipeline/188735056/5626/$RUNNR
 mkdir -p /scratch/crsim_pipeline/188735056/5626/$RUNNR
