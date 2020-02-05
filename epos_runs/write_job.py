@@ -68,5 +68,5 @@ seed=[43356,6726,53394,72474,38098,15078,60740,25706,51352,37712,91526]
 #energy=166070995.766
 #seed=25056
 for i in np.arange(len(event)):
-    write_file(str(int(events[i])),azimuth[i], zenith[i], energy[i], seed[i],'proton')
-    write_file(str(int(events[i])),azimuth[i], zenith[i], energy[i], seed[i],'iron')
+    write_file(str(int(event[i])),azimuth[i], zenith[i], energy[i], seed[i],'proton')
+    write_file(str(int(event[i])),azimuth[i], zenith[i], energy[i], seed[i],'iron')
