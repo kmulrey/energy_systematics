@@ -32,7 +32,7 @@ def write_file(event, azimuth, zenith, energy, seed,type):
     outfile.write('mkdir -p {0}/events/'+event+'/coreas/'+type+'/steering/\n'.format(base_dir))
     outfile.write('rm -rf /scratch/kmulrey/'+event+'/'+part_id+'/$RUNNR\n')
     outfile.write('mkdir -p /scratch/kmulrey/'+event+'/'+part_id+'/$RUNNR\n')
-    outfile.write('python /vol/optcoma/pycrtools/src/PyCRTools/extras/geninp.py --atmosphere --atmfile=/vol/astro7/lofar/sim/pipeline/atmosphere_files/ATMOSPHERE_'+event+'.DAT -r $RUNNR -s {0} -u {1} -a {2} -z {3} -t '+part_id+' -d /scratch/kmulrey/'+event+'/'+part_id+'/$RUNNR/ > /scratch/kmulrey/'+event+'/'+part_id+'/$RUNNR/RUN$RUNNR.inp\n'.format(seed,energy,azimuth,zenith))
+    outfile.write('python /vol/optcoma/pycrtools/src/PyCRTools/extras/geninp.py --atmosphere --atmfile=/vol/astro7/lofar/sim/pipeline/atmosphere_files/ATMOSPHERE_'+event+'.DAT -r $RUNNR -s {0} -u {1} -a {2} -z {3} -t '.format(seed,energy,azimuth,zenith)+part_id+' -d /scratch/kmulrey/'+event+'/'+part_id+'/$RUNNR/ > /scratch/kmulrey/'+event+'/'+part_id+'/$RUNNR/RUN$RUNNR.inp\n')
 
 
 
