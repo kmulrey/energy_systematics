@@ -128,6 +128,8 @@ print 'Running command: %s' % runCommand
 process = subprocess.Popen([runCommand], shell=True)#, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 waitAndHandleErrors(process, 'filterjobs_perevent.py')
 '''
+print 'sending this directory to filter: {0}'.format(datadir)
+
 runCommand = 'python -u '+scripts_directory+'/filterjobs_perevent.py --eventid={0} --writedir={1} --datadir={2}'.format(eventid, writedir,datadir)
 print 'Running command: %s' % runCommand
 process = subprocess.Popen([runCommand], shell=True)#, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
