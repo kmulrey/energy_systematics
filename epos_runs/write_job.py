@@ -18,8 +18,8 @@ def write_file(event,type):
 
     outfile.write('#! /bin/bash')
     outfile.write('#SBATCH --time=7-00:00:00')
-    outfile.write('#SBATCH --output {0}pipeline/run/output/'+event+'_coreas_'+part_id+'-%j').format(base_dir)
-    outfile.write('#SBATCH --error {0}pipeline/run/output/'+event+'_coreas_'+part_id+'-ERROR-%j').format(base_dir)
+    outfile.write('#SBATCH --output {0}pipeline/run/output/'+event+'_coreas_'+part_id+'-%j'.format(base_dir))
+    outfile.write('#SBATCH --error {0}pipeline/run/output/'+event+'_coreas_'+part_id+'-ERROR-%j'.format(base_dir))
 
 
 
