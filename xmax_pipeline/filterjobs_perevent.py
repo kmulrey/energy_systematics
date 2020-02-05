@@ -60,7 +60,7 @@ if options.debug_lofar_pulse:
 #for eventdir in eventdirs:
 #     print eventdir
 #     eventno=int(eventdir.split("/")[-1])
-
+print '\n\nin filter jobs____________'
 print datadir
 dirs=glob.glob(datadir + "/{0}/*/coreas/*".format(eventid))
 print dirs[0]
