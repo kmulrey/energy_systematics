@@ -18,21 +18,21 @@ def write_file(event, azimuth, zenith, energy, seed,type):
 
     outfile=open(proton_dir+event+'_coreas_'+type+'.q','w')
 
-    outfile.write('#! /bin/bash')
-    outfile.write('#SBATCH --time=7-00:00:00')
-    outfile.write('#SBATCH --output {0}/run/output/'+event+'_coreas_'+part_id+'-%j'.format(base_dir))
-    outfile.write('#SBATCH --error {0}/run/output/'+event+'_coreas_'+part_id+'-ERROR-%j'.format(base_dir))
+    outfile.write('#! /bin/bash\n')
+    outfile.write('#SBATCH --time=7-00:00:00\n')
+    outfile.write('#SBATCH --output {0}/run/output/'+event+'_coreas_'+part_id+'-%j\n'.format(base_dir))
+    outfile.write('#SBATCH --error {0}/run/output/'+event+'_coreas_'+part_id+'-ERROR-%j\n'.format(base_dir))
 
 
 
-    outfile.write('. /vol/optcoma/geant4_9.6_install/share/Geant4-9.6.4/geant4make/geant4make.sh')
-    outfile.write('export RUNNR=`printf "%06d" $SLURM_ARRAY_TASK_ID`')
-    outfile.write('export FLUPRO=/vol/optcoma/cr-simulations/fluka64')
+    outfile.write('. /vol/optcoma/geant4_9.6_install/share/Geant4-9.6.4/geant4make/geant4make.sh\n')
+    outfile.write('export RUNNR=`printf "%06d" $SLURM_ARRAY_TASK_ID`\n')
+    outfile.write('export FLUPRO=/vol/optcoma/cr-simulations/fluka64\n')
     outfile.write('cd {0}/run/'.format(base_dir))
-    outfile.write('mkdir -p {0}/events/'+event+'/coreas/'+type+'/steering/'.format(base_dir))
-    outfile.write('rm -rf /scratch/kmulrey/'+event+'/'+part_id+'/$RUNNR')
-    outfile.write('mkdir -p /scratch/kmulrey/'+event+'/'+part_id+'/$RUNNR')
-    outfile.write('python /vol/optcoma/pycrtools/src/PyCRTools/extras/geninp.py --atmosphere --atmfile=/vol/astro7/lofar/sim/pipeline/atmosphere_files/ATMOSPHERE_'+event+'.DAT -r $RUNNR -s '+str(seed)+' -u '+str(energy)+' -a '+str(azimuth)+' -z '+str(zenith)+' -t '+part_id+' -d /scratch/kmulrey/'+event+'/'+part_id+'/$RUNNR/ > /scratch/kmulrey/'+event+'/'+part_id+'/$RUNNR/RUN$RUNNR.inp')
+    outfile.write('mkdir -p {0}/events/'+event+'/coreas/'+type+'/steering/\n'.format(base_dir))
+    outfile.write('rm -rf /scratch/kmulrey/'+event+'/'+part_id+'/$RUNNR\n')
+    outfile.write('mkdir -p /scratch/kmulrey/'+event+'/'+part_id+'/$RUNNR\n')
+    outfile.write('python /vol/optcoma/pycrtools/src/PyCRTools/extras/geninp.py --atmosphere --atmfile=/vol/astro7/lofar/sim/pipeline/atmosphere_files/ATMOSPHERE_'+event+'.DAT -r $RUNNR -s {0} -u {1} -a {2} -z {3} -t '+part_id+' -d /scratch/kmulrey/'+event+'/'+part_id+'/$RUNNR/ > /scratch/kmulrey/'+event+'/'+part_id+'/$RUNNR/RUN$RUNNR.inp\n'.format(seed,energy,azimuth,zenith))
 
 
 
