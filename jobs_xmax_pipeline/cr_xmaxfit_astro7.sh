@@ -25,8 +25,8 @@ WRITE_FILT=/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/events_the
 LOG_DIR=$RESULTS_PATH/log
 
 
-#EVENT_ID=$(awk "NR==$SLURM_ARRAY_TASK_ID" $HOME/cr_physics_new)
-EVENT_ID=158064938
+EVENT_ID=$(awk "NR==$SLURM_ARRAY_TASK_ID" $HOME/cr_physics_new)
+#EVENT_ID=158064938
 LOGFILE=$LOG_DIR/cr_xmaxfit-$EVENT_ID.txt
 
 # Set permissions on resulting files
