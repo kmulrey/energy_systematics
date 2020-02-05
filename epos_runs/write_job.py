@@ -1,10 +1,12 @@
-proton_dir='jobs_proton/'
-proton_dir='jobs_iron/'
+proton_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/epos_runs/jobs_proton/'
+proton_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/epos_runs/jobs_iron/'
 
 def write_file(event,type):
 
-    outfile=open("")
+    outfile=open(proton_dir+event+'_coreas_'+type+'.q','w')
 
+    outfile.write('#! /bin/bash')
+    outfile.write('#SBATCH --time=7-00:00:00')
 
 
 
