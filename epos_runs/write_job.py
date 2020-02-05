@@ -1,12 +1,39 @@
 proton_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/epos_runs/jobs_proton/'
-proton_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/epos_runs/jobs_iron/'
+iron_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/epos_runs/jobs_iron/'
+
+base_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/epos_runs/'
 
 def write_file(event,type):
+
+    part_id=''
+    if type=='proton':
+        part_id='14'
+    if type=='iron':
+        part_id='5626'
+
+
+
 
     outfile=open(proton_dir+event+'_coreas_'+type+'.q','w')
 
     outfile.write('#! /bin/bash')
     outfile.write('#SBATCH --time=7-00:00:00')
+    outfile.write('#SBATCH --output {0}pipeline/run/output/'+event+'_coreas_'+part_id+'-%j').format(base_dir)
+    outfile.write('#SBATCH --error {0}pipeline/run/output/'+event+'_coreas_'+part_id+'-ERROR-%j').format(base_dir)
+
+
+
+    outfile.write()
+
+
+
+
+
+
+
+
+
+    outfile.close()
 
 
 
