@@ -10,7 +10,7 @@ def write_file(event,type):
 
 
 
-
+write_file(str(60309606),'proton')
 
 '''
 #! /bin/bash
