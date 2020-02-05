@@ -122,25 +122,22 @@ if options.debug_lofar_pulse:
     additional_flags += " --debug-lofar-pulse"
 
 # Run filterjobs_perevent in a subprocess and wait for it to finish
+#################################################################
+#################################################################
+#################################################################
+
 
 runCommand = 'python -u '+scripts_directory+'/filterjobs_perevent.py --eventid={0} --writedir={4} --datadir={1} {3} > {2}'.format(eventid, datadir, logfile, additional_flags,writedir)
 print 'Running command: %s' % runCommand
 process = subprocess.Popen([runCommand], shell=True)#, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 waitAndHandleErrors(process, 'filterjobs_perevent.py')
-'''
-print 'sending this directory to filter: {0}'.format(datadir)
-
-runCommand = 'python -u '+scripts_directory+'/filterjobs_perevent.py --eventid={0} --writedir={1} --datadir={2}'.format(eventid, writedir,datadir)
-print 'Running command: %s' % runCommand
-process = subprocess.Popen([runCommand], shell=True)#, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-waitAndHandleErrors(process, 'filterjobs_perevent.py')
-'''
 
 # Run collectfiles_perevent.py
 
-# commenting because filt files already exist
+#################################################################
+#################################################################
+#################################################################
 
-#collect_outputdir =filtdir+'/filtered/'# os.path.join(options.outputdir, 'filtered') # subdirectory 'filtered' for combined simulation results
 collect_output=collect_outputdir
 print '___________________'
 print collect_outputdir
@@ -162,13 +159,16 @@ process = subprocess.Popen([runCommand], shell=True)#), stdout=subprocess.PIPE, 
 
 
 
-'''
+
 doFetchLofarData = '--fetch-lofardata' if doFetch else ''
 doRewriteLofarData = '--rewrite-lofardata' if doRewrite else ''
 print 'doFetchLofarData   ',doFetchLofarData
 print 'doRewriteLofarData   ',doRewriteLofarData
-'''
 
+
+#################################################################
+#################################################################
+#################################################################
 
 
 
@@ -177,8 +177,8 @@ print 'doRewriteLofarData   ',doRewriteLofarData
 #    print 'Fit analysis (radio-only) already done for event %d iteration %d, skipping...' % (eventid, iteration)
 #else:
 
-'''
-runCommand = '/usr/bin/python -u '+scripts_directory+'/fit_analysis_updated.py --event={0} --iteration={1} --inputdir={2} --outputdir={3} --randomseed={4} --radio-only-fit {5} {6} >> {7}'.format(eventid, iteration, filtdir, outputdir_radio_only, randomseed, doFetchLofarData, doRewriteLofarData, logfile)
+
+runCommand = '/usr/bin/python -u '+scripts_directory+'/fit_analysis_updated.py --event={0} --iteration={1} --inputdir={2} --outputdir={3} --randomseed={4} --radio-only-fit {5} {6} >> {7}'.format(eventid, iteration, collect_outputdir, outputdir_radio_only, randomseed, doFetchLofarData, doRewriteLofarData, logfile)
 print 'Running command: %s' % runCommand
 #process = subprocess.Popen([runCommand], shell=True)#, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 retcode = os.system(runCommand)
@@ -188,5 +188,5 @@ if retcode != 0:
     #waitAndHandleErrors(process, 'fit_analysis_updated.py')
 
 print 'cr_xmaxfit.py completed.'
-'''
+
 
