@@ -122,7 +122,7 @@ if options.debug_lofar_pulse:
     additional_flags += " --debug-lofar-pulse"
 
 # Run filterjobs_perevent in a subprocess and wait for it to finish
-'''
+
 runCommand = 'python -u '+scripts_directory+'/filterjobs_perevent.py --eventid={0} --writedir={4} --datadir={1} {3} > {2}'.format(eventid, datadir, logfile, additional_flags,writedir)
 print 'Running command: %s' % runCommand
 process = subprocess.Popen([runCommand], shell=True)#, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -134,12 +134,12 @@ runCommand = 'python -u '+scripts_directory+'/filterjobs_perevent.py --eventid={
 print 'Running command: %s' % runCommand
 process = subprocess.Popen([runCommand], shell=True)#, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 waitAndHandleErrors(process, 'filterjobs_perevent.py')
-
+'''
 
 # Run collectfiles_perevent.py
 
 # commenting because filt files already exist
-'''
+
 collect_outputdir =filtdir+'/filtered/'# os.path.join(options.outputdir, 'filtered') # subdirectory 'filtered' for combined simulation results
 
 print '___________________'
@@ -148,7 +148,7 @@ print collect_outputdir
 runCommand = 'python -u '+scripts_directory+'/collectfiles_perevent.py --event={0} --iteration={1} --outputdir={2} --datadir={3} >> {4}'.format(eventid, "all", collect_outputdir, datadir, logfile)
 
 print 'Running command: %s' % runCommand
-'''
+
 process = subprocess.Popen([runCommand], shell=True)#), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 waitAndHandleErrors(process, 'collectfiles_perevent.py')
 
