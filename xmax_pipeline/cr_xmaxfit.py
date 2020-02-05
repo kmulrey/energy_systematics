@@ -128,7 +128,7 @@ print 'Running command: %s' % runCommand
 process = subprocess.Popen([runCommand], shell=True)#, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 waitAndHandleErrors(process, 'filterjobs_perevent.py')
 '''
-runCommand = 'python -u '+scripts_directory+'/filterjobs_perevent.py --eventid={0} --writedir={3} --datadir={1} {2}'.format(eventid,  logfile, additional_flags,writedir)
+runCommand = 'python -u '+scripts_directory+'/filterjobs_perevent.py --eventid={0} --writedir={3} --datadir={1}'.format(eventid, writedir)
 print 'Running command: %s' % runCommand
 process = subprocess.Popen([runCommand], shell=True)#, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 waitAndHandleErrors(process, 'filterjobs_perevent.py')
@@ -142,12 +142,11 @@ collect_outputdir =filtdir+'/filtered/'# os.path.join(options.outputdir, 'filter
 
 print '___________________'
 print collect_outputdir
-'''
 
 runCommand = 'python -u '+scripts_directory+'/collectfiles_perevent.py --event={0} --iteration={1} --outputdir={2} --datadir={3} >> {4}'.format(eventid, "all", collect_outputdir, datadir, logfile)
 
 print 'Running command: %s' % runCommand
-
+'''
 process = subprocess.Popen([runCommand], shell=True)#), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 waitAndHandleErrors(process, 'collectfiles_perevent.py')
 
