@@ -160,7 +160,8 @@ def readLOFARdata(datafile):
 
 
 def reverseAnalysis(eventno, iteration, inputdir, outputdir, randomseed, lorafile,flagging=True, plots=True, verbose=True, outfile="reverse", simmode=False, simevent=0, saveplt=False, showplt=True, simcorex=0, simcorey=0):
-   
+    print 'in reverseAnalysis {0}'.format(inputdir)
+
     print "start"
 
     realxmax=0
@@ -174,6 +175,8 @@ def reverseAnalysis(eventno, iteration, inputdir, outputdir, randomseed, lorafil
     iterationSuffix = '_{0}'.format(iteration) if iteration > 0 else ''
     # read simulation results with this iteration number; no iteration number specified if it is zero.
     simfile = os.path.join(inputdir, '/SIM{0}{1}.filt'.format(eventno, iterationSuffix))
+    print 'just made simfile: {0}'.format(simfile)
+    
     fitoutfile = os.path.join(outputdir, 'reco{0}{1}.dat'.format(eventno, iterationSuffix))
 
     plotfile = os.path.join(outputdir, '{0}_{1}a{2}.png'.format(outfile, eventno, iterationSuffix))
@@ -271,6 +274,7 @@ def reverseAnalysis(eventno, iteration, inputdir, outputdir, randomseed, lorafil
     nstations=len(lora_dens)
 
     if verbose: print 'Reading in LORA info'
+    print  '......{0}'.format(simfile)
     g=open(simfile,'r')
     siminfo = cPickle.load(g)
 
