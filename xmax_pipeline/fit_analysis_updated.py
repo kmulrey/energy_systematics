@@ -47,11 +47,11 @@ def setOptions(options): # either from command-line options, or through another 
         #            all_iterations.append(int(file[1+file.find("_"):file.find(".")]))
     else:
         iteration = int(iteration)
-        
+        inputdir = options.inputdir
         outputdir = options.outputdir
         randomseed = int(options.randomseed)
         loradir=options.loradir
-        
+
         doFetch = options.fetch_lofardata
         doRewrite = options.rewrite_lofardata
         if doRewrite:
