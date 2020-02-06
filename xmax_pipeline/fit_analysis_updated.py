@@ -77,7 +77,7 @@ if __name__ == "__main__": # if this is executed as script, not as module: run t
     parser.add_option("--pickle-fancy-footprint", default=False, action="store_true", help="Produce pickle file to make fancy hi-res footprint")
     (options, args) = parser.parse_args()
 
-    (eventid, inputdir, iteration, outputdir, randomseed, doFetch, doRewrite, radio_only_fit,lorafile) = setOptions(options)
+    (eventid, inputdir, iteration, outputdir, randomseed, doFetch, doRewrite, radio_only_fit,loradir) = setOptions(options)
 
 
 def setFetchRewrite(fetch, rewrite):
