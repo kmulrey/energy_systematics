@@ -66,6 +66,7 @@ if __name__ == "__main__": # if this is executed as script, not as module: run t
     parser.add_option("-n", "--event", default = "0", help = "filename of database")
     parser.add_option("-t", "--iteration", default="latest", help="Iteration number of the simulations to read results from, or 'latest' to get the latest one")
     parser.add_option("-i", "--inputdir", default="/vol/astro3/lofar/sim/pipeline/run", help="Base directory where input files are located, i.e. in <inputdir>/data and <inputdir>/filtered")
+    parser.add_option("-l", "--loradir", default="/vol/astro3/lofar/sim/pipeline/run", help="Base directory where input files are located, i.e. in <inputdir>/data and <inputdir>/filtered")
     parser.add_option("-o", "--outputdir", default="/vol/astro3/lofar/sim/pipeline/run/analysis")
     parser.add_option("--randomseed", default=2017, help="Set random seed for initial choice of core positions")
 
@@ -76,7 +77,7 @@ if __name__ == "__main__": # if this is executed as script, not as module: run t
     parser.add_option("--pickle-fancy-footprint", default=False, action="store_true", help="Produce pickle file to make fancy hi-res footprint")
     (options, args) = parser.parse_args()
 
-    (eventid, inputdir, iteration, outputdir, randomseed, doFetch, doRewrite, radio_only_fit) = setOptions(options)
+    (eventid, inputdir, iteration, outputdir, randomseed, doFetch, doRewrite, radio_only_fit,lorafile) = setOptions(options)
 
 
 def setFetchRewrite(fetch, rewrite):
@@ -157,7 +158,7 @@ def readLOFARdata(datafile):
     return lofarData
 
 
-def reverseAnalysis(eventno, iteration, inputdir, outputdir, randomseed, flagging=True, plots=True, verbose=True, outfile="reverse", simmode=False, simevent=0, saveplt=False, showplt=True, simcorex=0, simcorey=0):
+def reverseAnalysis(eventno, iteration, inputdir, outputdir, randomseed, lorafile,flagging=True, plots=True, verbose=True, outfile="reverse", simmode=False, simevent=0, saveplt=False, showplt=True, simcorex=0, simcorey=0):
    
     print "start"
 
@@ -952,5 +953,5 @@ def reverseAnalysis(eventno, iteration, inputdir, outputdir, randomseed, flaggin
     return fitconverged, xmaxreco, hillas[2,bestsim], hillas[2,:], realxmax, combchi2[bestsim]/(ndf_comb+1e-25), radiochi2[bestsim]/(ndf_radio+1e-25), chi2fitparam_1, p_ratio[bestsim], p_ratio0[bestsim], p_ratio1[bestsim], d_ratio[bestsim], d_ratio, sim_tot_power,rbf[bestsim](xoff+core_x, yoff+core_y),dtotpower[no150], xoff, yoff, core_x, core_y, energy[0], zenith[0], azimuth[0], dmeannoise, 1.0*nsel_ant/nant, nsim, nsim_prot        
 
 if __name__ == "__main__": # if this is executed as script, not as module: run the analysis
-    reverseAnalysis(eventid, iteration, inputdir, outputdir, randomseed, outfile="reco", saveplt=True, verbose=True, showplt=False, plots=True)
+    reverseAnalysis(eventid, iteration, inputdir, outputdir, randomseed, lorafile,outfile="reco", saveplt=True, verbose=True, showplt=False, plots=True)
  
