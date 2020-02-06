@@ -175,6 +175,7 @@ def reverseAnalysis(eventno, iteration, inputdir, outputdir, randomseed, lorafil
     iterationSuffix = '_{0}'.format(iteration) if iteration > 0 else ''
     # read simulation results with this iteration number; no iteration number specified if it is zero.
     simfile = os.path.join(inputdir, '/SIM{0}{1}.filt'.format(eventno, iterationSuffix))
+    simfile='{2}/SIM{0}{1}.filt'.format(eventno, iterationSuffix,inputdir)
     print 'just made simfile: {0}'.format(simfile)
     
     fitoutfile = os.path.join(outputdir, 'reco{0}{1}.dat'.format(eventno, iterationSuffix))
