@@ -20,11 +20,11 @@ def setCommandlineOptions(cmdline_options):
     return
 
 def setOptions(options): # either from command-line options, or through another script importing fit_analysis_updated
-    global eventid, inputdir, iteration, outputdir, randomseed, doFetch, doRewrite, radio_only_fit,loradir
+    global eventid, inputdir, iteration, outputdir, randomseed, doFetch, doRewrite, radio_only_fit, loradir
     # The use of 'global' here is wrong... need to change to Class instead.
     if type(options) == type( (1, 2) ): # if it is tuple, return it directly
         # 'options' must in this case be (eventid, inputdir, iteration, outputdir, randomseed, doFetch, doRewrite, radio_only_fit)
-        (eventid, inputdir, iteration, outputdir, randomseed, doFetch, doRewrite, radio_only_fit,loradir) = options
+        (eventid, inputdir, iteration, outputdir, randomseed, doFetch, doRewrite, radio_only_fit, loradir) = options
         return
 
     eventid = int(options.event)
@@ -58,7 +58,7 @@ def setOptions(options): # either from command-line options, or through another 
 
     radio_only_fit = options.radio_only_fit
 
-    return (eventid, inputdir, iteration, outputdir, randomseed, doFetch, doRewrite, radio_only_fit,loradir)
+    return (eventid, inputdir, iteration, outputdir, randomseed, doFetch, doRewrite, radio_only_fit, loradir)
 
 if __name__ == "__main__": # if this is executed as script, not as module: run the analysis
 
@@ -66,7 +66,7 @@ if __name__ == "__main__": # if this is executed as script, not as module: run t
     parser.add_option("-n", "--event", default = "0", help = "filename of database")
     parser.add_option("-t", "--iteration", default="latest", help="Iteration number of the simulations to read results from, or 'latest' to get the latest one")
     parser.add_option("-i", "--inputdir", default="/vol/astro3/lofar/sim/pipeline/run", help="Base directory where input files are located, i.e. in <inputdir>/data and <inputdir>/filtered")
-    parser.add_option("-l", "--loradir", default="/vol/astro3/lofar/sim/pipeline/run", help="Base directory where input files are located, i.e. in <inputdir>/data and <inputdir>/filtered")
+    parser.add_option("-l", "--loradir", default="/vol/astro3/lofar/sim/pipeline/run", help="Base directory where lora files are located, i.e. in <inputdir>/data and <inputdir>/filtered")
     parser.add_option("-o", "--outputdir", default="/vol/astro3/lofar/sim/pipeline/run/analysis")
     parser.add_option("--randomseed", default=2017, help="Set random seed for initial choice of core positions")
 
