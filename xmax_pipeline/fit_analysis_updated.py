@@ -50,6 +50,7 @@ def setOptions(options): # either from command-line options, or through another 
         
         outputdir = options.outputdir
         randomseed = int(options.randomseed)
+        loradir=options.loradir
         
         doFetch = options.fetch_lofardata
         doRewrite = options.rewrite_lofardata
