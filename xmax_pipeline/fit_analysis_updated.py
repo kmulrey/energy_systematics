@@ -954,6 +954,6 @@ def reverseAnalysis(eventno, iteration, inputdir, outputdir, randomseed, lorafil
     return fitconverged, xmaxreco, hillas[2,bestsim], hillas[2,:], realxmax, combchi2[bestsim]/(ndf_comb+1e-25), radiochi2[bestsim]/(ndf_radio+1e-25), chi2fitparam_1, p_ratio[bestsim], p_ratio0[bestsim], p_ratio1[bestsim], d_ratio[bestsim], d_ratio, sim_tot_power,rbf[bestsim](xoff+core_x, yoff+core_y),dtotpower[no150], xoff, yoff, core_x, core_y, energy[0], zenith[0], azimuth[0], dmeannoise, 1.0*nsel_ant/nant, nsim, nsim_prot        
 
 if __name__ == "__main__": # if this is executed as script, not as module: run the analysis
-    print '------> using input dir {0}'.format(inputdir)
+    print '\n\n\n------> using input dir {0}\n\n\n'.format(inputdir)
     reverseAnalysis(eventid, iteration, inputdir, outputdir, randomseed, loradir,outfile="reco", saveplt=True, verbose=True, showplt=False, plots=True)
  
