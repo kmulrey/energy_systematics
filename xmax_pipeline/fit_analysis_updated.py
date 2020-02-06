@@ -24,7 +24,7 @@ def setOptions(options): # either from command-line options, or through another 
     # The use of 'global' here is wrong... need to change to Class instead.
     if type(options) == type( (1, 2) ): # if it is tuple, return it directly
         # 'options' must in this case be (eventid, inputdir, iteration, outputdir, randomseed, doFetch, doRewrite, radio_only_fit)
-        (eventid, inputdir, iteration, outputdir, randomseed, doFetch, doRewrite, radio_only_fit) = options
+        (eventid, inputdir, iteration, outputdir, randomseed, doFetch, doRewrite, radio_only_fit,loradir) = options
         return
 
     eventid = int(options.event)
