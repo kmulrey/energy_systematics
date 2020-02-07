@@ -152,9 +152,9 @@ waitAndHandleErrors(process, 'collectfiles_perevent.py')
 
 #runCommand = 'cp {0}/data/dbrev{1}.dat {2}'.format(simulationdir, eventid, filtdir+'data/')
 
-print 'Running command: %s' % runCommand
+#print 'Running command: %s' % runCommand
 
-process = subprocess.Popen([runCommand], shell=True)#), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+#process = subprocess.Popen([runCommand], shell=True)#), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
 
 
