@@ -278,7 +278,7 @@ def reverseAnalysis(eventno, iteration, inputdir, outputdir, randomseed, lorafil
     print  '......{0}'.format(simfile)
     g=open(simfile,'rb')
     siminfo = cPickle.load(g)
-
+    g.close()
     zenith=siminfo['zenith']
     azimuth=siminfo['azimuth']
     energy=siminfo['energy']
