@@ -109,7 +109,7 @@ for thisIteration in iterations_to_process:
     iterationSuffix = '_{0}'.format(thisIteration) if thisIteration > 0 else ''
     # Suffix _1 for iteration 1, etc. No suffix in file name for iteration 0
     outfile = os.path.join(outputdir, "SIM{0}{1}.filt".format(eventid, iterationSuffix) )
-    f = open(outfile, "w")
+    f = open(outfile, "wb")
     cPickle.dump(siminfo, f)
     f.close()
     iterationCompleted = True

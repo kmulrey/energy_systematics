@@ -276,7 +276,7 @@ def reverseAnalysis(eventno, iteration, inputdir, outputdir, randomseed, lorafil
 
     if verbose: print 'Reading in LORA info'
     print  '......{0}'.format(simfile)
-    g=open(simfile,'r')
+    g=open(simfile,'rb')
     siminfo = cPickle.load(g)
 
     zenith=siminfo['zenith']
