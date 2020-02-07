@@ -194,7 +194,7 @@ def ProcessData(datadir,fileno, lorafile_suffix='', debug_testpulse=False, debug
         
         #katie--> changing zenith
         if j == 0: # Jones matrix will be the same for every antenna
-            jm = getJonesMatrix(azimuth, zenith+(1*np.pi/180.0), frequencies)
+            jm = getJonesMatrix(azimuth, zenith+(5*np.pi/180.0), frequencies)
         
         instr_spec=np.ndarray([dlength/2+1,2],dtype=complex)
         instr_spec[:,0] = jm[:,0,0] * spec[:,0] + jm[:,0,1] * spec[:,1]
