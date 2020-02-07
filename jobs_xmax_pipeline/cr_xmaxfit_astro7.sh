@@ -27,6 +27,8 @@ LOG_DIR=$RESULTS_PATH/log
 
 EVENT_ID=$(awk "NR==$SLURM_ARRAY_TASK_ID" $HOME/cr_physics_new)
 #EVENT_ID=158064938
+
+
 LOGFILE=$LOG_DIR/cr_xmaxfit-$EVENT_ID.txt
 
 # Set permissions on resulting files
