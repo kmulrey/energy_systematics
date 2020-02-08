@@ -56,10 +56,18 @@ def run_event(event):
         #waitAndHandleErrors(process, 'fit_analysis_updated.py')
 
     print 'cr_xmaxfit.py completed.'
+    
+    
+    
+    
+    
+    
+###############
 
-event=int(events[0])
+event=int(events[10])
 
 print '--------> event {0}'.format(event)
+
 
 run_event(event)
 
