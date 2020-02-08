@@ -68,8 +68,11 @@ event=int(events[11])
 
 print '--------> event {0}'.format(event)
 
+use=[events[13],events[14],events[15],events[16]]
 
-run_event(event)
+p = Pool(2)
+p.map(run_event,use)
+#run_event(event)
 
 
 
