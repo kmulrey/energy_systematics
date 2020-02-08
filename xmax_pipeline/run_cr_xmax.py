@@ -44,19 +44,21 @@ COLLECT_DIR='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/filtered
 
 def run_event(event):
 
-
-    runCommand =    'python cr_xmaxfit.py --event={0} --lorafile-suffix=_GeVfix --datadir={1} --simulationdir={2} --iteration=0  --outputdir-radio-only={3} --logdir={4} --filtdir={5} --writedir={6} --collectdir={7}'.format(event,DATA_DIR,SIMULATION_DIR,OUTPUT_DIR_RADIO_ONLY,LOG_DIR,NEWSIM_PATH,WRITE_FILT,COLLECT_DIR)
+    try:
+        runCommand =    'python cr_xmaxfit.py --event={0} --lorafile-suffix=_GeVfix --datadir={1} --simulationdir={2} --iteration=0  --outputdir-radio-only={3} --logdir={4} --filtdir={5} --writedir={6} --collectdir={7}'.format(event,DATA_DIR,SIMULATION_DIR,OUTPUT_DIR_RADIO_ONLY,LOG_DIR,NEWSIM_PATH,WRITE_FILT,COLLECT_DIR)
     
-    print 'Running command: %s' % runCommand
-    #process = subprocess.Popen([runCommand], shell=True)#, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    retcode = os.system(runCommand)
-    if retcode != 0:
-        print 'Error running fit_analysis_updated.py (radio-only)!'
-        sys.exit()
+        print 'Running command: %s' % runCommand
+        #process = subprocess.Popen([runCommand], shell=True)#, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        retcode = os.system(runCommand)
+        if retcode != 0:
+            print 'Error running fit_analysis_updated.py (radio-only)!'
+            sys.exit()
         #waitAndHandleErrors(process, 'fit_analysis_updated.py')
-
-    print 'cr_xmaxfit.py completed.'
+        print 'cr_xmaxfit.py completed.'
     
+    
+    except:
+        print 'issue running {0}'.format(event)
     
     
     
