@@ -45,7 +45,9 @@ def run_event(event):
 
     print 'cr_xmaxfit.py completed.'
 
-event=events[0]
+event=int(events[0])
+
+print '--------> event {0}'.format(event)
 
 run_event(event)
 
