@@ -191,4 +191,3 @@ if retcode != 0:
 
 print 'cr_xmaxfit.py completed.'
 
-simulationdir
