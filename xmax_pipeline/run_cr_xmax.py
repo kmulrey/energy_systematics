@@ -33,7 +33,7 @@ def waitAndHandleErrors(process, name):
 def run_event(event):
 
 
-    runCommand =    'python cr_xmaxfit.py --event=$EVENT_ID --lorafile-suffix=_GeVfix --datadir=$DATA_DIR --simulationdir=$SIMULATION_DIR --iteration=0  --outputdir-radio-only=$OUTPUT_DIR_RADIO_ONLY --mcvsmcdir=$MCVSMC_DIR --logdir=$LOG_DIR --filtdir=$NEWSIM_PATH --writedir=$WRITE_FILT --collectdir=$COLLECT_DIR'
+    runCommand =    'python cr_xmaxfit.py --event={0} --lorafile-suffix=_GeVfix --datadir=$DATA_DIR --simulationdir=$SIMULATION_DIR --iteration=0  --outputdir-radio-only=$OUTPUT_DIR_RADIO_ONLY --mcvsmcdir=$MCVSMC_DIR --logdir=$LOG_DIR --filtdir=$NEWSIM_PATH --writedir=$WRITE_FILT --collectdir=$COLLECT_DIR'.format(event)
     
     print 'Running command: %s' % runCommand
     #process = subprocess.Popen([runCommand], shell=True)#, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
