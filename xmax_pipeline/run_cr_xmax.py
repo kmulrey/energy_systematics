@@ -1,8 +1,8 @@
 import numpy as np
-import ROOT, glob, os, sys
+import glob, os, sys
 from multiprocessing import Pool
 
-file=np.open('/home/kmulrey/cr_physics_new','r')
+file=open('/home/kmulrey/cr_physics_new','r')
 events=np.genfromtxt(file)
 file.close()
 
