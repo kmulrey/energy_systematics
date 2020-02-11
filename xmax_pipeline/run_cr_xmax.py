@@ -67,11 +67,11 @@ def run_event(event):
 ###############
 
 #event=int(events[11])
+event=196796518
 
 print '--------> event {0}'.format(event)
 
 #use=[int(events[13]),int(events[14]),int(events[15]),int(events[16])]
-event=196796518
 #p = Pool(12)
 #p.map(run_event,events)
 run_event(event)
