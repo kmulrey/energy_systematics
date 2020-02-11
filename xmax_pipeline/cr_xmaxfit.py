@@ -142,7 +142,7 @@ collect_output=collect_outputdir
 print '___________________'
 print collect_outputdir
 
-runCommand = '/usr/bin/python -u '+scripts_directory+'/collectfiles_perevent.py --event={0} --iteration={1} --outputdir={2} --datadir={3} >> {4}'.format(eventid, "all", collect_outputdir, datadir, logfile)
+runCommand = '/usr/bin/python -u '+scripts_directory+'/collectfiles_perevent.py --event={0} --iteration={1} --outputdir={2} --datadir={3} '.format(eventid, "all", collect_outputdir, datadir)
 
 print 'Running command: %s' % runCommand
 
