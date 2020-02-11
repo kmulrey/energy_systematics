@@ -22,6 +22,10 @@ print 'Iteration setting: %s' % iteration
 outputdir = options.outputdir
 datadir = options.datadir
 
+print 'output dir: {0}'.format(outputdir)
+print 'data dir: {0}'.format(datadir)
+
+
 def RepresentsInt(s): # check if string is convertible to 'int'...
     try:
         int(s)
@@ -30,6 +34,9 @@ def RepresentsInt(s): # check if string is convertible to 'int'...
         return False
 
 eventdir = os.path.join(datadir, "{0}".format(eventid))
+
+print 'event dir: {0}'.format(eventdir)
+
 # Get all available iterations
 all_iterations = glob.glob(os.path.join(eventdir, '*'))
 all_iterations = [int(os.path.split(x)[1]) for x in all_iterations if RepresentsInt(os.path.split(x)[1])] # make integers

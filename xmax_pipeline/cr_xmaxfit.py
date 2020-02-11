@@ -126,18 +126,18 @@ if options.debug_lofar_pulse:
 #################################################################
 #################################################################
 
-
+'''
 runCommand = 'python -u '+scripts_directory+'/filterjobs_perevent.py --eventid={0} --force-reprocess --writedir={3} --datadir={1} {2}'.format(eventid, datadir, additional_flags,writedir)#logfile
 print 'Running command: %s' % runCommand
 process = subprocess.Popen([runCommand], shell=True)#, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 waitAndHandleErrors(process, 'filterjobs_perevent.py')
-
+'''
 # Run collectfiles_perevent.py
 
 #################################################################
 #################################################################
 #################################################################
-'''
+
 collect_output=collect_outputdir
 print '___________________'
 print collect_outputdir
@@ -157,7 +157,7 @@ waitAndHandleErrors(process, 'collectfiles_perevent.py')
 #process = subprocess.Popen([runCommand], shell=True)#), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
 
-
+'''
 
 
 doFetchLofarData = '--fetch-lofardata' if doFetch else ''
