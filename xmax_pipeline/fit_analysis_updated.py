@@ -123,6 +123,7 @@ def GetUVW(pos, cx, cy, zen, az):
 def readLOFARdata(datafile):
     global doFetch, doRewrite # they get updated if info from a data file is requested but doesn't exist
     # Uses parameters from the command line: eventid, doFetch, doRewrite
+    '''
     if not doFetch and not os.path.exists(datafile): # Want to read from file but it is not there: fetch from database instead, and write to file.
         doFetch = True; doRewrite = True
         print 'LOFAR data file not found; fetching LOFAR data from CR Database and writing to file: %s' % datafile
@@ -151,18 +152,20 @@ def readLOFARdata(datafile):
             f = open(datafile, 'w')
             cPickle.dump((core_x, core_y , stname, antenna_ids, positions, dist, x_err, signals, power11, power21, power41, rms, noisepower, pulse_delay_fit_residual, time, lora_x, lora_y, lora_dens, (450-az)/180.*np.pi, (90-elev)/180.*np.pi,(90-elev_lora)/180.*np.pi),f)
             f.close()
-
-    else: # Just read in from pre-produced file
-        print 'Reading LOFAR data from pre-produced file'
-        f = open(datafile,'r')
-        lofarData = cPickle.load(f)
-        f.close()
+    '''
+   # else: # Just read in from pre-produced file
+    print 'Reading LOFAR data from pre-produced file'
+    f = open(datafile,'r')
+    lofarData = cPickle.load(f)
+    f.close()
     
     return lofarData
 
 
 def reverseAnalysis(eventno, iteration, inputdir, outputdir, randomseed, loradir,flagging=True, plots=True, verbose=True, outfile="reverse", simmode=False, simevent=0, saveplt=False, showplt=True, simcorex=0, simcorey=0):
     print 'in reverseAnalysis {0}'.format(inputdir)
+    print '----->again, LORA DIR {0}'.format(loradir)
+
 
     print "start"
 
@@ -172,7 +175,8 @@ def reverseAnalysis(eventno, iteration, inputdir, outputdir, randomseed, loradir
     
     twentyone=False
     print '\n\npath to lora data: {0}\n\n'.format(loradir)
-    datafile = os.path.join(loradir, '/dbrev{0}.dat'.format(eventno))
+    datafile='{0}/dbrev{1}.dat'.format(loradir,eventno)
+    #datafile = os.path.join(loradir, '/dbrev{0}.dat'.format(eventno))
     print 'using datafile {0}'.format(datafile)
     iterationSuffix = '_{0}'.format(iteration) if iteration > 0 else ''
     # read simulation results with this iteration number; no iteration number specified if it is zero.
