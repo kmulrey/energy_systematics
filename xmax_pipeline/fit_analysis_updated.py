@@ -161,7 +161,7 @@ def readLOFARdata(datafile):
     return lofarData
 
 
-def reverseAnalysis(eventno, iteration, inputdir, outputdir, randomseed, lorafile,flagging=True, plots=True, verbose=True, outfile="reverse", simmode=False, simevent=0, saveplt=False, showplt=True, simcorex=0, simcorey=0):
+def reverseAnalysis(eventno, iteration, inputdir, outputdir, randomseed, loradir,flagging=True, plots=True, verbose=True, outfile="reverse", simmode=False, simevent=0, saveplt=False, showplt=True, simcorex=0, simcorey=0):
     print 'in reverseAnalysis {0}'.format(inputdir)
 
     print "start"
