@@ -41,6 +41,7 @@ parser.add_option("--set-status-done", default=False, action="store_true", help=
 parser.add_option("-y", "--writedir", default="/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/events", help="Directory where simulations are located")
 
 parser.add_option("-c", "--collectdir", default="/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/filtered_0", help="Directory where simulations are located")
+parser.add_option("-a", "--loradir", default="/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/data/", help="Directory where simulations are located")
 
 
 # Get command-line parameters
@@ -56,6 +57,7 @@ outputdir = options.outputdir
 filtdir = options.filtdir
 writedir = options.writedir
 collect_outputdir=options.collectdir
+lora_dir=options.loradir
 
 outputdir_radio_only = options.outputdir_radio_only
 mcvsmcdir = options.mcvsmcdir
@@ -177,7 +179,7 @@ print 'doRewriteLofarData   ',doRewriteLofarData
 
 
 #runCommand = '/usr/bin/python -u '+scripts_directory+'/fit_analysis_updated.py --event={0} --iteration={1} --inputdir={2} --outputdir={3} --randomseed={4} --loradir={5} --radio-only-fit {6} {7} >> {8}'.format(eventid, iteration, collect_outputdir, outputdir_radio_only, randomseed, simulationdir, doFetchLofarData, doRewriteLofarData, logfile)
-runCommand = '/usr/bin/python -u '+scripts_directory+'/fit_analysis_updated.py --event={0} --iteration={1} --inputdir={2} --outputdir={3} --randomseed={4} --loradir={5} --radio-only-fit {6} {7}'.format(eventid, iteration, collect_outputdir, outputdir_radio_only, randomseed, simulationdir, doFetchLofarData, doRewriteLofarData)
+runCommand = '/usr/bin/python -u '+scripts_directory+'/fit_analysis_updated.py --event={0} --iteration={1} --inputdir={2} --outputdir={3} --randomseed={4} --loradir={5} --radio-only-fit {6} {7}'.format(eventid, iteration, collect_outputdir, outputdir_radio_only, randomseed, lora_dir, doFetchLofarData, doRewriteLofarData)
 
 print 'Running command: %s' % runCommand
 #process = subprocess.Popen([runCommand], shell=True)#, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
