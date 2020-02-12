@@ -30,6 +30,8 @@ def setOptions(options): # either from command-line options, or through another 
     eventid = int(options.event)
     
     inputdir = options.inputdir
+    loradir=options.loradir
+
     iteration = options.iteration
     if iteration == 'latest':
         inputfiles_alliterations = glob.glob(os.path.join(inputdir, 'filtered/SIM{0}*.filt'.format(eventid))) # Gets iterations 1, 2, ...
