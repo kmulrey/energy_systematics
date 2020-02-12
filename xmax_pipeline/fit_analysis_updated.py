@@ -171,7 +171,7 @@ def reverseAnalysis(eventno, iteration, inputdir, outputdir, randomseed, lorafil
     np.random.seed(randomseed)
     
     twentyone=False
-
+    print '\n\npath to lora data: {0}\n\n'.format(loradir)
     datafile = os.path.join(loradir, '/dbrev{0}.dat'.format(eventno))
     print 'using datafile {0}'.format(datafile)
     iterationSuffix = '_{0}'.format(iteration) if iteration > 0 else ''
@@ -962,5 +962,7 @@ def reverseAnalysis(eventno, iteration, inputdir, outputdir, randomseed, lorafil
 
 if __name__ == "__main__": # if this is executed as script, not as module: run the analysis
     print '\n\n\n------> using input dir {0}\n\n\n'.format(inputdir)
+    print '\n\n\n------> using lora dir {0}\n\n\n'.format(loradir)
+
     reverseAnalysis(eventid, iteration, inputdir, outputdir, randomseed, loradir,outfile="reco", saveplt=True, verbose=True, showplt=False, plots=True)
  
