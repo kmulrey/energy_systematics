@@ -2,7 +2,7 @@ import numpy as np
 import glob, os, sys
 from multiprocessing import Pool
 
-file=open('/home/kmulrey/cr_physics_new','r')
+file=open('/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/energyScale/radio/lofar_events/energy_events.txt','r')
 events=np.genfromtxt(file)
 file.close()
 
