@@ -35,11 +35,11 @@ RESULTS_PATH='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/results
 NEWSIM_PATH='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/'
 DATA_DIR=BASE_PATH+'events/'
 SIMULATION_DIR=BASE_PATH+'run/'
-OUTPUT_DIR_RADIO_ONLY=RESULTS_PATH+'production_analysis_radio_only_cal_DOWN/'
+OUTPUT_DIR_RADIO_ONLY=RESULTS_PATH+'production_analysis_radio_only_FINAL/'
 LOG_DIR=RESULTS_PATH+'log/'
 WRITE_FILT='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/events/'#_thetaMINUS1/
 COLLECT_DIR='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/filtered/'#_thetaMINUS1/
-LORA_DIR='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/data_cal_down/'
+LORA_DIR='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/data_cal_final./'
 
 
 def run_event(event):
@@ -66,12 +66,12 @@ def run_event(event):
     
 ###############
 
-#event=196796518
+event=196796518
 
 
-p = Pool(12)
-p.map(run_event,events)
-#run_event(event)
+#p = Pool(12)
+#p.map(run_event,events)
+run_event(event)
 
 
 

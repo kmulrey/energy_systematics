@@ -159,7 +159,7 @@ waitAndHandleErrors(process, 'collectfiles_perevent.py')
 #process = subprocess.Popen([runCommand], shell=True)#), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
 
-
+'''
 doFetchLofarData = '--fetch-lofardata' if doFetch else ''
 doRewriteLofarData = '--rewrite-lofardata' if doRewrite else ''
 print 'doFetchLofarData   ',doFetchLofarData
@@ -190,3 +190,4 @@ if retcode != 0:
     #waitAndHandleErrors(process, 'fit_analysis_updated.py')
 
 print 'cr_xmaxfit.py completed.'
+'''
