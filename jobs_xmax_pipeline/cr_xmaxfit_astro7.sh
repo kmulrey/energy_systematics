@@ -4,6 +4,7 @@
 #SBATCH -N 1 -n 16
 
 echo hostname
+echo $PYTHONPATH
 use root
 export LOFARSOFT=/vol/optcoma/pycrtools
 export PYTHONPATH=$LOFARSOFT/release/lib/python:$PYTHONPATH
