@@ -1,10 +1,24 @@
 import numpy as np
 import glob, os, sys
 from multiprocessing import Pool
+from optparse import OptionParser
+
 
 file=open('/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/energyScale/radio/lofar_events/energy_events.txt','r')
 events=np.genfromtxt(file)
 file.close()
+
+
+parser = OptionParser()
+parser.add_option("-i", "--eventindex", default = "0", help = "Event ID to process")
+(options, args) = parser.parse_args()
+eventindex = int(options.eventindex)
+event=events[eventindex]
+
+
+
+
+
 
 def waitAndHandleErrors(process, name):
     print 'Now running script %s...' % name
@@ -35,11 +49,11 @@ RESULTS_PATH='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/results
 NEWSIM_PATH='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/'
 DATA_DIR=BASE_PATH+'events/'
 SIMULATION_DIR=BASE_PATH+'run/'
-OUTPUT_DIR_RADIO_ONLY=RESULTS_PATH+'production_analysis_radio_only_FINAL/'
+OUTPUT_DIR_RADIO_ONLY=RESULTS_PATH+'production_analysis_radio_only_cal_var1/'
 LOG_DIR=RESULTS_PATH+'log/'
 WRITE_FILT='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/events/'#_thetaMINUS1/
 COLLECT_DIR='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/filtered/'#_thetaMINUS1/
-LORA_DIR='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/data_cal_final/'
+LORA_DIR='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/data_cal_var1/'
 
 
 def run_event(event):
@@ -64,14 +78,14 @@ def run_event(event):
     
     
     
-###############
+########################################################
 
 #event=196796518
 
 
-p = Pool(12)
-p.map(run_event,events)
-#run_event(event)
+#p = Pool(12)
+#p.map(run_event,events)
+run_event(event)
 
 
 
@@ -79,25 +93,4 @@ p.map(run_event,events)
 
 
 
-'''
 
-p = Pool(14)
-p.map(process_and_save, muon_calib_files)
-
-
-
-
-
-
-runCommand = '/usr/bin/python -u '+scripts_directory+'/fit_analysis_updated.py --event={0} --iteration={1} --inputdir={2} --outputdir={3} --randomseed={4} --loradir={5} --radio-only-fit {6} {7}'.format(eventid, iteration, collect_outputdir, outputdir_radio_only, randomseed, simulationdir, doFetchLofarData, doRewriteLofarData)
-
-print 'Running command: %s' % runCommand
-#process = subprocess.Popen([runCommand], shell=True)#, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-retcode = os.system(runCommand)
-if retcode != 0:
-    print 'Error running fit_analysis_updated.py (radio-only)!'
-    sys.exit()
-    #waitAndHandleErrors(process, 'fit_analysis_updated.py')
-
-print 'cr_xmaxfit.py completed.'
-'''

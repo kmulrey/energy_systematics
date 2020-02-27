@@ -477,6 +477,7 @@ def reverseAnalysis(eventno, iteration, inputdir, outputdir, randomseed, loradir
         
         #debug = False if i != 27 else True
         
+        
         # Do radio-only fit if option given on command line
         #print 'Radio only: %s' % radio_only_fit
         combchi2[i], radiochi2[i], lorachi2[i], p_ratio[i], d_ratio[i], xoffset[i], yoffset[i] = Desired_FitRoutine(fit_args,niterations, simmode)
