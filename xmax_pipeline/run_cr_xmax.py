@@ -85,7 +85,7 @@ event=196796518
 
 #p = Pool(12)
 #p.map(run_event,events)
-#run_event(event)
+run_event(event)
 
 
 
