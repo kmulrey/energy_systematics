@@ -80,11 +80,11 @@ def run_event(event):
     
 ########################################################
 
-#event=196796518
+event=196796518
 
 
-p = Pool(12)
-p.map(run_event,events)
+#p = Pool(12)
+#p.map(run_event,events)
 #run_event(event)
 
 
