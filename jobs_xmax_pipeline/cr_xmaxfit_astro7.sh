@@ -8,6 +8,8 @@ use root
 export LOFARSOFT=/vol/optcoma/pycrtools
 export PYTHONPATH=$LOFARSOFT/release/lib/python:$PYTHONPATH
 export LD_LIBRARY_PATH=$LOFARSOFT/release/lib:$LD_LIBRARY_PATH
+PYCRTOOLS=$LOFARSOFT/src/PyCRTools
+
 
 #EVENT_ID=$(awk "NR==$SLURM_ARRAY_TASK_ID" $HOME/cr_physics_new)
 
