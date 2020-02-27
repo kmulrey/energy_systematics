@@ -8,13 +8,13 @@ file=open('/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/energyScale/radio/lo
 events=np.genfromtxt(file)
 file.close()
 
-
+'''
 parser = OptionParser()
 parser.add_option("-i", "--eventindex", default = "0", help = "Event ID to process")
 (options, args) = parser.parse_args()
 eventindex = int(options.eventindex)
 event=events[eventindex]
-
+'''
 
 
 
@@ -83,9 +83,9 @@ def run_event(event):
 #event=196796518
 
 
-#p = Pool(12)
-#p.map(run_event,events)
-run_event(event)
+p = Pool(12)
+p.map(run_event,events)
+#run_event(event)
 
 
 
