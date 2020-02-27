@@ -176,8 +176,7 @@ print 'doRewriteLofarData   ',doRewriteLofarData
 #if os.path.exists(os.path.join(outputdir_radio_only, 'reco{0}{1}.dat'.format(eventid, iterationSuffix))):
 #    print 'Fit analysis (radio-only) already done for event %d iteration %d, skipping...' % (eventid, iteration)
 #else:
-iteration=1
-
+iteration=0
 #runCommand = '/usr/bin/python -u '+scripts_directory+'/fit_analysis_updated.py --event={0} --iteration={1} --inputdir={2} --outputdir={3} --randomseed={4} --loradir={5} --radio-only-fit {6} {7} >> {8}'.format(eventid, iteration, collect_outputdir, outputdir_radio_only, randomseed, simulationdir, doFetchLofarData, doRewriteLofarData, logfile)
 runCommand = '/usr/bin/python -u '+scripts_directory+'/fit_analysis_updated.py --event={0} --iteration={1} --inputdir={2} --outputdir={3} --randomseed={4} --loradir={5} --radio-only-fit {6} {7}'.format(eventid, iteration, collect_outputdir, outputdir_radio_only, randomseed, lora_dir, doFetchLofarData, doRewriteLofarData)
 
