@@ -14,11 +14,11 @@ def write_file(event, azimuth, zenith, energy, seed, type):
     part_id=''
     if type=='proton':
         part_id='14'
-        outfile=open(proton_dir+event+'_coreas_'+type+'.q','w')
+        outfile=open(proton_dir+event+'_coreas_'+type+'.sh','w')
 
     if type=='iron':
         part_id='5626'
-        outfile=open(iron_dir+event+'_coreas_'+type+'.q','w')
+        outfile=open(iron_dir+event+'_coreas_'+type+'.sh','w')
 
 
 
@@ -35,7 +35,7 @@ def write_file(event, azimuth, zenith, energy, seed, type):
     #outfile.write('./geant4make.sh\n')
     #outfile.write('cd {0}/run/\n'.format(base_dir))
 
-    outfile.write('export RUNNR=`printf "%06d" $SGE_TASK_ID`\n')
+    outfile.write('export RUNNR=`printf "%06d" $SGE_TASK_ID\n')
     #outfile.write('export FLUPRO=/vol/optcoma/cr-simulations/fluka64\n')
     outfile.write('mkdir -p {0}/events/{1}/coreas/{2}/steering/\n'.format(base_dir,event,type))
     outfile.write('rm -rf /scratch/kmulrey/{0}/{1}/$RUNNR\n'.format(event,part_id))
