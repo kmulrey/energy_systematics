@@ -51,7 +51,7 @@ def write_file(event, azimuth, zenith, energy, seed, type):
     outfile.write('mv *.long {0}events/{1}/coreas/{2}/\n'.format(base_dir,event,type))
     #outfile.write('/vol/optcoma/pycrtools/LORA_simulation/DAT2txt DAT$RUNNR DAT$RUNNR.tmp\n')
     #outfile.write('/vol/optcoma/pycrtools/LORA_simulation/LORA_simulation DAT$RUNNR.tmp DAT$RUNNR.lora\n')
-    outfile.write('rm DAT$RUNNR.tmp\n')
+    #outfile.write('rm DAT$RUNNR.tmp\n')
     outfile.write('mv SIM$RUNNR.reas {0}events/{1}/coreas/{2}/steering/SIM$RUNNR.reas\n'.format(base_dir,event,type))
     outfile.write('mv SIM$RUNNR.list {0}events/{1}/coreas/{2}/steering/SIM$RUNNR.list\n'.format(base_dir,event,type))
     outfile.write('cp -r * {0}events/{1}/coreas/{2}/\n'.format(base_dir,event,type))
