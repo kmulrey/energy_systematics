@@ -35,7 +35,7 @@ def write_file(event, azimuth, zenith, energy, seed, type):
     #outfile.write('./geant4make.sh\n')
     #outfile.write('cd {0}/run/\n'.format(base_dir))
 
-    outfile.write('export RUNNR=`printf "%06d" $SGE_TASK_ID`\n')
+    outfile.write('export RUNNR=`printf "%06d" $PBS_ARRAYID`\n')
     #outfile.write('export FLUPRO=/vol/optcoma/cr-simulations/fluka64\n')
     outfile.write('mkdir -p {0}/events/{1}/coreas/{2}/steering/\n'.format(base_dir,event,type))
     outfile.write('rm -rf /scratch/kmulrey/{0}/{1}/$RUNNR\n'.format(event,part_id))
