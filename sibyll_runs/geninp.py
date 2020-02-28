@@ -73,10 +73,5 @@ if options.atmosphere:
     #print "ATMLAY 400000   1000000   4000000   10000000                           height of bottom of layers 2 to 5 (cm)"
     print "ATMFILE " + options.atmfile
 
-if options.conex:
-    print "PAROUT  F F"
-    print "CASCADE T T T"
-else:
-    print "PAROUT  T F"
-    print "CASCADE F F F"
+
 print "EXIT                                   terminates input"
