@@ -16,11 +16,11 @@ def write_file(event, azimuth, zenith, energy, seed, type):
     part_id=''
     if type=='proton':
         part_id='14'
-        outfile=open(proton_dir+event+'_coreas_'+type+'.sh','w')
+        outfile=open(proton_dir+event+'_coreas_'+type+'_reas.sh','w')
 
     if type=='iron':
         part_id='5626'
-        outfile=open(iron_dir+event+'_coreas_'+type+'.sh','w')
+        outfile=open(iron_dir+event+'_coreas_'+type+'_reas.sh','w')
 
 
 
