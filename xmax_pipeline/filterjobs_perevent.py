@@ -26,7 +26,7 @@ doTestProcessFunction = options.test
 force_reprocess = options.force_reprocess
 lorafile_suffix = options.lorafile_suffix
 writedir = options.writedir
-lorafile_suff=''
+lorafile_suffix=''
 # read in LOFAR calibrated pulse block, if desired with debug-lofar-pulse option
 lofar_pulse = None
 if options.debug_lofar_pulse:
