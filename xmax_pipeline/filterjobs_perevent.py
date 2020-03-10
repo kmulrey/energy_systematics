@@ -91,7 +91,7 @@ for d in dirs:
         
         print '\n\n'
         print os.path.isdir(d+"/SIM{0}_coreas".format(str(showerno).zfill(6)))
-        print os.path.isfile(d+"/DAT{0}{1}.lora".format(str(showerno).zfill(6), lorafile_suffix))
+        print os.path.isfile(d+"/DAT{0}{1}.lora".format(str(showerno).zfill(6), lorafile_suffix)),d+"/DAT{0}{1}.lora".format(str(showerno).zfill(6), lorafile_suffix)
         print os.stat(d+"/DAT{0}.long".format(str(showerno).zfill(6))).st_size>0
         print os.path.isfile(d+"/DAT{0}.long".format(str(showerno).zfill(6)))
         print os.path.isfile(d+"/steering/RUN{0}.inp".format(str(showerno).zfill(6)))
