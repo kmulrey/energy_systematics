@@ -25,16 +25,17 @@ def write_file(event, type):
     outfile.write('#! /bin/bash\n')
     outfile.write('#SBATCH --time=1-00:00:00\n')
     outfile.write('use geant\n')
+    outfile.write('export RUNNR=`printf "%06d" $SLURM_ARRAY_TASK_ID`\n')
+
     
     outfile.write('cd {0}/events/{1}/coreas/{2}/\n'.format(base_dir,event,type))
     outfile.write('rm -rf /scratch/kmulrey/{0}/{1}/$RUNNR\n'.format(event,part_id))
     outfile.write('mkdir -p /scratch/kmulrey/{0}/{1}/$RUNNR\n'.format(event,part_id))
     
-    outfile.write('export RUNNR=`printf "%06d" $SLURM_ARRAY_TASK_ID`\n')
     outfile.write('cp DAT$RUNNR /scratch/kmulrey/{0}/{1}/$RUNNR \n'.format(event,part_id))
     outfile.write('cd /scratch/kmulrey/{0}/{1}/$RUNNR\n'.format(event,part_id))
 
-    outfile.write('export LOFARSOFT = /vol/optcoma/pycrtools\n')
+    outfile.write('export LOFARSOFT=/vol/optcoma/pycrtools\n')
     outfile.write('G4WORKDIR=$LOFARSOFT/LORA_simulation\n')
     outfile.write('. /vol/optcoma/geant4_9.6_install/share/Geant4-9.6.4/geant4make/geant4make.sh\n')
     
