@@ -64,6 +64,7 @@ print '\n\nin filter jobs____________'
 print datadir
 print eventid
 dirs=glob.glob(datadir + "/{0}/*/coreas/*".format(eventid))
+print dirs
 print dirs[0]
 print dirs[0].split('events/')
 print dirs[0].split('events')[1]
