@@ -73,7 +73,7 @@ new_dir= writedir + dirs[0].split('events')[1]
 
 subprocess.check_output(['mkdir', '-p', new_dir])
 
-
+print 'new_dir: ',new_dir
 
 if len(dirs) == 0:
     raise ValueError("No directories with simulations found for event %d" % eventid)
