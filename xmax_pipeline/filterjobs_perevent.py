@@ -79,6 +79,7 @@ if len(dirs) == 0:
     raise ValueError("No directories with simulations found for event %d" % eventid)
 
 for d in dirs:
+    print d
     showerfiles=glob.glob(d+"/DAT??????")
     for showerfile in showerfiles:
         showerno=int(showerfile[-6:])
