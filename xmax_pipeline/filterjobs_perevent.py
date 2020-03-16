@@ -87,13 +87,13 @@ for d in dirs:
 
     print '----> {0}'.format(new_dir)
     #print showerfiles
-    '''
+    
     for showerfile in showerfiles:
         showerno=int(showerfile[-6:])
         #check if all files are ready
         
         
-        
+        '''
         print '\n\n'
         print os.path.isdir(d+"/SIM{0}_coreas".format(str(showerno).zfill(6)))
         print os.path.isfile(d+"/DAT{0}{1}.lora".format(str(showerno).zfill(6), lorafile_suffix)),d+"/DAT{0}{1}.lora".format(str(showerno).zfill(6), lorafile_suffix)
@@ -102,7 +102,7 @@ for d in dirs:
         print os.path.isfile(d+"/steering/RUN{0}.inp".format(str(showerno).zfill(6)))
         print os.path.isfile(d+"/steering/SIM{0}.list".format(str(showerno).zfill(6)))
         print '\n\n'
-        
+        '''
         if (os.path.isdir(d+"/SIM{0}_coreas".format(str(showerno).zfill(6))) and
             os.path.isfile(d+"/DAT{0}{1}.lora".format(str(showerno).zfill(6), lorafile_suffix)) and
             (os.stat(d+"/DAT{0}.long".format(str(showerno).zfill(6))).st_size>0) and
@@ -213,8 +213,8 @@ for d in dirs:
 
                     import pdb; pdb.set_trace()
 
-    #                except:
-    #                    print "error!"
-    '''
+#                except:
+#                    print "error!"
+    
      
 
