@@ -5,10 +5,12 @@ from optparse import OptionParser
 
 
 #file=open('/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/energyScale/radio/lofar_events/energy_events.txt','r')
-file=open('/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/energyScale/radio/lofar_events/hadronic_events.txt','r')
+#file=open('/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/energyScale/radio/lofar_events/hadronic_events.txt','r')
 
-events=np.genfromtxt(file)
-file.close()
+#events=np.genfromtxt(file)
+
+#file.close()
+events=np.asarray([60409606,63246671,65214973,80495081,84432712])
 
 '''
 parser = OptionParser()
