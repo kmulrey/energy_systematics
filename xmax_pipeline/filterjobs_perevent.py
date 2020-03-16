@@ -86,7 +86,7 @@ for d in dirs:
     subprocess.check_output(['mkdir', '-p', new_dir])
 
     print '----> {0}'.format(new_dir)
-    #print showerfiles
+    print showerfiles
     
     for showerfile in showerfiles:
         showerno=int(showerfile[-6:])
