@@ -77,7 +77,7 @@ print 'new_dir: ',new_dir
 
 if len(dirs) == 0:
     raise ValueError("No directories with simulations found for event %d" % eventid)
-
+'''
 for d in dirs:
     #print 'starting loop'
     #print d
@@ -210,6 +210,6 @@ for d in dirs:
 
 #                except:
 #                    print "error!"
-
+'''
      
 
