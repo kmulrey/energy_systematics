@@ -127,7 +127,7 @@ if options.debug_lofar_pulse:
 #################################################################
 #################################################################
 #################################################################
-'''
+
 
 runCommand = 'python -u '+scripts_directory+'/filterjobs_perevent.py --eventid={0} --force-reprocess --writedir={3} --datadir={1} {2}'.format(eventid, datadir, additional_flags,writedir)#logfile
 print 'Running command: %s' % runCommand
@@ -139,13 +139,13 @@ waitAndHandleErrors(process, 'filterjobs_perevent.py')
 
 
 
-'''
+
 # Run collectfiles_perevent.py
 
 #################################################################
 #################################################################
 #################################################################
-'''
+
 collect_output=collect_outputdir
 print '___________________'
 print collect_outputdir
@@ -170,7 +170,7 @@ doRewriteLofarData = '--rewrite-lofardata' if doRewrite else ''
 print 'doFetchLofarData   ',doFetchLofarData
 print 'doRewriteLofarData   ',doRewriteLofarData
 
-
+'''
 #################################################################
 #################################################################
 #################################################################
