@@ -64,16 +64,16 @@ print '\n\nin filter jobs____________'
 print datadir
 print eventid
 dirs=glob.glob(datadir + "/{0}/*/coreas/*".format(eventid))
-print dirs
-print dirs[0]
-print dirs[0].split('events/')
-print dirs[0].split('events')[1]
-print writedir + dirs[0].split('events')[1]
-new_dir= writedir + dirs[0].split('events')[1]
+#print dirs
+#print dirs[0]
+#print dirs[0].split('events/')
+#print dirs[0].split('events')[1]
+#print writedir + dirs[0].split('events')[1]
+#new_dir= writedir + dirs[0].split('events')[1]
 
-subprocess.check_output(['mkdir', '-p', new_dir])
+#subprocess.check_output(['mkdir', '-p', new_dir])
 
-print 'new_dir: ',new_dir
+#print 'new_dir: ',new_dir
 
 if len(dirs) == 0:
     raise ValueError("No directories with simulations found for event %d" % eventid)
@@ -83,6 +83,8 @@ for d in dirs:
     print d
     showerfiles=glob.glob(d+"/DAT??????")
     new_dir= writedir + d.split('events')[1]
+    subprocess.check_output(['mkdir', '-p', new_dir])
+
     print '----> {0}'.format(new_dir)
     #print showerfiles
     '''
