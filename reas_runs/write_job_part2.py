@@ -3,7 +3,7 @@ import numpy as np
 proton_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/reas_runs/jobs_proton_part2/'
 iron_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/reas_runs/jobs_iron_part2/'
 
-base_dir='/vol/astro7/lofar/sim/pipeline_reas/'
+base_dir='/vol/astro7/lofar/sim/pipeline_reas_bug/'
 
 def write_file(event, type):
 
@@ -51,8 +51,8 @@ def write_file(event, type):
 
 
 #event=[60409606,61271909,63246671,65490891,65214973,64960703,70904490,80495081,85083852,84432712,83467151]
-event=[60409606,63246671,65214973,80495081,84432712]
 
+event=[60409606,63246671,65214973,80495081,84432712]
 
 for i in np.arange(len(event)):
     write_file(str(int(event[i])),'proton')
