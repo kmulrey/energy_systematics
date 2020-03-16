@@ -133,7 +133,7 @@ runCommand = 'python -u '+scripts_directory+'/filterjobs_perevent.py --eventid={
 print 'Running command: %s' % runCommand
 process = subprocess.Popen([runCommand], shell=True)#, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 waitAndHandleErrors(process, 'filterjobs_perevent.py')
-
+'''
 
 
 
@@ -164,13 +164,6 @@ waitAndHandleErrors(process, 'collectfiles_perevent.py')
 
 #process = subprocess.Popen([runCommand], shell=True)#), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
-'''
-doFetchLofarData = '--fetch-lofardata' if doFetch else ''
-doRewriteLofarData = '--rewrite-lofardata' if doRewrite else ''
-print 'doFetchLofarData   ',doFetchLofarData
-print 'doRewriteLofarData   ',doRewriteLofarData
-
-'''
 #################################################################
 #################################################################
 #################################################################
@@ -196,3 +189,4 @@ if retcode != 0:
 print 'cr_xmaxfit.py completed.'
 
 
+'''
