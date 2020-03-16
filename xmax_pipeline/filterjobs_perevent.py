@@ -82,6 +82,8 @@ for d in dirs:
     print 'starting loop'
     print d
     showerfiles=glob.glob(d+"/DAT??????")
+    new_dir= writedir + d.split('events')[1]
+    print '----> {0}'.format(new_dir)
     #print showerfiles
     '''
     for showerfile in showerfiles:
