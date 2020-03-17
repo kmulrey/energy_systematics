@@ -168,6 +168,10 @@ waitAndHandleErrors(process, 'collectfiles_perevent.py')
 #################################################################
 #################################################################
 
+doFetchLofarData = '--fetch-lofardata' if doFetch else ''
+doRewriteLofarData = '--rewrite-lofardata' if doRewrite else ''
+print 'doFetchLofarData   ',doFetchLofarData
+print 'doRewriteLofarData   ',doRewriteLofarData
 
 
 # Run the Xmax fit analysis with RADIO ONLY fit procedure
