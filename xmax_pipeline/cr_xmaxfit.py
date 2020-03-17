@@ -145,7 +145,7 @@ waitAndHandleErrors(process, 'filterjobs_perevent.py')
 #################################################################
 #################################################################
 #################################################################
-
+'''
 collect_output=collect_outputdir
 print '___________________'
 print collect_outputdir
@@ -163,13 +163,13 @@ waitAndHandleErrors(process, 'collectfiles_perevent.py')
 #print 'Running command: %s' % runCommand
 
 #process = subprocess.Popen([runCommand], shell=True)#), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-
-#################################################################
-#################################################################
-#################################################################
-
-
 '''
+#################################################################
+#################################################################
+#################################################################
+
+
+
 # Run the Xmax fit analysis with RADIO ONLY fit procedure
 #if os.path.exists(os.path.join(outputdir_radio_only, 'reco{0}{1}.dat'.format(eventid, iterationSuffix))):
 #    print 'Fit analysis (radio-only) already done for event %d iteration %d, skipping...' % (eventid, iteration)
@@ -189,4 +189,4 @@ if retcode != 0:
 print 'cr_xmaxfit.py completed.'
 
 
-'''
+
