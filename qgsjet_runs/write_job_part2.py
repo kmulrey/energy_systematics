@@ -28,7 +28,7 @@ def write_file(event, type):
     outfile.write('export RUNNR=`printf "%06d" $SLURM_ARRAY_TASK_ID`\n')
 
     
-    outfile.write('cd {0}/events/{1}/coreas/{2}/\n'.format(base_dir,event,type))
+    outfile.write('cd {0}/events/{1}/0/coreas/{2}/\n'.format(base_dir,event,type))
     outfile.write('rm -rf /scratch/kmulrey/{0}/{1}/$RUNNR\n'.format(event,part_id))
     outfile.write('mkdir -p /scratch/kmulrey/{0}/{1}/$RUNNR\n'.format(event,part_id))
     
@@ -43,7 +43,7 @@ def write_file(event, type):
     outfile.write('/vol/optcoma/pycrtools/LORA_simulation/LORA_simulation DAT$RUNNR.tmp DAT$RUNNR.lora\n')
     
     outfile.write('rm DAT$RUNNR.tmp\n')
-    outfile.write('cp -r * {0}events/{1}/coreas/{2}/\n'.format(base_dir,event,type))
+    outfile.write('cp -r * {0}events/{1}/0/coreas/{2}/\n'.format(base_dir,event,type))
     outfile.write('rm -rf /scratch/kmulrey/{0}/{1}/$RUNNR/*\n'.format(event,part_id))
 
     outfile.close()
