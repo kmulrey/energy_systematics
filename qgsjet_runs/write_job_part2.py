@@ -1,9 +1,9 @@
 import numpy as np
 
-proton_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/sibyll_runs/jobs_proton_part2/'
-iron_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/sibyll_runs/jobs_iron_part2/'
+proton_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/qgsjet_runs/jobs_proton_part2/'
+iron_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/qgsjet_runs/jobs_iron_part2/'
 
-base_dir='/vol/astro7/lofar/sim/pipeline_sibyll/'
+base_dir='/vol/astro7/lofar/sim/pipeline_qgsjet/'
 
 def write_file(event, type):
 
