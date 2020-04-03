@@ -5,12 +5,12 @@ from optparse import OptionParser
 
 
 #file=open('/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/energyScale/radio/lofar_events/energy_events.txt','r')
-#file=open('/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/energyScale/radio/lofar_events/hadronic_events.txt','r')
+file=open('/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/energyScale/radio/lofar_events/hadronic_events.txt','r')
 
-#events=np.genfromtxt(file)
+events=np.genfromtxt(file)
 
-#file.close()
-events=np.asarray([60409606,63246671,65214973,80495081,84432712])
+file.close()
+#events=np.asarray([60409606,63246671,65214973,80495081,84432712])
 
 '''
 parser = OptionParser()
@@ -48,15 +48,15 @@ def waitAndHandleErrors(process, name):
         print '{0} finished normally.'.format(name)
 
 
-BASE_PATH='/vol/astro7/lofar/sim/pipeline_reas/'
+BASE_PATH='/vol/astro7/lofar/sim/pipeline_qgsjet/'
 RESULTS_PATH='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/results/'
 NEWSIM_PATH='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/'
 DATA_DIR=BASE_PATH+'events/'
 SIMULATION_DIR=BASE_PATH+'run/'
-OUTPUT_DIR_RADIO_ONLY=RESULTS_PATH+'/production_analysis_radio_reas/'
+OUTPUT_DIR_RADIO_ONLY=RESULTS_PATH+'/production_analysis_radio_qgsjet/'
 LOG_DIR=RESULTS_PATH+'log/'
-WRITE_FILT='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/events_reas/'#_thetaMINUS1/
-COLLECT_DIR='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/filtered_reas/'#_thetaMINUS1/
+WRITE_FILT='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/events_qgsjet/'#_thetaMINUS1/
+COLLECT_DIR='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/filtered_qgsjet/'#_thetaMINUS1/
 LORA_DIR='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/data_cal_final/'
 
 
@@ -84,12 +84,12 @@ def run_event(event):
     
 ########################################################
 
-#event=80495081
-#run_event(event)
+event=80495081
+run_event(event)
 
 
-p = Pool(12)#
-p.map(run_event,events)
+#p = Pool(12)#
+#p.map(run_event,events)
 
 
 
