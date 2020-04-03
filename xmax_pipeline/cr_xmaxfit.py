@@ -145,7 +145,7 @@ waitAndHandleErrors(process, 'filterjobs_perevent.py')
 #################################################################
 #################################################################
 #################################################################
-
+'''
 collect_output=collect_outputdir
 print '___________________'
 print collect_outputdir
@@ -193,5 +193,3 @@ if retcode != 0:
 print 'cr_xmaxfit.py completed.'
 
 
-
-'''
