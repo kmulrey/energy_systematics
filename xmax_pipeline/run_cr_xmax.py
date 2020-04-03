@@ -48,15 +48,15 @@ def waitAndHandleErrors(process, name):
         print '{0} finished normally.'.format(name)
 
 
-BASE_PATH='/vol/astro7/lofar/sim/pipeline_qgsjet/'
+BASE_PATH='/vol/astro7/lofar/sim/pipeline_sibyll/'
 RESULTS_PATH='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/results/'
 NEWSIM_PATH='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/'
 DATA_DIR=BASE_PATH+'events/'
 SIMULATION_DIR=BASE_PATH+'run/'
-OUTPUT_DIR_RADIO_ONLY=RESULTS_PATH+'/production_analysis_radio_qgsjet/'
+OUTPUT_DIR_RADIO_ONLY=RESULTS_PATH+'/production_analysis_radio_sibyll/'
 LOG_DIR=RESULTS_PATH+'log/'
-WRITE_FILT='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/events_qgsjet/'#_thetaMINUS1/
-COLLECT_DIR='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/filtered_qgsjet/'#_thetaMINUS1/
+WRITE_FILT='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/events_sibyll/'#_thetaMINUS1/
+COLLECT_DIR='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/filtered_sibyll/'#_thetaMINUS1/
 LORA_DIR='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/data_cal_final/'
 
 
