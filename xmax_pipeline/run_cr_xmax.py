@@ -4,8 +4,8 @@ from multiprocessing import Pool
 from optparse import OptionParser
 
 
-#file=open('/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/energyScale/radio/lofar_events/energy_events.txt','r')
-file=open('/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/energyScale/radio/lofar_events/hadronic_events.txt','r')
+file=open('/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/energyScale/radio/lofar_events/energy_events.txt','r')
+#file=open('/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/energyScale/radio/lofar_events/hadronic_events.txt','r')
 
 events=np.genfromtxt(file)
 
@@ -84,12 +84,12 @@ def run_event(event):
     
 ########################################################
 
-#event=80495081
-#run_event(event)
+event=80495081
+run_event(event)
 
 
-p = Pool(12)#
-p.map(run_event,events)
+##p = Pool(12)#
+#p.map(run_event,events)
 
 
 
