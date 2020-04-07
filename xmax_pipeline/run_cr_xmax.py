@@ -48,7 +48,7 @@ def waitAndHandleErrors(process, name):
         print '{0} finished normally.'.format(name)
 
 
-BASE_PATH='/vol/astro7/lofar/sim/pipeline_sibyll/'
+BASE_PATH='/vol/astro7/lofar/sim/pipeline/'
 RESULTS_PATH='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/results/'
 NEWSIM_PATH='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/'
 DATA_DIR=BASE_PATH+'events/'
