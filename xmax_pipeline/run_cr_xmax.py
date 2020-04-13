@@ -11,7 +11,7 @@ events=np.genfromtxt(file)
 
 file.close()
 #events=np.asarray([60409606,63246671,65214973,80495081,84432712])
-#events=np.asarray()
+
 '''
 parser = OptionParser()
 parser.add_option("-i", "--eventindex", default = "0", help = "Event ID to process")
@@ -56,8 +56,8 @@ SIMULATION_DIR=BASE_PATH+'run/'
 OUTPUT_DIR_RADIO_ONLY=RESULTS_PATH+'/production_analysis_radio_sibyll/'
 LOG_DIR=RESULTS_PATH+'log/'
 WRITE_FILT='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/events_sibyll/'
-COLLECT_DIR='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/filtered_thetaMINUS5/'
-LORA_DIR='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/filtered_sibyll/'
+COLLECT_DIR='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/filtered_sibyll/'
+LORA_DIR='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/data_cal_final/'
 
 
 def run_event(event):
