@@ -4,14 +4,14 @@ from multiprocessing import Pool
 from optparse import OptionParser
 
 
-file=open('/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/energyScale/radio/lofar_events/energy_events.txt','r')
-#file=open('/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/energyScale/radio/lofar_events/hadronic_events.txt','r')
+#file=open('/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/energyScale/radio/lofar_events/energy_events.txt','r')
+file=open('/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/energyScale/radio/lofar_events/hadronic_events.txt','r')
 
 events=np.genfromtxt(file)
 
 file.close()
 #events=np.asarray([60409606,63246671,65214973,80495081,84432712])
-
+#events=np.asarray()
 '''
 parser = OptionParser()
 parser.add_option("-i", "--eventindex", default = "0", help = "Event ID to process")
@@ -53,11 +53,11 @@ RESULTS_PATH='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/results
 NEWSIM_PATH='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/'
 DATA_DIR=BASE_PATH+'events/'
 SIMULATION_DIR=BASE_PATH+'run/'
-OUTPUT_DIR_RADIO_ONLY=RESULTS_PATH+'/production_analysis_radio_only_thetaMINUS5/'
+OUTPUT_DIR_RADIO_ONLY=RESULTS_PATH+'/production_analysis_radio_sibyll/'
 LOG_DIR=RESULTS_PATH+'log/'
-WRITE_FILT='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/events_thetaMINUS5/'
+WRITE_FILT='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/events_sibyll/'
 COLLECT_DIR='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/filtered_thetaMINUS5/'
-LORA_DIR='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/data_cal_final/'
+LORA_DIR='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/filtered_sibyll/'
 
 
 def run_event(event):
