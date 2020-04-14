@@ -51,7 +51,7 @@ def waitAndHandleErrors(process, name):
 BASE_PATH='/vol/astro7/lofar/sim/pipeline/'
 RESULTS_PATH='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/results/'
 NEWSIM_PATH='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/'
-DATA_DIR=BASE_PATH+'events/'
+DATA_DIR=BASE_PATH+'events_sibyll/'
 SIMULATION_DIR=BASE_PATH+'run/'
 OUTPUT_DIR_RADIO_ONLY=RESULTS_PATH+'/production_analysis_radio_sibyll/'
 LOG_DIR=RESULTS_PATH+'log/'
