@@ -133,7 +133,7 @@ runCommand = 'python -u '+scripts_directory+'/filterjobs_perevent.py --eventid={
 print 'Running command: %s' % runCommand
 process = subprocess.Popen([runCommand], shell=True)#, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 waitAndHandleErrors(process, 'filterjobs_perevent.py')
-'''
+
 
 
 
@@ -192,4 +192,3 @@ if retcode != 0:
 print 'cr_xmaxfit.py completed.'
 
 
-'''
