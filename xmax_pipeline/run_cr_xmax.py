@@ -4,8 +4,8 @@ from multiprocessing import Pool
 from optparse import OptionParser
 
 
-file=open('/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/energyScale/radio/lofar_events/energy_events.txt','r')
-#file=open('/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/energyScale/radio/lofar_events/hadronic_events.txt','r')
+#file=open('/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/energyScale/radio/lofar_events/energy_events.txt','r')
+file=open('/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/energyScale/radio/lofar_events/hadronic_events.txt','r')
 
 events=np.genfromtxt(file)
 
@@ -48,16 +48,16 @@ def waitAndHandleErrors(process, name):
         print '{0} finished normally.'.format(name)
 
 
-BASE_PATH='/vol/astro7/lofar/sim/pipeline/'
+BASE_PATH='/vol/astro7/lofar/sim/pipeline_sibyll/'
 RESULTS_PATH='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/results/'
 NEWSIM_PATH='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/'
-DATA_DIR=BASE_PATH+'events/'
+DATA_DIR=BASE_PATH+'events_sibyll/'
 SIMULATION_DIR=BASE_PATH+'run/'
-OUTPUT_DIR_RADIO_ONLY=RESULTS_PATH+'/production_analysis_radio_only_LORA_new_baseline/'
+OUTPUT_DIR_RADIO_ONLY=RESULTS_PATH+'/production_analysis_radio_sibyll/'
 LOG_DIR=RESULTS_PATH+'log/'
-WRITE_FILT='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/events/'
-COLLECT_DIR='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/filtered/'
-LORA_DIR='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/data_baseline/'
+WRITE_FILT='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/events_sibyll/'
+COLLECT_DIR='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/filtered_sibyll/'
+LORA_DIR='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/data_cal_final/'
 
 
 def run_event(event):
@@ -84,12 +84,12 @@ def run_event(event):
     
 ########################################################
 
-#event=80495081
-#run_event(event)
+event=80495081
+run_event(event)
 
 
-p = Pool(12)#
-p.map(run_event,events)
+#p = Pool(12)#
+#p.map(run_event,events)
 
 
 
