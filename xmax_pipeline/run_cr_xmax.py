@@ -48,15 +48,15 @@ def waitAndHandleErrors(process, name):
         print '{0} finished normally.'.format(name)
 
 
-BASE_PATH='/vol/astro7/lofar/sim/pipeline_sibyll/'
+BASE_PATH='/vol/astro7/lofar/sim/pipeline_qgsjet/'
 RESULTS_PATH='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/results/'
 NEWSIM_PATH='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/'
 DATA_DIR=BASE_PATH+'events/'
 SIMULATION_DIR=BASE_PATH+'run/'
-OUTPUT_DIR_RADIO_ONLY=RESULTS_PATH+'/production_analysis_radio_sibyll/'
+OUTPUT_DIR_RADIO_ONLY=RESULTS_PATH+'/production_analysis_radio_qgsjet/'
 LOG_DIR=RESULTS_PATH+'log/'
-WRITE_FILT='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/events_sibyll/'
-COLLECT_DIR='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/filtered_sibyll/'
+WRITE_FILT='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/events_qgsjet/'
+COLLECT_DIR='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/filtered_qgsjet/'
 LORA_DIR='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/data_cal_final/'
 
 
@@ -84,12 +84,12 @@ def run_event(event):
     
 ########################################################
 
-#event=80495081
-#run_event(event)
+event=60409606
+run_event(event)
 
 
-p = Pool(12)#
-p.map(run_event,events)
+#p = Pool(12)#
+#p.map(run_event,events)
 
 
 
