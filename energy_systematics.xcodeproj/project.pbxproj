@@ -12,6 +12,7 @@
 		418687FD23E8212B00D6E820 /* xmax_pipeline */ = {isa = PBXFileReference; lastKnownFileType = folder; path = xmax_pipeline; sourceTree = "<group>"; };
 		418687FE23E8212B00D6E820 /* jobs_xmax_pipeline */ = {isa = PBXFileReference; lastKnownFileType = folder; path = jobs_xmax_pipeline; sourceTree = "<group>"; };
 		4186880123EB25B500D6E820 /* epos_runs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = epos_runs; sourceTree = "<group>"; };
+		41C8F8D324A8C1AE0097D113 /* composition_uncertainty */ = {isa = PBXFileReference; lastKnownFileType = folder; path = composition_uncertainty; sourceTree = "<group>"; };
 		41F742B723F9763A004CE5D7 /* sibyll_runs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sibyll_runs; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -19,6 +20,7 @@
 		418687F623E820FA00D6E820 = {
 			isa = PBXGroup;
 			children = (
+				41C8F8D324A8C1AE0097D113 /* composition_uncertainty */,
 				4118350D241FF75D00CC065B /* qgsjet_runs */,
 				41183505240E60B000CC065B /* reas_runs */,
 				41F742B723F9763A004CE5D7 /* sibyll_runs */,
