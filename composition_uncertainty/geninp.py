@@ -42,26 +42,12 @@ print "MUADDI  T                              additional info for muons"
 print "MUMULT  T                              muon multiple scattering angle"
 print "MAXPRT  1                              max. number of printed events"
 print "MAGNET  18.6   45.6                   magnetic field auger"
-#print "EPOPAR input ../epos/epos.param        !initialization input file for epos"
-#print "EPOPAR fname inics ../epos/epos.inics  !initialization input file for epos"
-#print "EPOPAR fname iniev ../epos/epos.iniev  !initialization input file for epos"
-#print "EPOPAR fname initl ../epos/epos.initl  !initialization input file for epos"
-#print "EPOPAR fname inirj ../epos/epos.inirj  !initialization input file for epos"
-#print "EPOPAR fname inihy ../epos/epos.ini1b  !initialization input file for epos"
-#print "EPOPAR fname check none                !dummy output file for epos"
-#print "EPOPAR fname histo none                !dummy output file for epos"
-#print "EPOPAR fname data  none                !dummy output file for epos"
-#print "EPOPAR fname copy  none                !dummy output file for epos"
-print "LONGI   T  10.  T  T                    longit.distr. & step size & fit & out"
+print "LONGI   T  1.  T  T                    longit.distr. & step size & fit & out"
 print "RADNKG  5.e5                           outer radius for NKG lat.dens.distr."
 print "DIRECT", options.dir,"                             output directory"
 print "DATBAS  F                              write .dbase file"
 print "USER    kmulrey                     user"
-if options.first_interaction is not None:
-    print "FIXHEI ", float(options.first_interaction), " 0                  Set first interaction, on random target (0)"
 
-if options.parallel:
-    print "PARALLEL {0} {1} 1 F                        low cutoff, high cutoff, 1, F".format(options.parallel_lowcut, options.parallel_highcut)
 
 if options.atmosphere:
     if options.atmlayerfile is not None:
@@ -73,5 +59,6 @@ if options.atmosphere:
     #print "ATMLAY 400000   1000000   4000000   10000000                           height of bottom of layers 2 to 5 (cm)"
     print "ATMFILE " + options.atmfile
 
-
+print "PAROUT  F F"
+print "CASCADE T T T"
 print "EXIT                                   terminates input"
