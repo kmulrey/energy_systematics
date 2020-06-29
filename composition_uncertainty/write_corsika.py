@@ -28,6 +28,8 @@ def write_file(event, type):
         outfile=open(iron_dir+event+'_corsika_'+type+'.q','w')
 
 
+
+
     inp_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/composition_uncertainty/jobs_'+type+'/'+event+'/'
 
     outfile.write('#! /bin/bash\n')
