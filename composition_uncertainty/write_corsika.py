@@ -39,6 +39,10 @@ def write_file(event, type):
 
     outfile.write('umask 002\n')
     outfile.write('use geant\n')
+    outfile.write('export LOFARSOFT=/vol/optcoma/pycrtools\n')
+    outfile.write('G4WORKDIR=$LOFARSOFT/LORA_simulation\n')
+
+
     outfile.write('cd /vol/optcoma/geant4_9.6_install/share/Geant4-9.6.4/geant4make/\n')
     outfile.write('./geant4make.sh\n')
     outfile.write('cd {0}/events/\n'.format(base_dir))
