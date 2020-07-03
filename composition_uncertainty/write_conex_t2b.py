@@ -5,7 +5,7 @@ helium_dir='/user/kmulrey/energy_systematics/energy_systematics/composition_unce
 oxygen_dir='/user/kmulrey/energy_systematics/energy_systematics/composition_uncertainty/jobs_oxygen/'
 iron_dir='/user/kmulrey/energy_systematics/energy_systematics/composition_uncertainty/jobs_iron/'
 
-base_dir='/user/kmulrey/energy_systematics/energy_systematics/composition_uncertainty/events/'
+base_dir='/user/kmulrey/energy_systematics/energy_systematics/composition_uncertainty/'
 run_dir='/user/kmulrey/energy_systematics/energy_systematics/composition_uncertainty/run_files/'
 
 def write_file(event, azimuth, zenith, energy, seed, type):
