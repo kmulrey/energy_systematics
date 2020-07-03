@@ -1,12 +1,12 @@
 import numpy as np
 
-proton_dir='/user/kmulrey/energy_systematics/composition_uncertainty/jobs_proton/'
-helium_dir='/user/kmulrey/energy_systematics/composition_uncertainty/jobs_helium/'
-oxygen_dir='/user/kmulrey/energy_systematics/composition_uncertainty/jobs_oxygen/'
-iron_dir='/user/kmulrey/energy_systematics/composition_uncertainty/jobs_iron/'
+proton_dir='/user/kmulrey/energy_systematics/energy_systematics/composition_uncertainty/jobs_proton/'
+helium_dir='/user/kmulrey/energy_systematics/energy_systematics/composition_uncertainty/jobs_helium/'
+oxygen_dir='/user/kmulrey/energy_systematics/energy_systematics/composition_uncertainty/jobs_oxygen/'
+iron_dir='/user/kmulrey/energy_systematics/energy_systematics/composition_uncertainty/jobs_iron/'
 
-base_dir='/user/kmulrey/energy_systematics/composition_uncertainty/events/'
-run_dir='/user/kmulrey/energy_systematics/composition_uncertainty/run_files/'
+base_dir='/user/kmulrey/energy_systematics/energy_systematics/composition_uncertainty/events/'
+run_dir='/user/kmulrey/energy_systematics/energy_systematics/composition_uncertainty/run_files/'
 
 def write_file(event, azimuth, zenith, energy, seed, type):
 
