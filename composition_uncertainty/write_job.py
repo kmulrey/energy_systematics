@@ -5,7 +5,7 @@ helium_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_sy
 oxygen_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/composition_uncertainty/jobs_oxygen/'
 iron_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/composition_uncertainty/jobs_iron/'
 
-base_dir='/vol/astro7/lofar/kmulrey/sim/composition_uncertainty/events/'
+base_dir='/vol/astro7/lofar/kmulrey/sim/composition_uncertainty/'
 
 def write_file(event, azimuth, zenith, energy, seed, type):
 
