@@ -33,18 +33,18 @@ def write_file(event, azimuth, zenith, energy, seed, type):
 
 
     outfile.write('#! /bin/bash\n')
-    outfile.write('#SBATCH --time=1-00:00:00\n')
+    #outfile.write('#SBATCH --time=1-00:00:00\n')
     #outfile.write('#SBATCH --output {0}/run/output/{1}_coreas_{2}-%j\n'.format(base_dir,event,part_id))
     #outfile.write('#SBATCH --error {0}/run/output/{1}_coreas_{2}-ERROR-%j\n'.format(base_dir,event,part_id))
 
-    outfile.write('umask 002\n')
+    #outfile.write('umask 002\n')
     #outfile.write('use geant\n')
     #outfile.write('cd /vol/optcoma/geant4_9.6_install/share/Geant4-9.6.4/geant4make/\n')
     #outfile.write('./geant4make.sh\n')
-    outfile.write('cd {0}/events/\n'.format(base_dir))
+    #outfile.write('cd {0}/events/\n'.format(base_dir))
 
     outfile.write('export RUNNR=`printf "%06d" $SLURM_ARRAY_TASK_ID`\n')
-    outfile.write('export FLUPRO=/vol/optcoma/cr-simulations/fluka64\n')
+    #outfile.write('export FLUPRO=/vol/optcoma/cr-simulations/fluka64\n')
     outfile.write('mkdir -p {0}/events/{1}/conex/{2}/steering/\n'.format(base_dir,event,type))
     outfile.write('rm -rf /scratch/kmulrey/{0}/{1}/$RUNNR\n'.format(event,part_id))
     outfile.write('mkdir -p /scratch/kmulrey/{0}/{1}/$RUNNR\n'.format(event,part_id))
