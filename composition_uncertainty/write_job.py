@@ -44,7 +44,7 @@ def write_file(event, azimuth, zenith, energy, seed, type):
     #outfile.write('cd {0}/events/\n'.format(base_dir))
 
     outfile.write('export RUNNR=`printf "%06d" $SLURM_ARRAY_TASK_ID`\n')
-    #outfile.write('export FLUPRO=/vol/optcoma/cr-simulations/fluka64\n')
+    outfile.write('export FLUPRO=/vol/optcoma/cr-simulations/fluka64\n')
     outfile.write('mkdir -p {0}/events/{1}/conex/{2}/steering/\n'.format(base_dir,event,type))
     outfile.write('rm -rf /scratch/kmulrey/{0}/{1}/$RUNNR\n'.format(event,part_id))
     outfile.write('mkdir -p /scratch/kmulrey/{0}/{1}/$RUNNR\n'.format(event,part_id))
