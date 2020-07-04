@@ -32,7 +32,7 @@ def return_xmax(file):
             hold=line
             break
     xmax=float(hold.split()[2:][2])
-    RUNNR=file.split('/')[12].split('.')[0].split('DAT')[1]
+    RUNNR=file.split('/')[11].split('.')[0].split('DAT')[1]
     longfile.close()
     return RUNNR,xmax
 
