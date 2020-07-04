@@ -37,7 +37,8 @@ for e in np.arange(len(proton_list)):
             if 'PAROUT' in line:
                 outputfile.write('PAROUT  T F\n')
             elif 'CASCADE' in line:
-                outputfile.write('CASCADE F F F\n')
+                #outputfile.write('CASCADE F F F\n')
+                print("0")
             else:
                 outputfile.write(line)
      
@@ -57,7 +58,8 @@ for e in np.arange(len(helium_list)):
             if 'PAROUT' in line:
                 outputfile.write('PAROUT  T F\n')
             elif 'CASCADE' in line:
-                outputfile.write('CASCADE F F F\n')
+                #outputfile.write('CASCADE F F F\n')
+                print("0")
             else:
                 outputfile.write(line)
      
@@ -78,7 +80,8 @@ for e in np.arange(len(oxygen_list)):
             if 'PAROUT' in line:
                 outputfile.write('PAROUT  T F\n')
             elif 'CASCADE' in line:
-                outputfile.write('CASCADE F F F\n')
+                #outputfile.write('CASCADE F F F\n')
+                print("0")
             else:
                 outputfile.write(line)
  
