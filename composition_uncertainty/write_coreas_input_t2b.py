@@ -2,7 +2,7 @@ import numpy as np
 from optparse import OptionParser
 
 
-
+parser = OptionParser()
 parser.add_option("-e",--event, type='string', help='event number', default='120768260')
 
 options, arguments = parser.parse_args()
