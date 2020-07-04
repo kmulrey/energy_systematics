@@ -3,27 +3,21 @@ from optparse import OptionParser
 
 
 
-proton_dir='/user/kmulrey/energy_systematics/energy_systematics/qgsjet_runs/jobs_proton/'
-iron_dir='/user/kmulrey/energy_systematics/energy_systematics/qgsjet_runs/jobs_iron/'
-base_dir='/user/kmulrey/energy_systematics/pipeline_qgsjet/'
-run_dir='/user/kmulrey/energy_systematics/energy_systematics/run_files/'
-
-event='126484310'
-parser.add_option("-e",--event, type='string', help='event number', default='126484310')
+parser.add_option("-e",--event, type='string', help='event number', default='120768260')
 
 options, arguments = parser.parse_args()
 event=options.event
 
 
-proton_dir='/vol/astro7/lofar/kmulrey/sim/composition_uncertainty/events/events/'+event+'/conex/proton/steering/'
-helium_dir='/vol/astro7/lofar/kmulrey/sim/composition_uncertainty/events/events/'+event+'/conex/helium/steering/'
-oxygen_dir='/vol/astro7/lofar/kmulrey/sim/composition_uncertainty/events/events/'+event+'/conex/oxygen/steering/'
-iron_dir='/vol/astro7/lofar/kmulrey/sim/composition_uncertainty/events/events/'+event+'/conex/iron/steering/'
+proton_dir='/user/kmulrey/energy_systematics/energy_systematics/composition_uncertainty/events/'+event+'/conex/proton/steering/'
+helium_dir='/user/kmulrey/energy_systematics/energy_systematics/composition_uncertainty/events/'+event+'/conex/helium/steering/'
+oxygen_dir='/user/kmulrey/energy_systematics/energy_systematics/composition_uncertainty/events/'+event+'/conex/oxygen/steering/'
+iron_dir='/user/kmulrey/energy_systematics/energy_systematics/composition_uncertainty/events/'+event+'/conex/iron/steering/'
 
-proton_inp_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/composition_uncertainty/jobs_proton/'+event+'/'
-helium_inp_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/composition_uncertainty/jobs_helium/'+event+'/'
-oxygen_inp_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/composition_uncertainty/jobs_oxygen/'+event+'/'
-iron_inp_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/composition_uncertainty/jobs_iron/'+event+'/'
+proton_inp_dir='/user/kmulrey/energy_systematics/energy_systematics/composition_uncertainty/jobs_proton/'+event+'/'
+helium_inp_dir='/user/kmulrey/energy_systematics/energy_systematics/composition_uncertainty/jobs_helium/'+event+'/'
+oxygen_inp_dir='/user/kmulrey/energy_systematics/energy_systematics/composition_uncertainty/jobs_oxygen/'+event+'/'
+iron_inp_dir='/user/kmulrey/energy_systematics/energy_systematics/composition_uncertainty/jobs_iron/'+event+'/'
 
 
 proton_list=np.genfromtxt('xmax_lists/runs_'+event+'_proton.txt')
