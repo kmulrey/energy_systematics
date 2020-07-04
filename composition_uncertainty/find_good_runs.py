@@ -38,10 +38,10 @@ def return_xmax(file):
 
 
 
-sim_dir_proton='/vol/astro7/lofar/kmulrey/sim/composition_uncertainty/events/events/'+event+'/conex/proton/'
-sim_dir_helium='/vol/astro7/lofar/kmulrey/sim/composition_uncertainty/events/events/'+event+'/conex/helium/'
-sim_dir_oxygen='/vol/astro7/lofar/kmulrey/sim/composition_uncertainty/events/events/'+event+'/conex/oxygen/'
-sim_dir_iron='/vol/astro7/lofar/kmulrey/sim/composition_uncertainty/events/events/'+event+'/conex/iron/'
+sim_dir_proton='/vol/astro7/lofar/kmulrey/sim/composition_uncertainty/events/'+event+'/conex/proton/'
+sim_dir_helium='/vol/astro7/lofar/kmulrey/sim/composition_uncertainty/events/'+event+'/conex/helium/'
+sim_dir_oxygen='/vol/astro7/lofar/kmulrey/sim/composition_uncertainty/events/'+event+'/conex/oxygen/'
+sim_dir_iron='/vol/astro7/lofar/kmulrey/sim/composition_uncertainty/events/'+event+'/conex/iron/'
 
 longfiles_proton = [f for f in listdir(sim_dir_proton) if isfile(join(sim_dir_proton, f))]
 longfiles_helium = [f for f in listdir(sim_dir_helium) if isfile(join(sim_dir_helium, f))]
