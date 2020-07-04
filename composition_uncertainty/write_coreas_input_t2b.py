@@ -3,7 +3,7 @@ from optparse import OptionParser
 
 
 parser = OptionParser()
-parser.add_option("-e",--event, type='string', help='event number', default='120768260')
+parser.add_option("-e", "--event", type="string", help="event number", default="95166806")
 
 options, arguments = parser.parse_args()
 event=options.event
