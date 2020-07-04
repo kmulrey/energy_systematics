@@ -11,6 +11,8 @@ from os.path import isfile, join
 delta_xmax=5
 
 
+
+parser = OptionParser()
 parser.add_option("-e", "--event", type="string", help="event number", default="95166806")
 parser.add_option("-x", "--xmax", type="int", help="target xmax", default=650)
 
