@@ -42,7 +42,7 @@ def write_file(event, type):
    
     outfile.write('cp {2}/RUN$RUNNR.inp /scratch/kmulrey/{0}/{1}/$RUNNR\n'.format(event,part_id,inp_dir))
     outfile.write('cp {2}/SIM.reas /scratch/kmulrey/{0}/{1}/$RUNNR/SIM$RUNNR.reas\n'.format(event,part_id,run_dir))
-    outfile.write('cp {2}/SIM{0}.list /scratch/kmulrey/{0}/{1}/$RUNNR/SIM$RUNNR.reas\n'.format(event,part_id,run_dir))   
+    outfile.write('cp {2}/SIM{0}.list /scratch/kmulrey/{0}/{1}/$RUNNR/SIM$RUNNR.list\n'.format(event,part_id,run_dir))   
    
     outfile.write('cd /user/kmulrey/software/corsika-77100/run/\n')
     outfile.write('./corsika77100Linux_QGSII_urqmd_thin_coreas < //scratch/kmulrey/{0}/{1}/$RUNNR/RUN$RUNNR.inp\n'.format(event,part_id))
