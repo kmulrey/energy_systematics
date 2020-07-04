@@ -26,6 +26,7 @@ target_xmax=options.xmax
 
 def return_xmax(file):
     longfile=open(file,'r')
+    
     hold=''
     for line in longfile:
         if "PARAMETERS" in line:
@@ -36,12 +37,12 @@ def return_xmax(file):
     longfile.close()
     return RUNNR,xmax
 
-
-
 sim_dir_proton='/vol/astro7/lofar/kmulrey/sim/composition_uncertainty/events/'+event+'/conex/proton/'
 sim_dir_helium='/vol/astro7/lofar/kmulrey/sim/composition_uncertainty/events/'+event+'/conex/helium/'
 sim_dir_oxygen='/vol/astro7/lofar/kmulrey/sim/composition_uncertainty/events/'+event+'/conex/oxygen/'
 sim_dir_iron='/vol/astro7/lofar/kmulrey/sim/composition_uncertainty/events/'+event+'/conex/iron/'
+
+
 
 longfiles_proton = [f for f in listdir(sim_dir_proton) if isfile(join(sim_dir_proton, f))]
 longfiles_helium = [f for f in listdir(sim_dir_helium) if isfile(join(sim_dir_helium, f))]
@@ -60,30 +61,33 @@ oxygen_list_xmax=[]
 iron_list_RUNNR=[]
 iron_list_xmax=[]
 
-for i in np.arange(len(longfiles_proton)):
-    RUNNR,xmax=return_xmax(sim_dir_proton+longfiles_proton[i])
-    if np.abs(xmax-target_xmax)<delta_xmax:
-        proton_list_RUNNR.append(RUNNR)
-        proton_list_xmax.append(xmax)
+try:
+    for i in np.arange(len(longfiles_proton)):
+        RUNNR,xmax=return_xmax(sim_dir_proton+longfiles_proton[i])
+        if np.abs(xmax-target_xmax)<delta_xmax:
+            proton_list_RUNNR.append(RUNNR)
+            proton_list_xmax.append(xmax)
         
-for i in np.arange(len(longfiles_helium)):
-    RUNNR,xmax=return_xmax(sim_dir_helium+longfiles_helium[i])
-    if np.abs(xmax-target_xmax)<delta_xmax:
-        helium_list_RUNNR.append(RUNNR)
-        helium_list_xmax.append(xmax)
+    for i in np.arange(len(longfiles_helium)):
+        RUNNR,xmax=return_xmax(sim_dir_helium+longfiles_helium[i])
+        if np.abs(xmax-target_xmax)<delta_xmax:
+            helium_list_RUNNR.append(RUNNR)
+            helium_list_xmax.append(xmax)
         
-for i in np.arange(len(longfiles_oxygen)):
-    RUNNR,xmax=return_xmax(sim_dir_oxygen+longfiles_oxygen[i])
-    if np.abs(xmax-target_xmax)<delta_xmax:
-        oxygen_list_RUNNR.append(RUNNR)
-        oxygen_list_xmax.append(xmax)
+    for i in np.arange(len(longfiles_oxygen)):
+        RUNNR,xmax=return_xmax(sim_dir_oxygen+longfiles_oxygen[i])
+        if np.abs(xmax-target_xmax)<delta_xmax:
+            oxygen_list_RUNNR.append(RUNNR)
+            oxygen_list_xmax.append(xmax)
         
-for i in np.arange(len(longfiles_iron)):
-    RUNNR,xmax=return_xmax(sim_dir_iron+longfiles_iron[i])
-    if np.abs(xmax-target_xmax)<delta_xmax:
-        iron_list_RUNNR.append(RUNNR)
-        iron_list_xmax.append(xmax)
+    for i in np.arange(len(longfiles_iron)):
+        RUNNR,xmax=return_xmax(sim_dir_iron+longfiles_iron[i])
+        if np.abs(xmax-target_xmax)<delta_xmax:
+            iron_list_RUNNR.append(RUNNR)
+            iron_list_xmax.append(xmax)
 
+except:
+    print("failing on event {0}".format(event))
 
 print(len(proton_list_xmax))
 print(len(helium_list_xmax))
