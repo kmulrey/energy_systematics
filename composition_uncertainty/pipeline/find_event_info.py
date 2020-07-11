@@ -136,10 +136,10 @@ def write_file(event, azimuth, zenith, energy, seed, type):
 
 
 
-write_file(str(int(event)),azimuth_RUN, theta_RUN, e_RUN, seed_RUN,'proton')
-write_file(str(int(event)),azimuth_RUN, theta_RUN, e_RUN, seed_RUN,'helium')
-write_file(str(int(event)),azimuth_RUN, theta_RUN, e_RUN, seed_RUN,'oxygen')
-write_file(str(int(event)),azimuth_RUN, theta_RUN, e_RUN, seed_RUN,'iron')
+write_file(str(int(event)),azimuth_RUN, theta_RUN, e_RUN*0.001, seed_RUN,'proton')
+write_file(str(int(event)),azimuth_RUN, theta_RUN, e_RUN*0.001, seed_RUN,'helium')
+write_file(str(int(event)),azimuth_RUN, theta_RUN, e_RUN*0.001, seed_RUN,'oxygen')
+write_file(str(int(event)),azimuth_RUN, theta_RUN, e_RUN*0.001, seed_RUN,'iron')
 
 
 
