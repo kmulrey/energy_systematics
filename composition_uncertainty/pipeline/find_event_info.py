@@ -12,10 +12,10 @@ import glob
 import __future__
 
 parser = OptionParser()
-parser.add_option("-e", "--event", type="string", help="event number", default="95166806")
+parser.add_option("-i", "--eventindex", type="int", help="event number", default="0")
 
 options, arguments = parser.parse_args()
-event=options.event
+eventindex=options.eventindex
 
 
 
@@ -23,13 +23,13 @@ event=options.event
 reco_dir='/vol/astro7/lofar/sim/pipeline/production_analysis_Dec2019/'
 event_list=np.genfromtxt('/home/kmulrey/cr_physics_new')
 dat_files=glob.glob(reco_dir+'*dat')
-event=event_list[0]
+event=event_list[eventindex]
 for file in glob.glob(reco_dir+'*'+str(int(event))+'*dat'):
     reco_file_name=file
 
 
 reco_file=open(reco_file_name,"rb")
-reco_info=pickle.load(reco_file, encoding='latin1')
+reco_info=pickle.load(reco_file)#, encoding='latin1')
 reco_file.close()
 
 
