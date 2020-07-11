@@ -67,6 +67,12 @@ for d in np.arange(len(dir_list)):
                     line = fp.readline()
                     if 'ERANGE' in line:
                         e_RUN=float(line.strip().split()[1])
+                    if 'SEED' in line:
+                        seed_RUN=float(line.strip().split()[1])
+                    if 'THETAP' in line:
+                        theta_RUN=float(line.strip().split()[1])
+                    if 'PHIP' in line:
+                        azimuth_RUN=float(line.strip().split()[1])+270.0
         if int(e_RUN)==int(sim_energy):
             found_run=1
             inp_use=RUN_files[0]
@@ -76,3 +82,62 @@ for d in np.arange(len(dir_list)):
 
 
 print(inp_use)
+
+def write_file(event, azimuth, zenith, energy, seed, type):
+
+
+
+    part_id=''
+    if type=='proton':
+        part_id='14'
+        outfile=open(proton_dir+event+'_conex_'+type+'.q','w')
+    
+    if type=='helium':
+        part_id='402'
+        outfile=open(helium_dir+event+'_conex_'+type+'.q','w')
+
+    if type=='oxygen':
+        part_id='1608'
+        outfile=open(oxygen_dir+event+'_conex_'+type+'.q','w')
+
+    if type=='iron':
+        part_id='5626'
+        outfile=open(iron_dir+event+'_conex_'+type+'.q','w')
+
+
+
+
+
+    outfile.write('#! /bin/bash\n')
+    outfile.write('#SBATCH --time=1-00:00:00\n')
+    outfile.write('export RUNNR=`printf "%06d" $SLURM_ARRAY_TASK_ID`\n')
+    outfile.write('export FLUPRO=/vol/optcoma/cr-simulations/fluka64\n')
+    outfile.write('mkdir -p {0}/events/{1}/conex/{2}/steering/\n'.format(base_dir,event,type))
+    outfile.write('rm -rf /scratch/kmulrey/{0}/{1}/$RUNNR\n'.format(event,part_id))
+    outfile.write('mkdir -p /scratch/kmulrey/{0}/{1}/$RUNNR\n'.format(event,part_id))
+    outfile.write('python /vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/composition_uncertainty/geninp.py --atmosphere --atmfile=/vol/astro7/lofar/sim/pipeline/atmosphere_files/ATMOSPHERE_{4}.DAT -r $RUNNR -s {0} -u {1} -a {2} -z {3} -t {5} -c True -d /scratch/kmulrey/{4}/{5}/$RUNNR/ > /scratch/kmulrey/{4}/{5}/$RUNNR/RUN$RUNNR.inp\n'.format(seed,energy,azimuth,zenith,event,part_id))
+
+    outfile.write('cd /vol/optcoma/cr-simulations/corsika_production/run/\n')
+    outfile.write('./corsika77100Linux_QGSII_fluka_thin_conex < //scratch/kmulrey/{0}/{1}/$RUNNR/RUN$RUNNR.inp\n'.format(event,part_id))
+    outfile.write('cd /scratch/kmulrey/{0}/{1}/$RUNNR\n'.format(event,part_id))
+    outfile.write('mv RUN$RUNNR.inp {0}/events/{1}/conex/{2}/steering/RUN$RUNNR.inp\n'.format(base_dir,event,type))
+    outfile.write('mv *.long {0}events/{1}/conex/{2}/\n'.format(base_dir,event,type))
+    outfile.write('rm -rf /scratch/kmulrey/{0}/{1}/$RUNNR/*\n'.format(event,part_id))
+
+    outfile.close()
+
+
+
+write_file(str(int(event)),azimuth_RUN, theta_RUN, e_RUN, seed_RUN,'proton')
+write_file(str(int(event)),azimuth_RUN, theta_RUN, e_RUN, seed_RUN,'helium')
+write_file(str(int(event)),azimuth_RUN, theta_RUN, e_RUN, seed_RUN,'oxygen')
+write_file(str(int(event)),azimuth_RUN, theta_RUN, e_RUN, seed_RUN,'iron')
+
+
+
+
+
+
+
+
+
