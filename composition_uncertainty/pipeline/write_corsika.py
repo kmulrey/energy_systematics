@@ -222,26 +222,26 @@ for e in np.arange(len(iron_list_RUNNR)):
 def write_file(event, type):
 
 
- part_id=''
- if type=='proton':
-     part_id='14'
-     outfile=open(proton_dir+event+'_corsika_'+type+'.q','w')
-     inp_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/composition_uncertainty/jobs_proton/'
+    part_id=''
+    if type=='proton':
+        part_id='14'
+        outfile=open(proton_dir+event+'_corsika_'+type+'.q','w')
+        inp_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/composition_uncertainty/jobs_proton/'
      
- if type=='helium':
-     part_id='402'
-     outfile=open(helium_dir+event+'_corsika_'+type+'.q','w')
-     inp_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/composition_uncertainty/jobs_helium/'
+    if type=='helium':
+        part_id='402'
+        outfile=open(helium_dir+event+'_corsika_'+type+'.q','w')
+        inp_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/composition_uncertainty/jobs_helium/'
 
- if type=='oxygen':
-     part_id='1608'
-     outfile=open(oxygen_dir+event+'_corsika_'+type+'.q','w')
-     inp_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/composition_uncertainty/jobs_oxygen/'
+    if type=='oxygen':
+        part_id='1608'
+        outfile=open(oxygen_dir+event+'_corsika_'+type+'.q','w')
+        inp_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/composition_uncertainty/jobs_oxygen/'
 
- if type=='iron':
-     part_id='5626'
-     outfile=open(iron_dir+event+'_corsika_'+type+'.q','w')
-     inp_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/composition_uncertainty/jobs_iron/'
+    if type=='iron':
+        part_id='5626'
+        outfile=open(iron_dir+event+'_corsika_'+type+'.q','w')
+        inp_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/composition_uncertainty/jobs_iron/'
 
     outfile.write('#! /bin/bash\n')
     outfile.write('#SBATCH --time=2-00:00:00\n')
@@ -279,7 +279,7 @@ def write_file(event, type):
     outfile.close()
 
 
-    write_file(str(int(event)),'proton')
-    write_file(str(int(event)),'helium')
-    write_file(str(int(event)),'oxygen')
-    write_file(str(int(event)),'iron')
+write_file(str(int(event)),'proton')
+write_file(str(int(event)),'helium')
+write_file(str(int(event)),'oxygen')
+write_file(str(int(event)),'iron')
