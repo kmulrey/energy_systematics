@@ -22,6 +22,13 @@ event=options.event
 
 
 reco_dir='/vol/astro7/lofar/sim/pipeline/production_analysis_Dec2019/'
+proton_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/composition_uncertainty/pipeline/jobs_proton/'
+helium_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/composition_uncertainty/pipeline/jobs_helium/'
+oxygen_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/composition_uncertainty/pipeline/jobs_oxygen/'
+iron_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/composition_uncertainty/pipeline/jobs_iron/'
+
+base_dir='/vol/astro7/lofar/kmulrey/sim/composition_uncertainty/'
+
 #event_list=np.genfromtxt('/home/kmulrey/cr_physics_new')
 dat_files=glob.glob(reco_dir+'*dat')
 #event=event_list[eventindex]
