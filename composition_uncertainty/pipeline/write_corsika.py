@@ -13,7 +13,7 @@ import __future__
 
 parser = OptionParser()
 #parser.add_option("-i", "--eventindex", type="int", help="event number", default="0")
-parser.add_option("-e", "--event", type="int", help="event number", default="127944584")
+parser.add_option("-e", "--event", type="int", help="event number", default="110395704")
 
 options, arguments = parser.parse_args()
 event=options.event
