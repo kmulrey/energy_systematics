@@ -247,17 +247,14 @@ def write_file(event, type):
     outfile.write('#SBATCH --time=2-00:00:00\n')
  
     outfile.write('umask 002\n')
+    outfile.write('export FLUPRO=/vol/optcoma/cr-simulations/fluka64\n')
+
     outfile.write('use geant\n')
-    outfile.write('export LOFARSOFT=/vol/optcoma/pycrtools\n')
-    outfile.write('G4WORKDIR=$LOFARSOFT/LORA_simulation\n')
+    outfile.write('export RUNNR=`printf "%06d" $SLURM_ARRAY_TASK_ID`\n')
 
 
-    outfile.write('cd /vol/optcoma/geant4_9.6_install/share/Geant4-9.6.4/geant4make/\n')
-    outfile.write('./geant4make.sh\n')
     outfile.write('cd {0}/events/\n'.format(base_dir))
 
-    outfile.write('export RUNNR=`printf "%06d" $SLURM_ARRAY_TASK_ID`\n')
-    outfile.write('export FLUPRO=/vol/optcoma/cr-simulations/fluka64\n')
     outfile.write('mkdir -p {0}/events/{1}/corsika/{2}/steering/\n'.format(base_dir,event,type))
     outfile.write('rm -rf /scratch/kmulrey/{0}/{1}/$RUNNR\n'.format(event,part_id))
     outfile.write('mkdir -p /scratch/kmulrey/{0}/{1}/$RUNNR\n'.format(event,part_id))
@@ -268,6 +265,9 @@ def write_file(event, type):
     outfile.write('cd /scratch/kmulrey/{0}/{1}/$RUNNR\n'.format(event,part_id))
     outfile.write('mv RUN$RUNNR.inp {0}/events/{1}/corsika/{2}/steering/RUN$RUNNR.inp\n'.format(base_dir,event,type))
     outfile.write('mv *.long {0}events/{1}/corsika/{2}/\n'.format(base_dir,event,type))
+    outfile.write('export LOFARSOFT=/vol/optcoma/pycrtools\n')
+    outfile.write('G4WORKDIR=$LOFARSOFT/LORA_simulation\n')
+    outfile.write('. /vol/optcoma/geant4_9.6_install/share/Geant4-9.6.4/geant4make/geant4make.sh\n')
     outfile.write('/vol/optcoma/pycrtools/LORA_simulation/DAT2txt DAT$RUNNR DAT$RUNNR.tmp\n')
     outfile.write('/vol/optcoma/pycrtools/LORA_simulation/LORA_simulation DAT$RUNNR.tmp DAT$RUNNR.lora\n')
     outfile.write('rm DAT$RUNNR.tmp\n')
