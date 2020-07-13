@@ -42,23 +42,26 @@ use_Fe_list=iron_list[0:max_sim]
 file=open(write_dir+'run_{0}.q'.format(event),'w')
 file.write('#! /bin/bash\n')
 file.write('#SBATCH --time=1-00:00:00\n')
-file.write('cd {0}\n'.format(proton_dir))
 
+file.write('cd {0}\n'.format(proton_dir))
 file.write('sbatch --array ')
 for i in np.arange(len(use_P_list)-1):
         file.write('{0},'.format(int(proton_list[i][0])))
 file.write('{1} {0}_corsika_proton.q\n'.format(event,int(proton_list[i+1][0])))
 
+file.write('cd {0}\n'.format(helium_dir))
 file.write('sbatch --array ')
 for i in np.arange(len(use_He_list)-1):
         file.write('{0},'.format(int(helium_list[i][0])))
 file.write('{1} {0}_corsika_helium.q\n'.format(event,int(helium_list[i+1][0])))
 
+file.write('cd {0}\n'.format(oxygen_dir))
 file.write('sbatch --array ')
 for i in np.arange(len(use_O_list)-1):
         file.write('{0},'.format(int(oxygen_list[i][0])))
 file.write('{1} {0}_corsika_oxygen.q\n'.format(event,int(oxygen_list[i+1][0])))
 
+file.write('cd {0}\n'.format(iron_dir))
 file.write('sbatch --array ')
 for i in np.arange(len(use_Fe_list)-1):
         file.write('{0},'.format(int(iron_list[i][0])))
