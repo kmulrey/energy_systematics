@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from optparse import OptionParser
-import cPickle
+import pickle
 import re
 from scipy.signal import hilbert
 from scipy.signal import resample
