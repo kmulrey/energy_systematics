@@ -91,6 +91,8 @@ try:
     longfiles_helium = [f for f in listdir(sim_dir_helium) if isfile(join(sim_dir_helium, f))]
 except:
     print('no helium')
+    
+    
 try:
     longfiles_oxygen = [f for f in listdir(sim_dir_oxygen) if isfile(join(sim_dir_oxygen, f))]
 except:

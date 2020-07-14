@@ -149,7 +149,7 @@ def ProcessData(datadir,fileno, lorafile_suffix='', debug_testpulse=False, debug
             XYZ_power = measurePulseEnergy(XYZ_filtered.T, 5, maxpos) # transpose to get shape (npol, nsamples)
             XYZ_power /= Z0
             debug_XYZ_power.append(XYZ_power)
-            if (j==0): print 'XYZ power = (%1.5e, %1.5e, %1.5e), total = %1.5e' % (XYZ_power[0], XYZ_power[1], XYZ_power[2], np.sum(XYZ_power))
+            if (j==0): print ('XYZ power = (%1.5e, %1.5e, %1.5e), total = %1.5e' % (XYZ_power[0], XYZ_power[1], XYZ_power[2], np.sum(XYZ_power)))
         
             data[:, 2] = - XYZ[:, 0] # overwrite Coreas data with test pulse
             data[:, 1] = XYZ[:, 1]
@@ -250,8 +250,8 @@ def ProcessData(datadir,fileno, lorafile_suffix='', debug_testpulse=False, debug
         test_power11 = measurePulseEnergy(filt, rng, pt) # This is the one to use (AC)
         power11[j] = test_power11 # so put it into power11 array
         if j == 0:
-            print 'Power 0/1 polarization: '
-            print power11[0]
+            print ('Power 0/1 polarization: ')
+            print (power11[0])
         #        print 'Antenna %d' % j
         #if j == 98:
         #    import pdb; pdb.set_trace()
