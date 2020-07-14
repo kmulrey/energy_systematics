@@ -237,22 +237,22 @@ def write_file(event, type):
     if type=='proton':
         part_id='14'
         outfile=open(proton_dir+event+'_corsika_'+type+'.q','w')
-        #inp_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/composition_uncertainty/pipeline/jobs_proton/'
+        inp_dir='/vol/astro7/lofar/kmulrey/sim/composition_uncertainty/events/'+event+'/corsika/proton/steering/'
      
     if type=='helium':
         part_id='402'
         outfile=open(helium_dir+event+'_corsika_'+type+'.q','w')
-        #inp_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/composition_uncertainty/pipeline/jobs_helium/'
+        inp_dir='/vol/astro7/lofar/kmulrey/sim/composition_uncertainty/events/'+event+'/corsika/helium/steering/'
 
     if type=='oxygen':
         part_id='1608'
         outfile=open(oxygen_dir+event+'_corsika_'+type+'.q','w')
-        #inp_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/composition_uncertainty/pipeline/jobs_oxygen/'
+        inp_dir='/vol/astro7/lofar/kmulrey/sim/composition_uncertainty/events/'+event+'/corsika/oxygen/steering/'
 
     if type=='iron':
         part_id='5626'
         outfile=open(iron_dir+event+'_corsika_'+type+'.q','w')
-        #inp_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/composition_uncertainty/pipeline/jobs_iron/'
+        inp_dir='/vol/astro7/lofar/kmulrey/sim/composition_uncertainty/events/'+event+'/corsika/iron/steering/'
 
     outfile.write('#! /bin/bash\n')
     outfile.write('#SBATCH --time=2-00:00:00\n')
@@ -270,7 +270,7 @@ def write_file(event, type):
     outfile.write('rm -rf /scratch/kmulrey/{0}/{1}/$RUNNR\n'.format(event,part_id))
     outfile.write('mkdir -p /scratch/kmulrey/{0}/{1}/$RUNNR\n'.format(event,part_id))
 
-    outfile.write('cp {2}/RUN$RUNNR.inp /scratch/kmulrey/{0}/{1}/$RUNNR\n'.format(event,part_id,proton_inp_dir))
+    outfile.write('cp {2}/RUN$RUNNR.inp /scratch/kmulrey/{0}/{1}/$RUNNR\n'.format(event,part_id,inp_dir))
     outfile.write('cd /vol/optcoma/cr-simulations/corsika_production/run/\n')
     outfile.write('./corsika77100Linux_QGSII_fluka_thin_conex < //scratch/kmulrey/{0}/{1}/$RUNNR/RUN$RUNNR.inp\n'.format(event,part_id))
     outfile.write('cd /scratch/kmulrey/{0}/{1}/$RUNNR\n'.format(event,part_id))
