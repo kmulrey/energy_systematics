@@ -43,7 +43,7 @@ file=open(write_dir+'run_{0}.q'.format(event),'w')
 file.write('#! /bin/bash\n')
 file.write('#SBATCH --time=1-00:00:00\n')
 
-
+print(len(use_P_list),len(use_He_list),len(use_O_list),len(use_Fe_list))
 if len(use_P_list)>1:
     file.write('cd {0}\n'.format(proton_dir))
     file.write('sbatch --array ')
