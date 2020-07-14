@@ -36,6 +36,8 @@ def return_xmax(file):
 
 
 reco_dir='/vol/astro7/lofar/sim/pipeline/production_analysis_Dec2019/'
+reco_dir2='/vol/astro7/lofar/sim/pipeline/production_analysis_radio_only/'
+
 proton_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/composition_uncertainty/pipeline/jobs_proton/'
 helium_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/composition_uncertainty/pipeline/jobs_helium/'
 oxygen_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/composition_uncertainty/pipeline/jobs_oxygen/'
@@ -44,9 +46,18 @@ iron_dir='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_syst
 base_dir='/vol/astro7/lofar/kmulrey/sim/composition_uncertainty/'
 
 
-for file in glob.glob(reco_dir+'*'+str(int(event))+'*dat'):
-    reco_file_name=file
-print(reco_file_name)
+
+try:
+    for file in glob.glob(reco_dir+'*'+str(int(event))+'*dat'):
+        reco_file_name=file
+    print(reco_file_name)
+
+except:
+    for file in glob.glob(reco_dir2+'*'+str(int(event))+'*dat'):
+        reco_file_name=file
+    print(reco_file_name)
+
+
 
 reco_file=open(reco_file_name,"rb")
 reco_info=pickle.load(reco_file)
