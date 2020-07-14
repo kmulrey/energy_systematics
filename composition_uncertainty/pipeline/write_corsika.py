@@ -78,13 +78,28 @@ helium_inp_dir='/vol/astro7/lofar/kmulrey/sim/composition_uncertainty/events/'+s
 oxygen_inp_dir='/vol/astro7/lofar/kmulrey/sim/composition_uncertainty/events/'+str(int(event))+'/corsika/oxygen/steering/'
 iron_inp_dir='/vol/astro7/lofar/kmulrey/sim/composition_uncertainty/events/'+str(int(event))+'/corsika/iron/steering/'
 
+longfiles_proton=[]
+longfiles_helium=[]
+longfiles_oxygen=[]
+longfiles_iron=[]
 
-
-longfiles_proton = [f for f in listdir(sim_dir_proton) if isfile(join(sim_dir_proton, f))]
-longfiles_helium = [f for f in listdir(sim_dir_helium) if isfile(join(sim_dir_helium, f))]
-longfiles_oxygen = [f for f in listdir(sim_dir_oxygen) if isfile(join(sim_dir_oxygen, f))]
-longfiles_iron = [f for f in listdir(sim_dir_iron) if isfile(join(sim_dir_iron, f))]
-
+try:
+    longfiles_proton = [f for f in listdir(sim_dir_proton) if isfile(join(sim_dir_proton, f))]
+except:
+    print('no proton')
+try:
+    longfiles_helium = [f for f in listdir(sim_dir_helium) if isfile(join(sim_dir_helium, f))]
+except:
+    print('no helium')
+try:
+    longfiles_oxygen = [f for f in listdir(sim_dir_oxygen) if isfile(join(sim_dir_oxygen, f))]
+except:
+    print('no oxygen')
+try:
+    longfiles_iron = [f for f in listdir(sim_dir_iron) if isfile(join(sim_dir_iron, f))]
+except:
+    print('no iron')
+    
 proton_list_RUNNR=[]
 proton_list_xmax=[]
 
