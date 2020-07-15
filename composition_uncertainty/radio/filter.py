@@ -28,8 +28,10 @@ print(eventid)
 dirs=glob.glob(datadir + "/{0}/coreas/*".format(eventid))
 print(datadir + "/{0}/*/coreas/*".format(eventid))
 
-for i in np.arange(1):
-  d=dirs[i]
+#for i in np.arange(1):
+for d in dirs:
+
+  #d=dirs[i]
   print('starting loop')
   print(d)
   showerfiles=glob.glob(d+"/DAT??????")
