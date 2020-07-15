@@ -3,9 +3,8 @@ import glob, os, sys
 from multiprocessing import Pool
 from optparse import OptionParser
 import sys
-sys.path.append('../../xmax_pipeline/')
 
-import test_process as test_radio
+import process as process
 
 BASE_PATH='/vol/astro7/lofar/kmulrey/sim/composition_uncertainty/t2b_events/'
 RESULTS_PATH='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/composition_uncertainty/radio/radio_results/'
@@ -48,6 +47,6 @@ for i in np.arange(1):
           outfile=new_dir+"/DAT{0}.filt".format(str(showerno).zfill(6))
           #if (not os.path.isfile(outfile)) or (os.path.getsize(outfile) == 0):
           #    print('Processing simulated data for event %d, shower %d, output dir %s, outfile %s' % (eventid, showerno, d, outfile))
-          (zenith, azimuth, energy, hillas, longprofile, Xground, antenna_position, onskypower, filteredpower, power, power11, power21, power41, peak_time, peak_amplitude, particle_radius, energy_deposit, pol_angle, pol_angle_filt, debug_XYZ_power, debug_lofarpulse_figure) = test_radio.ProcessData(d, showerno, lorafile_suffix=lorafile_suffix, debug_testpulse=options.debug_test_pulse, debug_lofarpulse=lofar_pulse)
+          (zenith, azimuth, energy, hillas, longprofile, Xground, antenna_position, onskypower, filteredpower, power, power11, power21, power41, peak_time, peak_amplitude, particle_radius, energy_deposit, pol_angle, pol_angle_filt, debug_XYZ_power, debug_lofarpulse_figure) = process.ProcessData(d, showerno, lorafile_suffix=lorafile_suffix)
       else:
           print('missing info')
