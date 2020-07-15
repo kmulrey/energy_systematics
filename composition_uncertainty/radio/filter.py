@@ -19,7 +19,7 @@ LORA_DIR='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/data_cal_fi
 
 eventid = 122146757
 datadir = NEWSIM_PATH
-writedir = WRITE_FILT
+writedir = BASE_PATH
 lorafile_suffix=''
 
 print('\n\nin filter jobs____________')
