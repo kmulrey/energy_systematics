@@ -39,7 +39,7 @@ for i in np.arange(1):
       showerno=int(showerfile[-6:])
       #check if all files are ready
       if (os.path.isdir(d+"/SIM{0}_coreas".format(str(showerno).zfill(6))) and
-          #os.path.isfile(d+"/DAT{0}{1}.lora".format(str(showerno).zfill(6), lorafile_suffix)) and
+          os.path.isfile(d+"/DAT{0}{1}.lora".format(str(showerno).zfill(6), lorafile_suffix)) and
           os.path.isfile(d+"/DAT{0}.long".format(str(showerno).zfill(6))) and
           os.path.isfile(d+"/steering/RUN{0}.inp".format(str(showerno).zfill(6))) and
           os.path.isfile(d+"/steering/SIM{0}.list".format(str(showerno).zfill(6))) ):
@@ -48,5 +48,8 @@ for i in np.arange(1):
           #if (not os.path.isfile(outfile)) or (os.path.getsize(outfile) == 0):
           #    print('Processing simulated data for event %d, shower %d, output dir %s, outfile %s' % (eventid, showerno, d, outfile))
           (zenith, azimuth, energy, hillas, longprofile, Xground, antenna_position, onskypower, filteredpower, power, power11, power21, power41, peak_time, peak_amplitude, particle_radius, energy_deposit, pol_angle, pol_angle_filt, debug_XYZ_power, debug_lofarpulse_figure) = process.ProcessData(d, showerno, lorafile_suffix=lorafile_suffix)
+          pickfile = open(outfile, 'w')
+          cPickle.dump((zenith, azimuth, energy, hillas, longprofile, Xground, antenna_position, onskypower, filteredpower, power, power11, power21, power41, peak_time, peak_amplitude, particle_radius, energy_deposit, pol_angle, pol_angle_filt), pickfile)
+          pickfile.close()
       else:
           print('missing info')
