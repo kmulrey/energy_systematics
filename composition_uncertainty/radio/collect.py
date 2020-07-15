@@ -27,35 +27,17 @@ print 'data dir: {0}'.format(datadir)
 eventdir = os.path.join(datadir, "{0}".format(eventid))
 
 print 'event dir: {0}'.format(eventdir)
-
-# Get all available iterations
-all_iterations = glob.glob(os.path.join(eventdir, '*'))
-iterations_to_process = all_iterations
-
-print 'Going to process iteration numbers: '
-print iterations_to_process
-'''
-
-iterationCompleted = False # check if at least one iteration completes
-for thisIteration in iterations_to_process:
-    print 'Event directory: %s, iteration %d' % (eventdir, thisIteration)
+for l in np.arange(1):
+    print 'Event directory: %s' % (eventdir)
     #eventno=int(eventdir.split("/")[-1])
-    filt_files_p=glob.glob(eventdir+"/{0}/coreas/proton/DAT??????.filt".format(thisIteration))
-    filt_files_Fe=glob.glob(eventdir+"/{0}/coreas/iron/DAT??????.filt".format(thisIteration))
+    filt_files_p=glob.glob(eventdir+"/coreas/proton/DAT??????.filt")
+    filt_files_Fe=glob.glob(eventdir+"/coreas/iron/DAT??????.filt")
     nshow_p=len(filt_files_p)
     nshow=nshow_p+len(filt_files_Fe)
     print 'Number of showers found: %d' % nshow
     nantennas=160
-    if nshow==0:
-        if len(iterations_to_process) > 1:
-            print 'No showers found! Continuing with next iteration'
-            continue
-        else:
-            raise ValueError('No showers found in iteration %d! Quitting.' % thisIteration)
 
-        #print 'No showers found! Exiting.'
-        #sys.exit(1)
-    #    if (nshow>0):
+    '''
     antenna_position=np.zeros([nshow,nantennas,3])
     onskypower=np.zeros([nshow,nantennas,2])
     filteredpower=np.zeros([nshow,nantennas,2])
@@ -102,8 +84,4 @@ for thisIteration in iterations_to_process:
     f.close()
     iterationCompleted = True
 
-
-if not iterationCompleted:
-    raise ValueError('No valid iterations to process!')
-
-'''
+    '''
