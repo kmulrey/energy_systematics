@@ -16,6 +16,7 @@ COLLECT_DIR='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_s
 LORA_DIR='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/data_cal_final/'
 
 eventid = 148663780
+type='proton'
 outputdir=COLLECT_DIR
 datadir=BASE_PATH
 
@@ -30,17 +31,18 @@ print 'event dir: {0}'.format(eventdir)
 for l in np.arange(1):
     print 'Event directory: %s' % (eventdir)
     #eventno=int(eventdir.split("/")[-1])
-    filt_files_p=glob.glob(eventdir+"/coreas/proton/DAT??????.filt")
-    filt_files_He=glob.glob(eventdir+"/coreas/helium/DAT??????.filt")
-    filt_files_O=glob.glob(eventdir+"/coreas/oxygen/DAT??????.filt")
-    filt_files_Fe=glob.glob(eventdir+"/coreas/iron/DAT??????.filt")
+    filt_files=glob.glob(eventdir+"/coreas/{0}/DAT??????.filt".format(type))
+    #filt_files_p=glob.glob(eventdir+"/coreas/proton/DAT??????.filt")
+    #filt_files_He=glob.glob(eventdir+"/coreas/helium/DAT??????.filt")
+    #filt_files_O=glob.glob(eventdir+"/coreas/oxygen/DAT??????.filt")
+    #filt_files_Fe=glob.glob(eventdir+"/coreas/iron/DAT??????.filt")
 
-    nshow_p=len(filt_files_p)
-    nshow_Fe=len(filt_files_Fe)
-    nshow_He=len(filt_files_He)
-    nshow_O=len(filt_files_O)
+    #nshow_p=len(filt_files_p)
+    #nshow_Fe=len(filt_files_Fe)
+    #nshow_He=len(filt_files_He)
+    #nshow_O=len(filt_files_O)
 
-    nshow=nshow_p+nshow_Fe+nshow_He+nshow_O
+    nshow=len(filt_files)
     print 'Number of showers found: %d' % nshow
     nantennas=160
 
