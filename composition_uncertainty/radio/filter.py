@@ -3,6 +3,7 @@ import glob, os, sys
 from multiprocessing import Pool
 from optparse import OptionParser
 import sys
+import cPickle
 
 import process as process
 
@@ -18,7 +19,7 @@ LORA_DIR='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/data_cal_fi
 
 eventid = 122146757
 datadir = NEWSIM_PATH
-writedir = BASE_PATH
+writedir = WRITE_FILT
 lorafile_suffix=''
 
 print('\n\nin filter jobs____________')
