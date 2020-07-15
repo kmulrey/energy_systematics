@@ -23,7 +23,6 @@ datadir=BASE_PATH
 print 'output dir: {0}'.format(outputdir)
 print 'data dir: {0}'.format(datadir)
 
-        return False
 
 eventdir = os.path.join(datadir, "{0}".format(eventid))
 
