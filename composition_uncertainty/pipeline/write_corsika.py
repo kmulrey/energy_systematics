@@ -21,17 +21,23 @@ event=options.event
 delta_xmax=5
 
 def return_xmax(file):
-    longfile=open(file,'r')
-    hold=''
-    #print(longfile)
-    for line in longfile:
-        if "PARAMETERS" in line:
-            hold=line
-            break
-    xmax=float(hold.split()[2:][2])
-    #print(file.split('/')[11].split('.')[0].split('DAT')[1])
-    RUNNR=file.split('/')[11].split('.')[0].split('DAT')[1]
-    longfile.close()
+    try:
+        longfile=open(file,'r')
+        hold=''
+        #print(longfile)
+        for line in longfile:
+            if "PARAMETERS" in line:
+                hold=line
+                break
+        xmax=float(hold.split()[2:][2])
+        #print(file.split('/')[11].split('.')[0].split('DAT')[1])
+        RUNNR=file.split('/')[11].split('.')[0].split('DAT')[1]
+        longfile.close()
+    except:
+        print 'problem with {0}'.format(file)
+        RUNNR=file.split('/')[11].split('.')[0].split('DAT')[1]
+        xmax=0
+
     return RUNNR,xmax
 
 
