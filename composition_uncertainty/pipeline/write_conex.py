@@ -35,11 +35,11 @@ base_dir='/vol/astro7/lofar/kmulrey/sim/composition_uncertainty/'
 dat_files=glob.glob(reco_dir+'*dat')
 #event=event_list[eventindex]
 #for file in glob.glob(reco_dir+'*'+str(int(event))+'*dat'):
-if path.exists('/vol/astro7/lofar/sim/pipeline/production_analysis_Dec2019/reco'+str(int(event))+'.dat'):
-    reco_file_name=file
+if path.exists(reco_dir+'reco'+str(int(event))+'.dat'):
+    reco_file_name=reco_dir+'reco'+str(int(event))+'.dat'
 
 else:
-    reco_file_name='/vol/astro7/lofar/sim/pipeline/production_analysis/reco'+str(int(event))+'.dat'
+    reco_file_name=reco_dir1+'reco'+str(int(event))+'.dat'
 
 reco_file=open(reco_file_name,"rb")
 reco_info=pickle.load(reco_file)#, encoding='latin1')
