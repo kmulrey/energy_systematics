@@ -24,7 +24,7 @@ parser.add_option("-e", "--event", type="int", help="event number", default=1486
 parser.add_option("-t", "--type", type="string", help="target xmax", default="proton")
 
 options, arguments = parser.parse_args()
-event=options.event
+eventid=options.event
 type=options.type
 
 
