@@ -15,8 +15,23 @@ WRITE_FILT='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_sy
 COLLECT_DIR='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/composition_uncertainty/radio/filtered/'
 LORA_DIR='/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/data_cal_final/'
 
-eventid = 148663780
-type='proton'
+#eventid = 148663780
+#type='proton'
+
+
+parser = OptionParser()
+parser.add_option("-e", "--event", type="int", help="event number", default=148663780)
+parser.add_option("-t", "--type", type="string", help="target xmax", default="proton")
+
+options, arguments = parser.parse_args()
+event=options.event
+type=options.type
+
+
+
+
+
+
 outputdir=COLLECT_DIR
 datadir=BASE_PATH
 
