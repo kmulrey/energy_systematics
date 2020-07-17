@@ -46,7 +46,7 @@ for l in np.arange(1):
     print 'Number of showers found: %d' % nshow
     nantennas=160
 
-    '''
+    
     antenna_position=np.zeros([nshow,nantennas,3])
     onskypower=np.zeros([nshow,nantennas,2])
     filteredpower=np.zeros([nshow,nantennas,2])
@@ -67,7 +67,7 @@ for l in np.arange(1):
     pol_angle=np.zeros([nshow,nantennas])
     pol_angle_filt=np.zeros([nshow,nantennas])
     ptype=np.zeros([nshow,nantennas],dtype=int)
-
+    '''
     i=0
     for filt_file in filt_files_p:
        f=open(filt_file,"r")
