@@ -37,6 +37,7 @@ def return_xmax(file):
         print 'problem with {0}'.format(file)
         RUNNR=file.split('/')[11].split('.')[0].split('DAT')[1]
         xmax=0
+        continue
 
     return RUNNR,xmax
 
