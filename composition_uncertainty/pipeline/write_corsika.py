@@ -75,6 +75,19 @@ core_x=reco_info['core_x']+reco_info['xoff']
 core_y=reco_info['core_y']+reco_info['yoff']
 target_xmax=reco_info['xmaxreco']
 
+if target_xmax==0:
+
+    for file in glob.glob(reco_dir2+'*'+str(int(event))+'*dat'):
+        reco_file_name=file
+    print(reco_file_name)
+    reco_file=open(reco_file_name,"rb")
+    reco_info=pickle.load(reco_file)
+    reco_file.close()
+    print(reco_info.keys())
+
+
+
+
 sim_dir_proton='/vol/astro7/lofar/kmulrey/sim/composition_uncertainty/events/'+str(int(event))+'/conex/proton/'
 sim_dir_helium='/vol/astro7/lofar/kmulrey/sim/composition_uncertainty/events/'+str(int(event))+'/conex/helium/'
 sim_dir_oxygen='/vol/astro7/lofar/kmulrey/sim/composition_uncertainty/events/'+str(int(event))+'/conex/oxygen/'
@@ -120,7 +133,7 @@ oxygen_list_xmax=[]
 
 iron_list_RUNNR=[]
 iron_list_xmax=[]
-print 'xmax: ',target_xmax
+#print 'xmax: ',target_xmax
 for i in np.arange(len(longfiles_proton)):
     RUNNR,xmax=return_xmax(sim_dir_proton+longfiles_proton[i])
     print xmax
