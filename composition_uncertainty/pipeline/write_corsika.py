@@ -120,7 +120,7 @@ oxygen_list_xmax=[]
 
 iron_list_RUNNR=[]
 iron_list_xmax=[]
-
+print 'xmax: ',target_xmax
 for i in np.arange(len(longfiles_proton)):
     RUNNR,xmax=return_xmax(sim_dir_proton+longfiles_proton[i])
     if np.abs(xmax-target_xmax)<delta_xmax:
