@@ -74,9 +74,10 @@ print(reco_info.keys())
 core_x=reco_info['core_x']+reco_info['xoff']
 core_y=reco_info['core_y']+reco_info['yoff']
 target_xmax=reco_info['xmaxreco']
+print target_xmax
 
 if target_xmax==0:
-
+    print 'trying different directory'
     for file in glob.glob(reco_dir2+'*'+str(int(event))+'*dat'):
         reco_file_name=file
     print(reco_file_name)
@@ -84,6 +85,10 @@ if target_xmax==0:
     reco_info=pickle.load(reco_file)
     reco_file.close()
     print(reco_info.keys())
+    core_x=reco_info['core_x']+reco_info['xoff']
+    core_y=reco_info['core_y']+reco_info['yoff']
+    target_xmax=reco_info['xmaxreco']
+    print target_xmax
 
 
 
@@ -136,7 +141,6 @@ iron_list_xmax=[]
 #print 'xmax: ',target_xmax
 for i in np.arange(len(longfiles_proton)):
     RUNNR,xmax=return_xmax(sim_dir_proton+longfiles_proton[i])
-    print xmax
     if np.abs(xmax-target_xmax)<delta_xmax:
         proton_list_RUNNR.append(RUNNR)
         proton_list_xmax.append(xmax)
