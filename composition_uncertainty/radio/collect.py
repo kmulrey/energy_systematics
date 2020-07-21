@@ -83,7 +83,7 @@ for l in np.arange(1):
     pol_angle_filt=np.zeros([nshow,nantennas])
     
     i=0
-    for filt_file in filt_files_p:
+    for filt_file in filt_files:
        f=open(filt_file,"r")
        zenith[i], azimuth[i], energy[i], hillas[i], longprofile[i], Xground[i], antenna_position[i], onskypower[i], filteredpower[i], power[i], power11[i], power21[i], power41[i], peak_time[i], peak_amplitude[i], particle_radius[i], energy_deposit[i], pol_angle[i], pol_angle_filt[i] = cPickle.load(f)
  
