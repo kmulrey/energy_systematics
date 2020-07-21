@@ -278,7 +278,7 @@ helium_id='402'
 oxygen_id='1608'
 iron_id='5626'
 
-outfile=open('/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/composition_uncertainty/pipeline/results/results_'+event+'.dat','w')
+outfile=open('/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_systematics/composition_uncertainty/pipeline/results/muons_'+event+'.dat','w')
 
 outfile.write('event: {0}\n'.format(event))
 outfile.write('xmax: {0:.2f}\n'.format(xmax))
