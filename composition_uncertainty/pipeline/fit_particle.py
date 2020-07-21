@@ -105,8 +105,7 @@ print(reco_info.keys())
 
 coreX=reco_info['core_x']+reco_info['xoff']
 coreY=reco_info['core_y']+reco_info['yoff']
-target_xmax=reco_info['xmaxreco']
-print(target_xmax)
+xmax=reco_info['xmaxreco']
 
 nstations=len(lora_x)
 lora_positions=np.zeros([nstations,3])
