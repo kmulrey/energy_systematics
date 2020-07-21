@@ -81,31 +81,22 @@ for l in np.arange(1):
     energy_deposit=np.zeros([nshow,200])
     pol_angle=np.zeros([nshow,nantennas])
     pol_angle_filt=np.zeros([nshow,nantennas])
-    ptype=np.zeros([nshow,nantennas],dtype=int)
-    '''
+    
     i=0
     for filt_file in filt_files_p:
        f=open(filt_file,"r")
        zenith[i], azimuth[i], energy[i], hillas[i], longprofile[i], Xground[i], antenna_position[i], onskypower[i], filteredpower[i], power[i], power11[i], power21[i], power41[i], peak_time[i], peak_amplitude[i], particle_radius[i], energy_deposit[i], pol_angle[i], pol_angle_filt[i] = cPickle.load(f)
-       ptype[i]=14
+ 
        i+=1
-    for filt_file in filt_files_Fe:
-       f=open(filt_file,"r")
-       zenith[i], azimuth[i], energy[i], hillas[i], longprofile[i], Xground[i], antenna_position[i], onskypower[i],filteredpower[i], power[i], power11[i], power21[i], power41[i], peak_time[i], peak_amplitude[i], particle_radius[i], energy_deposit[i], pol_angle[i], pol_angle_filt[i] = cPickle.load(f)
-       ptype[i]=5626
-       i+=1
-
+       
+   
     siminfo={'zenith':zenith,'azimuth':azimuth,'energy':energy,'hillas':hillas,'longprofile':longprofile,'Xground':Xground,
              'antenna_position':antenna_position, 'onskypower':onskypower, 'totpower':power, 'filteredpower':filteredpower, 'power11bins':power11, 'power21bins':power21, 'power41bins':power41,
              'peak_time': peak_time, 'peak_amplitude': peak_amplitude, 'particle_radius': particle_radius, 'energy_deposit': energy_deposit,
-             'pol_angle': pol_angle, 'pol_angle_filt': pol_angle_filt, 'primary': ptype}
+             'pol_angle': pol_angle, 'pol_angle_filt': pol_angle_filt, 'primary': type}
 
-    iterationSuffix = '_{0}'.format(thisIteration) if thisIteration > 0 else ''
-    # Suffix _1 for iteration 1, etc. No suffix in file name for iteration 0
-    outfile = os.path.join(outputdir, "SIM{0}{1}.filt".format(eventid, iterationSuffix) )
+    outfile = os.path.join(outputdir, "SIM{0}_{1}.filt".format(eventid, type) )
     f = open(outfile, "wb")
     cPickle.dump(siminfo, f)
     f.close()
     iterationCompleted = True
-
-    '''
