@@ -78,10 +78,9 @@ elif path.exists( '/vol/astro3/lofar/sim/pipeline/run/data/dbrev'+event+'.dat'):
 else:
     print('no data file')
 
-with open(datafile, 'rb') as f:
-    #u = pickle._Unpickler(f)
-    #u.encoding = 'latin1'
-    p = f.load()
+
+datafile = open(datafile, 'rb')
+p = pickle.load(datafile)
 (core_x, core_y, station_name, antenna_ids, positions, dist, x_err, signal, dpower11, dpower21, dpower41, rms, noisepower, pulse_delay_fit_residual, data_time, lora_x, lora_y, lora_dens, data_azimuth, data_zenith, lora_zenith) = p
 
 
