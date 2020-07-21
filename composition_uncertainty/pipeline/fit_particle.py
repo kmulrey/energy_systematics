@@ -105,8 +105,9 @@ reco_file.close()
 coreX=reco_info['core_x']+reco_info['xoff']
 coreY=reco_info['core_y']+reco_info['yoff']
 xmax=reco_info['xmaxreco']
-
+energy=reco_info['energy']
 nstations=len(lora_x)
+
 lora_positions=np.zeros([nstations,3])
 lora_positions[:,0]=lora_x
 lora_positions[:,1]=lora_y
@@ -250,6 +251,7 @@ outfile=open('/vol/astro3/lofar/sim/kmulrey/energy/LOFARenergy/sim_tests/energy_
 
 outfile.write('event: {0}\n'.format(event))
 outfile.write('xmax: {0:.2f}\n'.format(xmax))
+outfile.write('energy: {0:.2f}\n'.format(energy))
 outfile.write('zenith: {0:.2f}\n'.format(data_zenith))
 outfile.write('azimuth: {0:.2f}\n'.format(data_azimuth))
 outfile.write('core_x: {0:.2f}\n'.format(coreX))
