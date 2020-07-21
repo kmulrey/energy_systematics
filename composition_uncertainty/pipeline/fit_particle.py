@@ -17,7 +17,7 @@ import scipy.optimize as opt
 #from pathlib import Path
 
 parser = OptionParser()
-parser.add_option("-e", "--event", type="int", help="event number", default="127944584")
+parser.add_option("-e", "--event", type="str", help="event number", default="127944584")
 
 options, arguments = parser.parse_args()
 event=options.event
