@@ -101,7 +101,6 @@ reco_file=open(reco_file_name,"rb")
 
 reco_info=pickle.load(reco_file)
 reco_file.close()
-print(reco_info.keys())
 
 coreX=reco_info['core_x']+reco_info['xoff']
 coreY=reco_info['core_y']+reco_info['yoff']
