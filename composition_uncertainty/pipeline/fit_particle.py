@@ -14,7 +14,7 @@ import glob
 import scipy.interpolate as intp
 import matplotlib.pyplot as plt
 import scipy.optimize as opt
-from pathlib import Path
+#from pathlib import Path
 
 parser = OptionParser()
 parser.add_option("-e", "--event", type="int", help="event number", default="127944584")
@@ -145,7 +145,7 @@ def returnLORA(RUNNR,dir0,v):
     longfile=dir0+'DAT'+str(int(RUNNR)).zfill(6)+'.long'
     #print(longfile)
     #print(Path(longfile).stat().st_size)
-    if Path(longfile).stat().st_size>0:
+    if os.stat(longfile).st_size>0:
         longfile=open(longfile,'r')
         hold=''
         for line in longfile:
