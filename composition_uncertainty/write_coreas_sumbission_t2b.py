@@ -39,7 +39,7 @@ for e in np.arange(len(proton_list)-1):
     if countP<(max_runs-1):
         outfile.write('{0},'.format(int(proton_list[countP][0])))
         countP=countP+1
-outfile.write('{0}  {1}_coreas_proton.q\n'.format(proton_list[countP+1][0],event))
+outfile.write('{0}  {1}_coreas_proton.q\n'.format(int(proton_list[countP+1][0]),event))
 
 
 outfile.write('cd /user/kmulrey/energy_systematics/energy_systematics/composition_uncertainty/jobs_helium\n')
