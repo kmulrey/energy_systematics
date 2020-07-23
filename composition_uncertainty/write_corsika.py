@@ -80,6 +80,10 @@ def write_file(event, type):
 #seed=[64704,35764,28210,59522]
 
 event=[70988116,122146757,148663780,48361669,156964925,158978461]
+
+
+#,148663780]
+
 for i in np.arange(len(event)):
     write_file(str(int(event[i])),'proton')
     write_file(str(int(event[i])),'helium')
