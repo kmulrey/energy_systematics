@@ -45,9 +45,9 @@ def write_file(event, azimuth, zenith, energy, seed, type):
     outfile.write('python /user/kmulrey/energy_systematics/energy_systematics/composition_uncertainty/geninp.py --atmosphere --atmfile=/user/kmulrey/energy_systematics/energy_systematics/composition_uncertainty/run_files/ATMOSPHERE_{4}.DAT -r $RUNNR -s {0} -u {1} -a {2} -z {3} -t {5} -c True -d /scratch/kmulrey/{4}/{5}/$RUNNR/ > /scratch/kmulrey/{4}/{5}/$RUNNR/RUN$RUNNR.inp\n'.format(seed,energy,azimuth,zenith,event,part_id))
 
     outfile.write('cp {2}/SIM.reas /scratch/kmulrey/{0}/{1}/$RUNNR/SIM$RUNNR.reas\n'.format(event,part_id,run_dir))
-    outfile.write('cp {2}/SIM{0}.list
+    outfile.write('cp {2}/SIM{0}.list /scratch/kmulrey/{0}/{1}/$RUNNR/SIM$RUNNR.list\n'.format(event,part_id,run_dir))
     outfile.write('cd /user/kmulrey/software/corsika-77100/run/\n')
-    outfile.write('./corsika77100Linux_QGSII_urqmd_thin_conex < //scratch/kmulrey/{0}/{1}/$RUNNR/RUN$RUNNR.inp\n'.format(event,part_id))
+    outfile.write('./corsika77100Linux_QGSII_urqmd_thin_conex_coreas < //scratch/kmulrey/{0}/{1}/$RUNNR/RUN$RUNNR.inp\n'.format(event,part_id))
     outfile.write('cd /scratch/kmulrey/{0}/{1}/$RUNNR\n'.format(event,part_id))
     outfile.write('mv RUN$RUNNR.inp {0}/events/{1}/conex/{2}/steering/RUN$RUNNR.inp\n'.format(base_dir,event,type))
     outfile.write('mv *.long {0}events/{1}/conex/{2}/\n'.format(base_dir,event,type))
