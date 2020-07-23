@@ -23,7 +23,7 @@ helium_list=np.genfromtxt('xmax_lists/runs_'+event+'_helium.txt')
 oxygen_list=np.genfromtxt('xmax_lists/runs_'+event+'_oxygen.txt')
 iron_list=np.genfromtxt('xmax_lists/runs_'+event+'_iron.txt')
  
-outputfile=open('submit_coreas_{0}.sh'.format(event),'w')
+outfile=open('submit_coreas_{0}.sh'.format(event),'w')
 
 outfile.write('#! /bin/bash\n')
 outfile.write('qsub -t ')
