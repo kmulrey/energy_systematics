@@ -36,7 +36,7 @@ countFe=0
 
 for e in np.arange(len(proton_list)-1):
     if countP<(max_runs-1):
-        outfile.write('{},'.format(proton_list[countP][0]))
+        outfile.write('{0},'.format(proton_list[countP][0]))
         countP=countP+1
 outfile.write('{0}  {1}_coreas_proton.q'.format(proton_list[countP+1][0],event))
 
