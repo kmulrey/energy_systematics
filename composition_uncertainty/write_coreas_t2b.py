@@ -45,7 +45,7 @@ def write_file(event, type):
     outfile.write('cp {2}/SIM{0}.list /scratch/kmulrey/{0}/{1}/$RUNNR/SIM$RUNNR.list\n'.format(event,part_id,run_dir))   
    
     outfile.write('cd /user/kmulrey/software/corsika-77100/run/\n')
-    outfile.write('./corsika77100Linux_QGSII_urqmd_thin_coreas < //scratch/kmulrey/{0}/{1}/$RUNNR/RUN$RUNNR.inp\n'.format(event,part_id))
+    outfile.write('./corsika77100Linux_QGSII_urqmd_thin_conex_coreas < //scratch/kmulrey/{0}/{1}/$RUNNR/RUN$RUNNR.inp\n'.format(event,part_id))
     outfile.write('cd /scratch/kmulrey/{0}/{1}/$RUNNR\n'.format(event,part_id))
     outfile.write('source /software/geant4/geant4.9.6-install/bin/geant4.sh\n')
     outfile.write('/software/geant4/LORA_simulation/DAT2txt DAT$RUNNR DAT$RUNNR.tmp\n')
