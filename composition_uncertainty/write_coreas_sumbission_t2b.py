@@ -41,20 +41,18 @@ for e in np.arange(len(proton_list)-1):
         countP=countP+1
 outfile.write('{0}  {1}_coreas_proton.q\n'.format(proton_list[countP+1][0],event))
 
-outfile.write('qsub -t ')
-
 
 outfile.write('cd jobs_helium\n')
+outfile.write('qsub -t ')
 for e in np.arange(len(helium_list)-1):
     if countHe<(max_runs-1):
         outfile.write('{0},'.format(int(helium_list[countHe][0])))
         countHe=countHe+1
 outfile.write('{0}  {1}_coreas_helium.q\n'.format(int(helium_list[countHe+1][0]),event))
 
-outfile.write('qsub -t ')
-
 
 outfile.write('cd jobs_oxygen\n')
+outfile.write('qsub -t ')
 for e in np.arange(len(oxygen_list)-1):
     if countO<(max_runs-1):
         outfile.write('{0},'.format(int(oxygen_list[countO][0])))
