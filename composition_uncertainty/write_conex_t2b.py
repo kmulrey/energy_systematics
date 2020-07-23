@@ -44,7 +44,8 @@ def write_file(event, azimuth, zenith, energy, seed, type):
     
     outfile.write('python /user/kmulrey/energy_systematics/energy_systematics/composition_uncertainty/geninp.py --atmosphere --atmfile=/user/kmulrey/energy_systematics/energy_systematics/composition_uncertainty/run_files/ATMOSPHERE_{4}.DAT -r $RUNNR -s {0} -u {1} -a {2} -z {3} -t {5} -c True -d /scratch/kmulrey/{4}/{5}/$RUNNR/ > /scratch/kmulrey/{4}/{5}/$RUNNR/RUN$RUNNR.inp\n'.format(seed,energy,azimuth,zenith,event,part_id))
 
-    
+    outfile.write('cp {2}/SIM.reas /scratch/kmulrey/{0}/{1}/$RUNNR/SIM$RUNNR.reas\n'.format(event,part_id,run_dir))
+    outfile.write('cp {2}/SIM{0}.list
     outfile.write('cd /user/kmulrey/software/corsika-77100/run/\n')
     outfile.write('./corsika77100Linux_QGSII_urqmd_thin_conex < //scratch/kmulrey/{0}/{1}/$RUNNR/RUN$RUNNR.inp\n'.format(event,part_id))
     outfile.write('cd /scratch/kmulrey/{0}/{1}/$RUNNR\n'.format(event,part_id))
@@ -55,16 +56,20 @@ def write_file(event, azimuth, zenith, energy, seed, type):
     outfile.close()
 
 
+event=[122146757,148663780]
+seed=[54718,97540]
+energy=[182305582.389,132722570.742]
+zenith=[28.97,23.61]
+azimuth=[-145.26+270,-103.83+270]
+#event=[70988116,86129434,120768260,122146757,148663780,48361669,156964925,175485680,174699876,158978461]
 
-event=[70988116,86129434,120768260,122146757,148663780,48361669,156964925,175485680,174699876,158978461]
+#seed=[33914,12386,55760,54718,97540,50344,68200,35910,9898,21856]
 
-seed=[33914,12386,55760,54718,97540,50344,68200,35910,9898,21856]
+#energy=[767818416.752,523262814.697,275284442.453,182305582.389,132722570.742,713537600.0,202181825.107,220948238.494,196392329.376,542183573.418]
 
-energy=[767818416.752,523262814.697,275284442.453,182305582.389,132722570.742,713537600.0,202181825.107,220948238.494,196392329.376,542183573.418]
+#zenith=[41.08,30.82,29.99,28.97,23.61,37.47,22.15,24.73,28.89,34.85]
 
-zenith=[41.08,30.82,29.99,28.97,23.61,37.47,22.15,24.73,28.89,34.85]
-
-azimuth=[-308.45+270,-142.30+270,-100.32+270,-145.26+270,-103.83+270,-138.05+270,-156.61+270,-237.53+270,-434.78+270,-208.25+270]
+#azimuth=[-308.45+270,-142.30+270,-100.32+270,-145.26+270,-103.83+270,-138.05+270,-156.61+270,-237.53+270,-434.78+270,-208.25+270]
 
 
 
