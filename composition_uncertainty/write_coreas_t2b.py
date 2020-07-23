@@ -1,5 +1,14 @@
 import numpy as np
 
+
+parser = OptionParser()
+parser.add_option("-e", "--event", type="string", help="event number", default="95166806")
+
+options, arguments = parser.parse_args()
+event=options.event
+
+
+
 proton_dir='/user/kmulrey/energy_systematics/energy_systematics/composition_uncertainty/jobs_proton/'
 helium_dir='/user/kmulrey/energy_systematics/energy_systematics/composition_uncertainty/jobs_helium/'
 oxygen_dir='/user/kmulrey/energy_systematics/energy_systematics/composition_uncertainty/jobs_oxygen/'
@@ -74,9 +83,9 @@ def write_file(event, type):
 #seed=[64704,35764,28210,59522]
 
 #event=[70988116,86129434,120768260,122146757,148663780,48361669,156964925,175485680,174699876,158978461]
-event=[148663780]
+#event=[148663780]
 
-for i in np.arange(len(event)):
+for i in np.arange(1):
     write_file(str(int(event[i])),'proton')
     write_file(str(int(event[i])),'helium')
     write_file(str(int(event[i])),'oxygen')
