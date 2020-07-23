@@ -88,8 +88,8 @@ def write_file(event, type):
 #event=[148663780]
 
 for i in np.arange(1):
-    write_file(str(int(event[i])),'proton')
-    write_file(str(int(event[i])),'helium')
-    write_file(str(int(event[i])),'oxygen')
-    write_file(str(int(event[i])),'iron')
+    write_file(str(int(event)),'proton')
+    write_file(str(int(event)),'helium')
+    write_file(str(int(event)),'oxygen')
+    write_file(str(int(event)),'iron')
 
