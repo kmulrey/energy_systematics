@@ -307,7 +307,7 @@ def ProcessData(datadir,fileno, lorafile_suffix='', debug_testpulse=False, debug
             debug_figure = plt.gcf()
 
     # read particle data and energy deposit from Geant4 simulation of LORA
-    pdata = np.genfromtxt(lorafile)
+    pdata = np.genfromtxt(lorafile,skip_header=1)
     particle_radius=5*pdata[:,0]+2.5
     energy_deposit=pdata[:,1]
    
